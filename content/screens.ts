@@ -20,6 +20,15 @@ export const weswapcardsScreens = {
     height: 1125,
     device: "laptop",
   },
+  iosChapters: {
+    label: "Screenshot: WeSwapCards iOS app chapters",
+    alt: "WeSwapCards iOS app on a phone: \"Every chapter, all swappable\", with chapters such as Bavaria and South Korea",
+    tone: "pink",
+    src: "/images/weswapcards-ios-chapters.webp",
+    width: 924,
+    height: 2000,
+    device: "phone",
+  },
   iosFindCard: {
     label: "Screenshot: WeSwapCards iOS app",
     alt: "WeSwapCards iOS app on a phone: the Find a card screen listing chapters such as Bavaria, South Korea, Toronto and Lyon",

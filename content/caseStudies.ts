@@ -340,11 +340,7 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "I handle all WeSwapCards support and user reports myself. Here are reports that turned into changes in the product.",
     tags: ["User feedback", "Support", "Product improvement", "Bug fixing"],
-    image: {
-      label: "WeSwapCards on phone",
-      alt: "Placeholder for a screenshot of the WeSwapCards mobile app",
-      tone: "pink",
-    },
+    image: weswapcardsScreens.iosChapters,
     meta: {
       title: "User reports to fixes on WeSwapCards",
       description:
@@ -409,10 +405,12 @@ export const caseStudies: CaseStudy[] = [
       "I moderated 30+ usability sessions with real users of the website and apps, and scripted sessions with hotel partners.",
     tags: ["User research", "Usability testing", "Moderation", "Task scripting"],
     image: {
-      label: "Booking.com website (public)",
-      alt: "Placeholder for a screenshot of the public Booking.com website",
+      label: "Usability session",
+      alt: "Two women at a table, one using a laptop while the other watches and talks with her",
       tone: "sand",
-      caption: "Booking.com website (public version)",
+      src: "/images/photo-usability.jpg",
+      width: 1600,
+      height: 1067,
     },
     meta: {
       title: "Usability research at Booking.com",
@@ -464,9 +462,12 @@ export const caseStudies: CaseStudy[] = [
       "I wrote the iOS and Android app testing guides for all 42 language teams, from installing the beta app to reporting bugs in Jira.",
     tags: ["Documentation", "Knowledge base", "Jira", "Bug reporting"],
     image: {
-      label: "Guide structure (diagram)",
-      alt: "Placeholder for a diagram of the testing guide's structure",
+      label: "Checklist",
+      alt: "A hand writing a checklist in a notebook",
       tone: "sand",
+      src: "/images/photo-checklist.jpg",
+      width: 1600,
+      height: 1000,
     },
     meta: {
       title: "Testing guides for 42 language teams",
@@ -524,9 +525,12 @@ export const caseStudies: CaseStudy[] = [
     summary: "I rolled out SDL Trados across a translation agency, wrote the user guide and trained the team.",
     tags: ["Tool rollout", "Training", "Documentation"],
     image: {
-      label: "User guide (diagram)",
-      alt: "Placeholder for a diagram of the user guide",
+      label: "Team training",
+      alt: "A trainer presenting to colleagues seated around a table in a meeting room",
       tone: "pink",
+      src: "/images/photo-team-training.jpg",
+      width: 1600,
+      height: 1000,
     },
     meta: {
       title: "Tool rollout at a translation agency",
@@ -561,7 +565,7 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "A hands-on teardown of one public SaaS product: how it works, what changes with each setting, where users are likely to get stuck, and a short explainer for a new user.",
     tags: ["Product analysis", "Documentation"],
-    image: { label: "Product teardown", alt: "Placeholder for a product teardown image", tone: "pink" },
+    image: { label: "Laptop work", alt: "A person typing on a laptop at a desk", tone: "pink", src: "/images/photo-laptop-work.jpg", width: 1600, height: 1000 },
   },
   {
     slug: "duplicate-data-cleanup",
@@ -571,7 +575,7 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "Found 350+ duplicate rows in PostgreSQL caused by a race condition in check-then-insert code, and fixed it with upserts and a unique index.",
     tags: ["PostgreSQL", "Root cause analysis"],
-    image: { label: "Database diagram", alt: "Placeholder for a database diagram", tone: "sand" },
+    image: { label: "Data blocks", alt: "An abstract grid of blue blocks", tone: "sand", src: "/images/photo-data-blocks.jpg", width: 1600, height: 1000 },
   },
   {
     slug: "api-debugging",
@@ -581,7 +585,7 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "Reproducing an expired token, a bad payload and a rejected webhook signature, step by step, in an API client.",
     tags: ["APIs", "Troubleshooting"],
-    image: { label: "API request and response", alt: "Placeholder for an API request and response", tone: "pink" },
+    image: { label: "Code on screen", alt: "Code on a computer screen", tone: "pink", src: "/images/photo-code-screen.jpg", width: 1600, height: 1000 },
   },
   {
     slug: "monitoring-after-outage",
@@ -590,7 +594,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Monitoring after the outage",
     summary: "What I added so the next failure shows up right away.",
     tags: ["Monitoring", "Sentry"],
-    image: { label: "Health check", alt: "Placeholder for a health check screenshot", tone: "sand" },
+    image: { label: "Server rack", alt: "A server rack with network cables and status lights", tone: "sand", src: "/images/photo-server-rack.jpg", width: 1600, height: 1000 },
   },
   {
     slug: "help-center-articles",
@@ -599,7 +603,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Help center articles, EN + FR",
     summary: "Short articles for WeSwapCards users on sign-in issues, failed trades and account deletion.",
     tags: ["Knowledge base", "Documentation"],
-    image: { label: "Help article", alt: "Placeholder for a help center article", tone: "pink" },
+    image: { label: "Reading on a tablet", alt: "A person holding a tablet", tone: "pink", src: "/images/photo-tablet-reading.jpg", width: 1600, height: 1000 },
   },
   {
     slug: "onboarding-video",
@@ -608,6 +612,6 @@ export const caseStudies: CaseStudy[] = [
     title: "Onboarding video",
     summary: "A 3-minute walkthrough of one WeSwapCards feature for a first-time user.",
     tags: ["Onboarding", "Video"],
-    image: { label: "Video still", alt: "Placeholder for a still from the onboarding video", tone: "sand" },
+    image: { label: "Recording desk", alt: "A desk set up for recording, with a monitor and a studio light", tone: "sand", src: "/images/photo-recording-desk.jpg", width: 1600, height: 1000 },
   },
 ];
