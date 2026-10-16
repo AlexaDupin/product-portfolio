@@ -1,6 +1,39 @@
 .body {
   display: grid;
-  gap: 48px;
-  max-width: calc(760px + 2 * var(--gutter));
-  padding-block: var(--section-space) 0;
+  gap: 40px;
+  max-width: calc(860px + 2 * var(--gutter));
+  padding-block: clamp(40px, 6vw, 64px) 0;
+}
+
+/* Problem and responsibility side by side, split by a thin line. */
+.pair {
+  display: grid;
+  gap: 32px;
+}
+
+.rule {
+  width: 100%;
+  margin: 0;
+  border: 0;
+  border-top: 1px solid var(--border);
+}
+
+.paragraph {
+  color: var(--muted);
+}
+
+@media (min-width: 720px) {
+  .pair {
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+
+  .pair > :first-child {
+    padding-right: 40px;
+    border-right: 1px solid var(--border);
+  }
+
+  .pair > :last-child {
+    padding-left: 40px;
+  }
 }

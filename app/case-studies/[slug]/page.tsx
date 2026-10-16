@@ -4,12 +4,12 @@ import { notFound } from "next/navigation";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Pill } from "@/components/ui/Pill";
 import { Media } from "@/components/ui/Media";
-import { Metrics } from "@/components/ui/Metrics";
 import { TagList } from "@/components/ui/TagList";
 import { ArrowLink } from "@/components/ui/ArrowLink";
 import { ConfirmNote } from "@/components/ui/ConfirmNote";
 import { CaseStudyDetails } from "@/components/caseStudies/CaseStudyDetails";
-import { StorySection } from "@/components/ui/StorySection";
+import { CaseSection } from "@/components/caseStudies/CaseSection";
+import { ResultBand } from "@/components/caseStudies/ResultBand";
 import { Steps } from "@/components/caseStudies/Steps";
 import { BeforeAfterTable } from "@/components/caseStudies/BeforeAfterTable";
 import { ExcerptBlock } from "@/components/caseStudies/ExcerptBlock";
@@ -62,33 +62,61 @@ async function CaseStudy({ params }: Pick<PageProps<"/case-studies/[slug]">, "pa
       </PageHeader>
 
       <div className={`container ${styles.body}`}>
-        {!study.image.src && <Media image={study.image} sizes="(min-width: 800px) 760px, 100vw" />}
+        {!study.image.src && <Media image={study.image} sizes="(min-width: 800px) 840px, 100vw" />}
 
-        {study.metrics && <Metrics items={study.metrics} label={caseStudyLabels.metrics} variant="band" />}
+        <div className={styles.pair}>
+          <CaseSection
+            id="problem"
+            eyebrow={caseStudyLabels.problem}
+            headline={study.headlines.problem}
+            paragraphs={study.problem}
+          />
+          <CaseSection
+            id="responsibility"
+            eyebrow={caseStudyLabels.responsibility}
+            headline={study.headlines.responsibility}
+            paragraphs={study.responsibility}
+          />
+        </div>
 
-        <StorySection id="problem" title={caseStudyLabels.problem} paragraphs={study.problem} />
-        <StorySection id="responsibility" title={caseStudyLabels.responsibility} paragraphs={study.responsibility} />
-        <StorySection id="what-i-did" title={caseStudyLabels.whatIDid} paragraphs={study.whatIDid}>
+        {study.metrics ? (
+          <ResultBand title={study.metricsTitle ?? caseStudyLabels.metrics} metrics={study.metrics} />
+        ) : (
+          <hr className={styles.rule} />
+        )}
+
+        <CaseSection id="what-i-did" eyebrow={caseStudyLabels.whatIDid} headline={study.headlines.whatIDid}>
           {study.steps && <Steps steps={study.steps} />}
-        </StorySection>
+        </CaseSection>
 
         {study.communication && (
-          <StorySection
-            id="communication"
-            title={study.communication.title}
-            paragraphs={study.communication.paragraphs}
-          />
+          <>
+            <hr className={styles.rule} />
+            <CaseSection
+              id="communication"
+              eyebrow={caseStudyLabels.communication}
+              headline={study.communication.title}
+              paragraphs={study.communication.paragraphs}
+            />
+          </>
         )}
 
         {study.excerpt && <ExcerptBlock excerpt={study.excerpt} />}
 
-        <StorySection id="outcome" title={caseStudyLabels.outcome} paragraphs={study.outcome}>
-          {study.beforeAfter && <BeforeAfterTable data={study.beforeAfter} />}
-        </StorySection>
+        <hr className={styles.rule} />
 
-        <StorySection id="approach" title={caseStudyLabels.approach} paragraphs={study.approach} highlight>
+        <CaseSection id="outcome" eyebrow={caseStudyLabels.outcome} headline={study.headlines.outcome}>
+          {study.beforeAfter && <BeforeAfterTable data={study.beforeAfter} />}
+          {study.outcome.map((paragraph) => (
+            <p key={paragraph} className={styles.paragraph}>
+              {paragraph}
+            </p>
+          ))}
+        </CaseSection>
+
+        <CaseSection id="approach" eyebrow={caseStudyLabels.approach} paragraphs={study.approach} variant="soft">
           <TagList tags={study.tags} label={caseStudyLabels.skills} showLabel />
-        </StorySection>
+        </CaseSection>
 
         {study.deepDive && <ArrowLink link={study.deepDive} />}
 

@@ -28,6 +28,7 @@ export const caseStudyLabels = {
   whatIDid: "What I did",
   outcome: "What changed",
   approach: "How I work",
+  communication: "Communication",
   skills: "Skills shown",
   metrics: "In numbers",
   next: "Next case study",
@@ -70,9 +71,12 @@ export const caseStudies: CaseStudy[] = [
     responsibility: [
       "I own the whole product, so I handled the reports, the investigation and the fix.",
     ],
-    whatIDid: [
-      "I turned the reports into a technical investigation and looked at every way the app could send someone to sign in.",
-    ],
+    headlines: {
+      problem: "Users couldn't access the app after signing in",
+      responsibility: "I handled the reports, the investigation and the fix",
+      whatIDid: "I turned user reports into a technical investigation.",
+      outcome: "Fewer automatic redirects to sign-in in the code.",
+    },
     steps: [
       {
         title: "Mapped every redirect",
@@ -105,10 +109,12 @@ export const caseStudies: CaseStudy[] = [
         },
       ],
     },
+    metricsTitle: "Result",
     metrics: [
       {
         value: "~13 → 4",
-        label: "automatic redirect paths to sign-in in the code (code paths, not user incidents)",
+        label: "Automatic sign-in redirect paths in the code",
+        note: "Code paths, not user incidents.",
       },
     ],
     outcome: [
@@ -154,9 +160,12 @@ export const caseStudies: CaseStudy[] = [
     responsibility: [
       "I triaged the tickets reported by 42 language teams: 20 to 100 bug and improvement tickets per release. I also answered the teams' questions through the team inbox and chat.",
     ],
-    whatIDid: [
-      "Every ticket went through the same four steps before it reached the person who would fix it.",
-    ],
+    headlines: {
+      problem: "Bugs had to be fixed before each release reached the stores",
+      responsibility: "I triaged the tickets from 42 language teams",
+      whatIDid: "Every ticket went through the same four steps before reaching the person who would fix it.",
+      outcome: "Checked tickets for fixers, clear answers for reporters.",
+    },
     steps: [
       { title: "Reproduce", text: "I reproduced each reported issue to confirm it and see exactly what happened." },
       { title: "Check", text: "I checked the ticket was complete before passing it on." },
@@ -219,9 +228,12 @@ export const caseStudies: CaseStudy[] = [
     responsibility: [
       "I trained new linguists worldwide in mobile app testing, onboarded 20+ new hires on my own team, and was the team's go-to person for app and technical issues.",
     ],
-    whatIDid: [
-      "I ran the training as live video sessions rather than sending people a document to read alone.",
-    ],
+    headlines: {
+      problem: "New testers were nervous about the technical side",
+      responsibility: "I trained new linguists and onboarded new hires",
+      whatIDid: "I ran the training as live video sessions, not a document to read alone.",
+      outcome: "New testers started with a test they'd already walked through.",
+    },
     steps: [
       {
         title: "Scheduled across time zones",
@@ -280,9 +292,12 @@ export const caseStudies: CaseStudy[] = [
       "Authenticated pages on WeSwapCards stopped returning data. The server looked healthy, and nothing had changed in my code or settings.",
     ],
     responsibility: ["I run WeSwapCards alone, so finding and fixing the outage was on me."],
-    whatIDid: [
-      "I worked from the symptom to the cause by ruling things out one at a time.",
-    ],
+    headlines: {
+      problem: "Signed-in pages stopped returning data",
+      responsibility: "Finding and fixing the outage was on me",
+      whatIDid: "I worked from the symptom to the cause, ruling things out one at a time.",
+      outcome: "Signed-in pages worked again, with more visibility into the API.",
+    },
     steps: [
       {
         title: "Ruled things out",
@@ -346,7 +361,12 @@ export const caseStudies: CaseStudy[] = [
     responsibility: [
       "I handle all WeSwapCards support and user reports myself, from reading the report to shipping the change.",
     ],
-    whatIDid: ["These are reports that turned into changes I implemented."],
+    headlines: {
+      problem: "Collectors tell me when something gets in their way",
+      responsibility: "I handle all support and user reports myself",
+      whatIDid: "I turned reports into changes in the product.",
+      outcome: "Five reports, five changes I implemented.",
+    },
     beforeAfter: {
       beforeLabel: "What users reported",
       afterLabel: "What I changed",
@@ -409,7 +429,12 @@ export const caseStudies: CaseStudy[] = [
     responsibility: [
       "I moderated 30+ sessions with real users of the website and apps, and scripted sessions with hotel partners on the partner platform.",
     ],
-    whatIDid: ["Each session was built around tasks, so we could watch what people actually did."],
+    headlines: {
+      problem: "Product teams wanted to see where people struggled",
+      responsibility: "I moderated user sessions and scripted partner sessions",
+      whatIDid: "Each session was built around tasks, so we could watch what people actually did.",
+      outcome: "Insights went to the product team.",
+    },
     steps: [
       {
         title: "Scripted the tasks",
@@ -457,7 +482,12 @@ export const caseStudies: CaseStudy[] = [
       "Testers in 42 language teams needed one clear reference for setting up the apps, testing them and reporting what they found.",
     ],
     responsibility: ["I wrote the iOS and Android app testing guides for all 42 language teams."],
-    whatIDid: ["The guides covered the whole path from installing the app to filing a ticket."],
+    headlines: {
+      problem: "42 language teams needed one clear testing reference",
+      responsibility: "I wrote the guides for all 42 teams",
+      whatIDid: "The guides covered the whole path, from installing the app to filing a ticket.",
+      outcome: "Noticeably fewer incomplete tickets, by my own observation.",
+    },
     steps: [
       { title: "Install", text: "Installing the beta app." },
       { title: "Set up", text: "Getting the app and device ready for testing." },
@@ -509,7 +539,12 @@ export const caseStudies: CaseStudy[] = [
     },
     problem: ["The agency moved to SDL Trados, and the whole team needed to learn it."],
     responsibility: ["I rolled out the tool across the agency, wrote the user guide and trained the team."],
-    whatIDid: ["The rollout came with two things people could rely on: training and a written guide."],
+    headlines: {
+      problem: "The whole team needed to learn a new tool",
+      responsibility: "I handled the rollout, the guide and the training",
+      whatIDid: "The rollout came with two things people could rely on: training and a written guide.",
+      outcome: "The team had training and a guide to come back to.",
+    },
     steps: [
       { title: "Rolled it out", text: "I rolled out SDL Trados across the agency." },
       { title: "Wrote the guide", text: "I wrote the user guide." },

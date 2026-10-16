@@ -1,26 +1,37 @@
 .steps {
+  --dot: 44px;
+  --gap: 28px;
   display: grid;
-  gap: 12px;
+  gap: var(--gap);
+  margin-top: 8px;
   list-style: none;
 }
 
 .step {
+  position: relative;
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 16px;
-  padding: 20px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--white);
+  grid-template-columns: var(--dot) minmax(0, 1fr);
+  gap: 20px;
+}
+
+/* Numbered circles joined by a thin line, which stops at the last step. */
+.step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: var(--dot);
+  bottom: calc(-1 * var(--gap));
+  left: calc(var(--dot) / 2 - 1px);
+  width: 2px;
+  background: var(--page-top);
 }
 
 .number {
   display: grid;
   place-items: center;
-  width: 36px;
-  height: 36px;
-  border: 1px solid var(--border);
+  width: var(--dot);
+  height: var(--dot);
   border-radius: 50%;
+  background: var(--page-top);
   color: var(--ink);
   font-family: var(--font-heading);
   font-weight: 800;
@@ -29,12 +40,19 @@
 .body {
   display: grid;
   gap: 4px;
+  padding-top: 8px;
 }
 
 .title {
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
 }
 
 .text {
   color: var(--muted);
+}
+
+@media (min-width: 640px) {
+  .step {
+    gap: 32px;
+  }
 }

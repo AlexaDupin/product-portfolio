@@ -39,6 +39,8 @@ export interface LinkItem {
 export interface Metric {
   value: string;
   label: string;
+  /** A short qualifier shown under the label, e.g. what the number does not count. */
+  note?: string;
 }
 
 export interface PageMeta {
@@ -107,12 +109,15 @@ export interface LiveCaseStudy extends CaseStudyBase {
   status: "live";
   meta: PageMeta;
   header: CaseStudyHeader;
+  /** One-line headline for each section, written only from facts on the page. */
+  headlines: { problem: string; responsibility: string; whatIDid: string; outcome: string };
   problem: string[];
   responsibility: string[];
-  whatIDid: string[];
   outcome: string[];
   approach: string[];
   metrics?: Metric[];
+  /** Label for the metrics block; defaults to the shared "In numbers" label. */
+  metricsTitle?: string;
   beforeAfter?: BeforeAfter;
   steps?: Step[];
   communication?: TextBlock;

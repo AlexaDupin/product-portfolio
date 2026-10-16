@@ -63,6 +63,7 @@ Personal portfolio for **Product Specialist** and **asynchronous technical suppo
 - Cards white with thin border; color only from pills, buttons and dark sections.
 - Inner page tops (changed 2026-10-16): the same hero gradient as Home, with white text and the light eyebrow color. Applies to About, What I build, Case studies, 404 and case studies without an image.
 - Case study tops (changed 2026-10-16): when the case study's image has a `src`, it fills the hero under a flat plum overlay (rgba(42,31,39,0.74)) with white text, and isn't repeated in the page body. Screenshots (`device` set) are blurred so their own text doesn't compete with the headline. Case studies without an image use the hero gradient.
+- Case study body (redesigned 2026-10-16): Problem and My responsibility side by side; a Result/In numbers band (single metric shown large, numbers in ink); What I did with numbered steps; What changed with the before/after table, then the outcome paragraphs (keep accuracy caveats here); How I work on the soft block. Each section has a small accent label and a one-line headline from `headlines` in content, written only from facts already on that page.
 - Subtle hover only. Nav: transparent over home hero, sticky flat plum #3B2333 after scroll and on all other pages.
 - "Coming soon" items: visible badge, not clickable, no link-like hover.
 - Images: clearly labeled placeholders until real screenshots. No stock photos with text.
