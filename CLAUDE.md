@@ -79,7 +79,7 @@ Personal portfolio for **Product Specialist** and **asynchronous technical suppo
 
 - Use only facts the user provided. Never strengthen a claim.
 - Keep implemented changes distinct from measured outcomes; qualitative outcomes stay qualitative.
-- Never imply a code change reduced user-reported incidents (login case: ~13 → 4 is **code paths**; legacy redirect flow with forced sign-out still exists).
+- Never imply a code change reduced user-reported incidents unless the owner states it (login case: ~13 → 4 is **code paths**; legacy redirect flow with forced sign-out still exists). Owner-confirmed fact (2026-10-16): after the login fix, the emails about that issue stopped. State it as what happened, with no count and no percentage.
 - No invented metrics, quotes, conversations, testimonials, satisfaction scores or logos. Constructed examples are labeled as samples.
 - Missing fact → `[CONFIRM: ...]`, visibly marked as unfinished.
 - Never claim: CI/CD, AWS/GCP/Azure, serverless, coverage percentages, Postman, "QA tooling", releases shipped "on time", or team work on WeSwapCards (solo project).

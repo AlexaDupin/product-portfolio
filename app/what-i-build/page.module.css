@@ -1,6 +1,6 @@
 .project {
   display: grid;
-  gap: clamp(48px, 7vw, 80px);
+  gap: var(--block-gap);
   max-width: calc(960px + 2 * var(--gutter));
   padding-block: var(--section-space) 0;
 }

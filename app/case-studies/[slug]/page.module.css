@@ -1,8 +1,8 @@
 .body {
   display: grid;
-  gap: 40px;
+  gap: var(--block-gap);
   max-width: calc(860px + 2 * var(--gutter));
-  padding-block: clamp(40px, 6vw, 64px) 0;
+  padding-block: var(--section-space) 0;
 }
 
 .rule {

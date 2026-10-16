@@ -13,6 +13,10 @@
   line-height: 1.4;
 }
 
+.onSoft .tag {
+  background: var(--white);
+}
+
 .labelled {
   display: grid;
   gap: 8px;

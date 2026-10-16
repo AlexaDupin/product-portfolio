@@ -35,7 +35,9 @@
   --gutter: 16px;
   --container: 1200px;
   --nav-height: 64px;
-  --section-space: clamp(56px, 9vw, 112px);
+  --section-space: clamp(72px, 10vw, 128px);
+  /* Space between blocks inside a page (case studies, About, What I build, Case studies list). */
+  --block-gap: clamp(56px, 7vw, 88px);
   --focus: 0 0 0 3px var(--white), 0 0 0 5px var(--accent);
 }
 

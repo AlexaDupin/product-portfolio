@@ -2,7 +2,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-bottom: 40px;
+  margin-bottom: var(--block-gap);
 }
 
 .option {
@@ -32,8 +32,8 @@
 }
 
 .section + .section {
-  margin-top: 56px;
-  padding-top: 40px;
+  margin-top: var(--block-gap);
+  padding-top: calc(var(--block-gap) * 0.7);
   border-top: 1px solid var(--border);
 }
 

@@ -51,8 +51,8 @@ export const caseStudies: CaseStudy[] = [
     category: "resolve-issues",
     title: "When signed-in users kept getting sent back to login",
     summary:
-      "Users who had just signed in kept landing back on the login page. I traced every redirect path and changed how the app tells signed-out visitors apart from signed-in users.",
-    tags: ["Troubleshooting", "Root cause analysis", "Authentication", "React", "Clerk"],
+      "Users who had just signed in kept landing back on the login page. I helped each one with troubleshooting steps, spotted the pattern across several reports, then fixed the root cause.",
+    tags: ["User support", "Troubleshooting", "Root cause analysis", "Authentication", "React", "Clerk"],
     image: weswapcardsScreens.desktopChapters,
     meta: {
       title: "Login troubleshooting on WeSwapCards",
@@ -73,11 +73,19 @@ export const caseStudies: CaseStudy[] = [
     ],
     headlines: {
       problem: "Users couldn't access the app after signing in",
-      responsibility: "I handled the reports, the investigation and the fix",
-      whatIDid: "I turned user reports into a technical investigation.",
-      outcome: "Fewer automatic redirects to sign-in in the code.",
+      responsibility: "I owned it from first report to fix",
+      whatIDid: "I helped each user first, then fixed the root cause.",
+      outcome: "After the fix, the emails about this issue stopped.",
     },
     steps: [
+      {
+        title: "Helped each user",
+        text: "I answered each email with step-by-step troubleshooting guidance, so people had something to try right away.",
+      },
+      {
+        title: "Spotted the pattern",
+        text: "The reports came from several users, not one. It wasn't an isolated case, so the fix had to be in the product, not in another reply.",
+      },
       {
         title: "Mapped every redirect",
         text: "I reviewed every path that could redirect a user to sign-in, across the React app, Clerk and the backend API.",
@@ -118,11 +126,26 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     outcome: [
-      "Automatic redirect paths to sign-in in the code went from about 13 to 4. That's a count of code paths, not of user incidents.",
-      "The new background account recovery lets users restore missing account data without losing their session. It's a new path alongside the older redirect flow, which still exists and still contains a forced sign-out path.",
-      "Visitors can now explore parts of the product before signing up.",
+      "The new background account recovery lets users restore missing account data without losing their session. It runs alongside the older redirect flow, which still exists and still contains a forced sign-out path.",
     ],
+    communication: {
+      title: "Guidance users could follow without technical knowledge",
+      paragraphs: [
+        "Before changing anything in the code, I replied to each user with step-by-step troubleshooting guidance they could follow on their own.",
+      ],
+    },
+    excerpt: {
+      title: "Troubleshooting steps for a sign-in loop",
+      label: "Sample written for this portfolio, not the original email",
+      items: [
+        "Sign out of WeSwapCards, then close the tab.",
+        "Clear the site data for weswapcards.com in your browser settings.",
+        "Open WeSwapCards in a new tab and sign in again.",
+        "If you're still sent back to the login page, reply with your browser and device so I can look into it.",
+      ],
+    },
     approach: [
+      "I help the person in front of me first, then look for the pattern. When several people hit the same problem, the fix belongs in the product, not in another reply.",
       "\"I can't log in\" isn't always an authentication failure. I look at the whole user journey, test my assumptions and fix the underlying behavior, not just the symptom.",
     ],
   },

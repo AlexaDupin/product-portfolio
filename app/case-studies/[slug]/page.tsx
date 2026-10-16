@@ -116,7 +116,7 @@ async function CaseStudy({ params }: Pick<PageProps<"/case-studies/[slug]">, "pa
         </LabeledSection>
 
         <LabeledSection id="approach" eyebrow={caseStudyLabels.approach} paragraphs={study.approach} variant="soft">
-          <TagList tags={study.tags} label={caseStudyLabels.skills} showLabel />
+          <TagList tags={study.tags} label={caseStudyLabels.skills} showLabel onSoft />
         </LabeledSection>
 
         {study.deepDive && <ArrowLink link={study.deepDive} />}

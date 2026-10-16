@@ -1,6 +1,6 @@
 .body {
   display: grid;
-  gap: 48px;
+  gap: var(--block-gap);
   max-width: calc(760px + 2 * var(--gutter));
   padding-block: var(--section-space) 0;
 }
