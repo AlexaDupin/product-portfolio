@@ -1,5 +1,40 @@
 .header {
+  position: relative;
   background: var(--page-top);
+}
+
+/* Image top: the photo sits under a flat dark plum overlay so white text stays readable. */
+.withImage {
+  --muted: var(--on-dark-muted);
+  --header-rule: rgba(255, 255, 255, 0.2);
+  overflow: hidden;
+  background: var(--plum);
+  color: var(--white);
+}
+
+.withImage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(42, 31, 39, 0.74);
+}
+
+.backgroundImage {
+  object-fit: cover;
+}
+
+.blurred {
+  filter: blur(10px);
+  transform: scale(1.1);
+}
+
+.withImage .inner {
+  position: relative;
+  z-index: 1;
+}
+
+.withImage .eyebrow {
+  color: var(--on-dark-eyebrow);
 }
 
 .inner {

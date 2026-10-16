@@ -40,12 +40,17 @@ export default async function CaseStudyPage({ params }: PageProps<"/case-studies
 
   return (
     <article>
-      <PageHeader eyebrow={<Pill label={category.label} tone={category.tone} />} title={study.title} lead={study.summary}>
+      <PageHeader
+        eyebrow={<Pill label={category.label} tone={category.tone} />}
+        title={study.title}
+        lead={study.summary}
+        background={study.image}
+      >
         <CaseStudyDetails header={study.header} />
       </PageHeader>
 
       <div className={`container ${styles.body}`}>
-        <Media image={study.image} sizes="(min-width: 800px) 760px, 100vw" />
+        {!study.image.src && <Media image={study.image} sizes="(min-width: 800px) 760px, 100vw" />}
 
         {study.metrics && <Metrics items={study.metrics} label={caseStudyLabels.metrics} variant="band" />}
 

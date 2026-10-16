@@ -61,7 +61,8 @@ Personal portfolio for **Product Specialist** and **asynchronous technical suppo
 - Numbers never colored (ink, or white on dark). One approved exception (2026-10-16): the home metrics strip figures use a "liquid glass" text effect (translucent plum fill clipped to the text, plus a drop shadow; no diagonal light band), with a plain `CanvasText` fallback in forced-colors mode. Don't extend it elsewhere without asking.
 - No emojis, scribbles or handwritten elements.
 - Cards white with thin border; color only from pills, buttons and dark sections.
-- Inner page and case study tops: flat pale pink #F6EEF2 with dark text.
+- Inner page tops: flat pale pink #F6EEF2 with dark text.
+- Case study tops (changed 2026-10-16): when the case study's image has a `src`, it fills the hero under a flat plum overlay (rgba(42,31,39,0.74)) with white text, and isn't repeated in the page body. Screenshots (`device` set) are blurred so their own text doesn't compete with the headline. Case studies without an image keep the flat pink top.
 - Subtle hover only. Nav: transparent over home hero, sticky flat plum #3B2333 after scroll and on all other pages.
 - "Coming soon" items: visible badge, not clickable, no link-like hover.
 - Images: clearly labeled placeholders until real screenshots. No stock photos with text.
