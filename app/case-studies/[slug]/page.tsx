@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import { notFound } from "next/navigation";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { Pill } from "@/components/ui/Pill";
@@ -13,6 +14,7 @@ import { Steps } from "@/components/caseStudies/Steps";
 import { BeforeAfterTable } from "@/components/caseStudies/BeforeAfterTable";
 import { ExcerptBlock } from "@/components/caseStudies/ExcerptBlock";
 import { NextCaseStudy } from "@/components/caseStudies/NextCaseStudy";
+import { CaseStudyFallback } from "@/components/caseStudies/CaseStudyFallback";
 import { caseStudyLabels } from "@/content/caseStudies";
 import { categoryById } from "@/content/site";
 import { getLiveCaseStudy, liveCaseStudies, nextCaseStudy } from "@/lib/caseStudies";
@@ -28,7 +30,17 @@ export async function generateMetadata({ params }: PageProps<"/case-studies/[slu
   return study ? { title: study.meta.title, description: study.meta.description } : {};
 }
 
-export default async function CaseStudyPage({ params }: PageProps<"/case-studies/[slug]">) {
+// Reading `params` suspends, so it sits under <Suspense> to keep client navigations instant.
+// Every slug is prerendered, so direct visits get the full page, never the fallback.
+export default function CaseStudyPage({ params }: PageProps<"/case-studies/[slug]">) {
+  return (
+    <Suspense fallback={<CaseStudyFallback label={caseStudyLabels.loading} />}>
+      <CaseStudy params={params} />
+    </Suspense>
+  );
+}
+
+async function CaseStudy({ params }: Pick<PageProps<"/case-studies/[slug]">, "params">) {
   const { slug } = await params;
   const study = getLiveCaseStudy(slug);
 

@@ -32,6 +32,7 @@ export const caseStudyLabels = {
   metrics: "In numbers",
   next: "Next case study",
   back: "All case studies",
+  loading: "Loading case study",
 };
 
 /** Order matters: these appear on the home page and first on the Case studies page. */

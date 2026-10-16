@@ -1,0 +1,4 @@
+.fallback {
+  min-height: clamp(280px, 40vw, 420px);
+  background: var(--page-top);
+}
