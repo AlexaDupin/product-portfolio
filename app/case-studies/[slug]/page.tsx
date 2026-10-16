@@ -93,16 +93,20 @@ async function CaseStudy({ params }: Pick<PageProps<"/case-studies/[slug]">, "pa
         {study.communication && (
           <>
             <hr className={styles.rule} />
-            <LabeledSection
-              id="communication"
-              eyebrow={caseStudyLabels.communication}
-              headline={study.communication.title}
-              paragraphs={study.communication.paragraphs}
-            />
+            {/* The explanation sits beside the example of what users received, when there is one. */}
+            <div className={study.excerpt ? styles.withExample : undefined}>
+              <LabeledSection
+                id="communication"
+                eyebrow={caseStudyLabels.communication}
+                headline={study.communication.title}
+                paragraphs={study.communication.paragraphs}
+              />
+              {study.excerpt && <ExcerptBlock excerpt={study.excerpt} />}
+            </div>
           </>
         )}
 
-        {study.excerpt && <ExcerptBlock excerpt={study.excerpt} />}
+        {study.excerpt && !study.communication && <ExcerptBlock excerpt={study.excerpt} />}
 
         <hr className={styles.rule} />
 

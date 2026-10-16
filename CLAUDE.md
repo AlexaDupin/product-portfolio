@@ -72,6 +72,7 @@ Personal portfolio for **Product Specialist** and **asynchronous technical suppo
 
 - Plain, concrete, sober, confident without hype. Active voice, contractions, short paragraphs.
 - No em dashes. No buzzwords ("passionate", "results-driven", "leverage", "synergy", "game-changer"), no slogans.
+- No aphorisms or punchy one-liners (owner feedback 2026-10-16): avoid lines like "I help the person in front of me first", "the fix belongs in the product, not in another reply" or "X isn't always Y". Describe what Alexa does, plainly, as a statement of practice. "X, not Y" is fine only for factual caveats (e.g. "code paths, not user incidents").
 - Booking.com: public website/app screenshots only, captioned "(public version)". No internal tools, Jira tickets, betas, partner platform, internal guides or data. No logo use implying endorsement. Owner-approved exception (2026-10-16): the Booking.com logo (`public/images/booking-logo.png`, supplied by the owner) marks the Booking.com entry in the About page's "My path" timeline only, as on a CV.
 - Link card logos (owner-approved 2026-10-16): What I build's "Links and apps" cards use the WeSwapCards mark and AD. icon (from the owner's own sites) and the App Store, Google Play and GitHub icons from Simple Icons, in `public/images/logos/`. Each logo only marks a link to that same platform; don't reuse these marks elsewhere.
 

@@ -69,7 +69,7 @@ export const weswapcards = {
   },
   steps: {
     eyebrow: "What I did",
-    headline: "From a problem I saw to a product people use.",
+    headline: "How I built it and how I run it.",
     items: [
       {
         title: "Shaped the product around the problem",

@@ -1,28 +1,84 @@
-.excerpt {
-  display: grid;
-  gap: 12px;
-  padding: 28px;
+.card {
+  overflow: hidden;
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--white);
+  box-shadow: 0 12px 32px -18px rgba(42, 31, 39, 0.35);
+}
+
+/* Header bar, like the top of a message. */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 22px;
+  border-bottom: 1px solid var(--border);
+  background: var(--page-top);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--accent);
+}
+
+.icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.title {
+  font-size: 1.0625rem;
+}
+
+.body {
+  display: grid;
+  gap: 16px;
+  padding: 22px;
 }
 
 .label {
   justify-self: start;
   padding: 3px 10px;
   border-radius: 999px;
-  background: var(--pill-sand-bg);
-  color: var(--pill-text);
+  background: var(--soft);
+  color: var(--muted);
   font-size: 0.75rem;
   font-weight: 600;
 }
 
-.title {
-  font-size: 1.25rem;
-}
-
+/* Numbered steps with small circles, matching the What I did steps. */
 .list {
   display: grid;
-  gap: 8px;
-  padding-left: 20px;
+  gap: 14px;
+  counter-reset: step;
+  list-style: none;
+}
+
+.item {
+  position: relative;
+  min-height: 28px;
+  padding-left: 42px;
+  counter-increment: step;
+}
+
+.item::before {
+  content: counter(step);
+  position: absolute;
+  top: -1px;
+  left: 0;
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--page-top);
+  color: var(--ink);
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 800;
 }

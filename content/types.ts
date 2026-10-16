@@ -66,7 +66,10 @@ export interface TextBlock {
 
 export interface Excerpt {
   title: string;
-  label: string;
+  /** Required for constructed examples ("Sample written for this portfolio"); omit for real communications. */
+  label?: string;
+  /** "mail" for messages sent to users, "document" for guides. */
+  icon: "mail" | "document";
   items: string[];
 }
 

@@ -10,7 +10,7 @@ export const caseStudiesMeta: PageMeta = {
 
 export const caseStudiesPage = {
   eyebrow: "Case studies",
-  title: "How I work, one problem at a time.",
+  title: "Case studies from support, testing and my own app.",
   lead: "Each story covers the problem, my part in it, what I did and what changed. Start with the four below, or filter by theme.",
   featuredTitle: "Start here",
   filterLabel: "Filter case studies by theme",
@@ -84,7 +84,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "Spotted the pattern",
-        text: "The reports came from several users, not one. It wasn't an isolated case, so the fix had to be in the product, not in another reply.",
+        text: "Several users reported the same problem, so it wasn't an isolated case. I started looking for the cause in the app itself.",
       },
       {
         title: "Mapped every redirect",
@@ -132,21 +132,20 @@ export const caseStudies: CaseStudy[] = [
       title: "Guidance users could follow without technical knowledge",
       paragraphs: [
         "Before changing anything in the code, I replied to each user with step-by-step troubleshooting guidance they could follow on their own.",
+        "The first step doubled as a test. If signing in worked in a private window, the problem likely came from data stored in their browser, which is where the root cause turned out to be.",
       ],
     },
     excerpt: {
-      title: "Troubleshooting steps for a sign-in loop",
-      label: "Sample written for this portfolio, not the original email",
+      title: "The troubleshooting steps I sent",
+      icon: "mail",
       items: [
-        "Sign out of WeSwapCards, then close the tab.",
-        "Clear the site data for weswapcards.com in your browser settings.",
-        "Open WeSwapCards in a new tab and sign in again.",
-        "If you're still sent back to the login page, reply with your browser and device so I can look into it.",
+        "Try signing in from a private (incognito) window.",
+        "Clear your browser's cookies and cache, then sign in again.",
+        "If you're still sent back to the login page, reply with your username, browser and device.",
       ],
     },
     approach: [
-      "I help the person in front of me first, then look for the pattern. When several people hit the same problem, the fix belongs in the product, not in another reply.",
-      "\"I can't log in\" isn't always an authentication failure. I look at the whole user journey, test my assumptions and fix the underlying behavior, not just the symptom.",
+      "I reply to each user with steps they can try right away. When several users report the same problem, I investigate the cause in the product and fix it there. Here, the cause was how the app handled missing account data, rather than sign-in itself.",
     ],
   },
   {
@@ -187,7 +186,7 @@ export const caseStudies: CaseStudy[] = [
       problem: "Bugs had to be fixed before each release reached the stores",
       responsibility: "I triaged the tickets from 42 language teams",
       whatIDid: "Every ticket went through the same four steps before reaching the person who would fix it.",
-      outcome: "Checked tickets for fixers, clear answers for reporters.",
+      outcome: "Engineers and copywriters received tickets that were already checked.",
     },
     steps: [
       { title: "Reproduce", text: "I reproduced each reported issue to confirm it and see exactly what happened." },
@@ -213,7 +212,7 @@ export const caseStudies: CaseStudy[] = [
       "Engineers and copywriters received tickets that had already been reproduced and checked, and reporters had someone to ask when something wasn't clear.",
     ],
     approach: [
-      "I make sure the person fixing a problem has the full picture, and the person who reported it gets a clear answer.",
+      "I check that each ticket has what the engineer or copywriter needs to fix it, and I follow up with the reporter when something is unclear.",
     ],
     confirm: [
       "A concrete, anonymized example of how you clarified an unclear ticket or instruction for a non-technical reporter.",
@@ -254,7 +253,7 @@ export const caseStudies: CaseStudy[] = [
     headlines: {
       problem: "New testers were nervous about the technical side",
       responsibility: "I trained new linguists and onboarded new hires",
-      whatIDid: "I ran the training as live video sessions, not a document to read alone.",
+      whatIDid: "I ran the training as live video sessions.",
       outcome: "New testers started with a test they'd already walked through.",
     },
     steps: [
@@ -282,7 +281,7 @@ export const caseStudies: CaseStudy[] = [
       "New testers started with a test they'd already walked through once, and knew who to ask when something technical got in the way.",
     ],
     approach: [
-      "I explain technical steps by showing them in context, so people can act on them.",
+      "I teach technical steps by going through them with people, and I answer their questions as they come up.",
     ],
   },
   {
@@ -346,7 +345,7 @@ export const caseStudies: CaseStudy[] = [
       "Authenticated pages returned data again after the fix. Sentry tracing and the health endpoint now give me more visibility into the API and the services it depends on.",
     ],
     approach: [
-      "When nothing in my own code has changed, I look at what changed around it. I rule causes out one at a time instead of guessing.",
+      "When something breaks without a code change, I also check the environment: the host, the runtime and the services the app depends on. I test one possible cause at a time.",
     ],
     deepDive: {
       label: "Read the full technical deep-dive on my developer portfolio",
@@ -384,7 +383,7 @@ export const caseStudies: CaseStudy[] = [
       problem: "Collectors tell me when something gets in their way",
       responsibility: "I handle all support and user reports myself",
       whatIDid: "I turned reports into changes in the product.",
-      outcome: "Five reports, five changes I implemented.",
+      outcome: "Five reports led to five changes in the product.",
     },
     beforeAfter: {
       beforeLabel: "What users reported",
@@ -416,7 +415,7 @@ export const caseStudies: CaseStudy[] = [
       "Each of these is a change I implemented in response to a report. They're fixes, not measured outcomes.",
     ],
     approach: [
-      "I treat a support report as information about the product, not just a ticket to close.",
+      "I read each support report for what it says about the product, and I fix the things that get in users' way.",
     ],
   },
   {
@@ -471,7 +470,7 @@ export const caseStudies: CaseStudy[] = [
     outcome: [
       "My part was to surface where people struggled and pass those insights to the product team, who decided what to change.",
     ],
-    approach: ["I learn the most about a product by watching people use it."],
+    approach: ["I watch people use the product, note where they struggle and pass it on to the team that can change it."],
     confirm: [
       "The kinds of friction you saw in sessions, described in general terms with no internal data.",
     ],
@@ -524,6 +523,7 @@ export const caseStudies: CaseStudy[] = [
     excerpt: {
       title: "How to write a bug report engineers can act on",
       label: "Sample written for this portfolio, not taken from the original guides",
+      icon: "document",
       items: [
         "Give it a title that says what's wrong and where, for example: \"Button text cut off on the payment screen (French, iOS)\".",
         "List the steps to reproduce it, starting from opening the app.",
@@ -537,7 +537,7 @@ export const caseStudies: CaseStudy[] = [
       "After the guides were in use, I saw noticeably fewer incomplete tickets. That's my own observation from triaging them, not a measured figure.",
     ],
     approach: [
-      "When the same question keeps coming up, I write the answer down once so the next person doesn't have to ask.",
+      "When people ask the same question more than once, I add the answer to a guide.",
     ],
   },
   {
@@ -578,7 +578,7 @@ export const caseStudies: CaseStudy[] = [
       { title: "Trained the team", text: "I trained the team to use it." },
     ],
     outcome: ["The team had both training and a written guide to come back to."],
-    approach: ["A new tool only helps once people know how to use it, so I pair training with documentation."],
+    approach: ["When I roll out a tool, I train people on it and give them a written guide to refer back to."],
   },
   {
     slug: "product-deep-dive",

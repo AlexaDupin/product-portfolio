@@ -1,4 +1,4 @@
-export type LineIconName = "document" | "building" | "code" | "globe" | "phone" | "arrow";
+export type LineIconName = "document" | "building" | "code" | "globe" | "phone" | "arrow" | "mail";
 
 const paths: Record<LineIconName, string> = {
   document: "M7 3h7l4 4v14H7z M14 3v4h4 M10 11h5 M10 14h5 M10 17h3",
@@ -7,6 +7,7 @@ const paths: Record<LineIconName, string> = {
   globe: "M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18z M3 12h18 M12 3c2.5 2.6 3.5 5.6 3.5 9s-1 6.4-3.5 9 M12 3c-2.5 2.6-3.5 5.6-3.5 9s1 6.4 3.5 9",
   phone: "M8 3h8a1 1 0 0 1 1 1v16a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z M11 18h2",
   arrow: "M5 12h14 M13 6l6 6-6 6",
+  mail: "M3 6h18v12H3z M3 7l9 6 9-6",
 };
 
 interface LineIconProps {
