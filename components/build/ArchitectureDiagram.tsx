@@ -2,7 +2,7 @@ import type { DiagramNode } from "@/content/projects";
 import styles from "./ArchitectureDiagram.module.css";
 
 interface ArchitectureDiagramProps {
-  title: string;
+  /** Read by screen readers only; the diagram speaks for itself visually. */
   description: string;
   clients: DiagramNode[];
   api: DiagramNode;
@@ -24,33 +24,27 @@ function Connector() {
 }
 
 /** Clients → REST API → PostgreSQL, with third-party services beside the API. Built in CSS. */
-export function ArchitectureDiagram({ title, description, clients, api, database, services }: ArchitectureDiagramProps) {
+export function ArchitectureDiagram({ description, clients, api, database, services }: ArchitectureDiagramProps) {
   return (
-    <figure className={styles.figure}>
-      <div className={styles.diagram} role="img" aria-label={description}>
-        <div className={styles.row}>
-          {clients.map((client) => (
-            <Node key={client.title} node={client} />
+    <div className={styles.diagram} role="img" aria-label={description}>
+      <div className={styles.row}>
+        {clients.map((client) => (
+          <Node key={client.title} node={client} />
+        ))}
+      </div>
+      <Connector />
+      <div className={styles.middle}>
+        <Node node={api} variant="core" />
+        <div className={styles.services}>
+          {services.map((service) => (
+            <Node key={service.title} node={service} variant="service" />
           ))}
         </div>
-        <Connector />
-        <div className={styles.middle}>
-          <Node node={api} variant="core" />
-          <div className={styles.services}>
-            {services.map((service) => (
-              <Node key={service.title} node={service} variant="service" />
-            ))}
-          </div>
-        </div>
-        <Connector />
-        <div className={styles.row}>
-          <Node node={database} />
-        </div>
       </div>
-      <figcaption className={styles.caption}>
-        <strong>{title}</strong>
-        <span>{description}</span>
-      </figcaption>
-    </figure>
+      <Connector />
+      <div className={styles.row}>
+        <Node node={database} />
+      </div>
+    </div>
   );
 }

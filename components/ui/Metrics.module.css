@@ -2,14 +2,15 @@
   display: grid;
 }
 
+/* Value first, then label, then note, whatever the markup order (dt must precede dd). */
 .item {
   display: flex;
-  flex-direction: column-reverse;
-  justify-content: flex-end;
+  flex-direction: column;
   gap: 4px;
 }
 
 .value {
+  order: 1;
   font-family: var(--font-heading);
   font-weight: 700;
   letter-spacing: -0.02em;
@@ -18,9 +19,79 @@
 }
 
 .label {
+  order: 2;
   font-size: 0.8125rem;
   line-height: 1.4;
   color: var(--muted);
+}
+
+.note {
+  order: 3;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+/*
+ * Liquid glass figures (home strip and the What I build row): a plum fill clipped to the text,
+ * lighter at the top for the glass sheen but dark enough to keep strong contrast (about 7:1 at the lightest point),
+ * with a thin white highlight and a soft shadow for depth.
+ */
+.strip .value,
+.row .value {
+  background: linear-gradient(180deg, rgba(59, 35, 51, 0.8) 0%, #3b2333 50%, #2a1f27 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.95)) drop-shadow(0 4px 6px rgba(42, 31, 39, 0.2));
+}
+
+@media (forced-colors: active) {
+  .strip .value,
+  .row .value {
+    background: none;
+    color: CanvasText;
+    filter: none;
+  }
+}
+
+/* row: centred, divided */
+.row {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  row-gap: 24px;
+}
+
+.row .item {
+  align-items: center;
+  padding-inline: 12px;
+  text-align: center;
+}
+
+.row .item:nth-child(odd) {
+  border-right: 1px solid var(--border);
+}
+
+.row .value {
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
+  font-weight: 800;
+}
+
+.row .label {
+  font-size: 0.9375rem;
+}
+
+@media (min-width: 768px) {
+  .row {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .row .item {
+    border-right: 1px solid var(--border);
+  }
+
+  .row .item:last-child {
+    border-right: 0;
+  }
 }
 
 /* strip */
@@ -42,20 +113,6 @@
 .strip .value {
   font-size: clamp(1.75rem, 5vw, 2.5rem);
   font-weight: 800;
-  /* Liquid glass figures: translucent plum fill clipped to the text. */
-  background: linear-gradient(180deg, rgba(59, 35, 51, 0.62) 0%, rgba(59, 35, 51, 0.92) 55%, rgba(42, 31, 39, 0.8) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.9)) drop-shadow(0 3px 4px rgba(42, 31, 39, 0.22));
-}
-
-@media (forced-colors: active) {
-  .strip .value {
-    background: none;
-    color: CanvasText;
-    filter: none;
-  }
 }
 
 @media (min-width: 768px) {

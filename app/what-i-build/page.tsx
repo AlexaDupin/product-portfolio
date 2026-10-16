@@ -2,12 +2,14 @@ import type { Metadata } from "next";
 import { PageHeader } from "@/components/layout/PageHeader";
 import { DeviceShowcase } from "@/components/ui/DeviceShowcase";
 import { Metrics } from "@/components/ui/Metrics";
-import { StorySection } from "@/components/ui/StorySection";
-import { LinkList } from "@/components/ui/LinkList";
+import { LabeledSection } from "@/components/ui/LabeledSection";
+import { SplitPair } from "@/components/ui/SplitPair";
+import { Steps } from "@/components/ui/Steps";
+import { InfoColumns } from "@/components/ui/InfoColumns";
 import { TagList } from "@/components/ui/TagList";
+import { StatCards } from "@/components/ui/StatCards";
 import { ArchitectureDiagram } from "@/components/build/ArchitectureDiagram";
-import { DefinitionCards } from "@/components/ui/DefinitionCards";
-import { BulletList } from "@/components/ui/BulletList";
+import { AppLinks } from "@/components/build/AppLinks";
 import { aiWorkflow, weswapcards, whatIBuildMeta, whatIBuildPage } from "@/content/projects";
 import styles from "./page.module.css";
 
@@ -17,43 +19,64 @@ export const metadata: Metadata = {
 };
 
 export default function WhatIBuildPage() {
-  const { why, what, learned, stack, diagram, highlights } = weswapcards;
+  const { role, why, what, steps, stack, diagram, highlights, results } = weswapcards;
 
   return (
     <>
       <PageHeader eyebrow={whatIBuildPage.eyebrow} title={whatIBuildPage.title} lead={whatIBuildPage.lead} />
 
       <article className={`container ${styles.project}`} aria-labelledby="weswapcards-title">
-        <header className={styles.projectHeader}>
-          <h2 id="weswapcards-title" className={styles.projectTitle}>
-            {weswapcards.title}
-          </h2>
-          <p className={styles.tagline}>{weswapcards.tagline}</p>
+        <header className={styles.intro}>
+          <div className={styles.introText}>
+            <p className={styles.eyebrow}>{weswapcards.eyebrow}</p>
+            <h2 id="weswapcards-title" className={styles.projectTitle}>
+              {weswapcards.title}
+            </h2>
+            <p className={styles.tagline}>{weswapcards.tagline}</p>
+          </div>
+          <DeviceShowcase laptop={weswapcards.laptopImage} phone={weswapcards.phoneImage} />
         </header>
 
-        <StorySection id="why" title={why.title} paragraphs={why.paragraphs} />
-        <DeviceShowcase laptop={weswapcards.laptopImage} phone={weswapcards.phoneImage} />
-        <StorySection id="what" title={what.title} paragraphs={what.paragraphs} />
+        <section className={styles.metrics} aria-labelledby="metrics-title">
+          <p id="metrics-title" className={styles.eyebrow}>
+            {weswapcards.metricsTitle}
+          </p>
+          <Metrics items={weswapcards.metrics} label={weswapcards.metricsTitle} variant="row" />
+        </section>
 
-        <StorySection id="numbers" title={weswapcards.metricsTitle}>
-          <Metrics items={weswapcards.metrics} label={weswapcards.metricsTitle} variant="band" />
-          <p className={styles.note}>{weswapcards.metricsNote}</p>
-        </StorySection>
+        <LabeledSection id="role" variant="soft" {...role} />
 
-        <StorySection id="learned" title={learned.title} paragraphs={learned.paragraphs} highlight />
+        <SplitPair>
+          <LabeledSection id="why" {...why} />
+          <LabeledSection id="what" {...what} />
+        </SplitPair>
 
-        <StorySection id="stack" title={stack.title}>
-          <DefinitionCards items={stack.groups} />
+        <hr className={styles.rule} />
+
+        <LabeledSection id="what-i-did" eyebrow={steps.eyebrow} headline={steps.headline}>
+          <Steps steps={steps.items} />
+        </LabeledSection>
+
+        <hr className={styles.rule} />
+
+        <LabeledSection id="stack" eyebrow={stack.eyebrow}>
+          <TagList tags={stack.items} label={stack.eyebrow} />
           <ArchitectureDiagram {...diagram} />
-        </StorySection>
+        </LabeledSection>
 
-        <StorySection id="highlights" title={highlights.title}>
-          <BulletList items={highlights.items} />
-        </StorySection>
+        <LabeledSection id="highlights" eyebrow={highlights.eyebrow}>
+          <StatCards items={highlights.items} />
+        </LabeledSection>
 
-        <StorySection id="links" title={weswapcards.linksTitle}>
-          <LinkList links={weswapcards.links} />
-        </StorySection>
+        <hr className={styles.rule} />
+
+        <LabeledSection id="results" eyebrow={results.eyebrow}>
+          <InfoColumns items={results.items} />
+        </LabeledSection>
+
+        <LabeledSection id="links" eyebrow={weswapcards.linksTitle}>
+          <AppLinks links={weswapcards.linkCards} />
+        </LabeledSection>
       </article>
 
       <section className={`container ${styles.secondary}`} aria-labelledby="ai-workflow-title">

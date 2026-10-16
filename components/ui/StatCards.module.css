@@ -1,0 +1,39 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 16px;
+  list-style: none;
+}
+
+.card {
+  display: grid;
+  align-content: start;
+  gap: 6px;
+  padding: 22px 20px;
+  border: 1px solid var(--border);
+  border-top: 3px solid var(--pill-pink-bg);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.value {
+  color: var(--ink);
+  font-family: var(--font-heading);
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+.title {
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: normal;
+}
+
+.text {
+  color: var(--muted);
+  font-size: 0.875rem;
+}

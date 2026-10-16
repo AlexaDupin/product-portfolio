@@ -291,7 +291,7 @@ export const caseStudies: CaseStudy[] = [
     problem: [
       "Authenticated pages on WeSwapCards stopped returning data. The server looked healthy, and nothing had changed in my code or settings.",
     ],
-    responsibility: ["I run WeSwapCards alone, so finding and fixing the outage was on me."],
+    responsibility: ["I run WeSwapCards solo, so finding and fixing the outage was on me."],
     headlines: {
       problem: "Signed-in pages stopped returning data",
       responsibility: "Finding and fixing the outage was on me",

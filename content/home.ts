@@ -119,7 +119,7 @@ export const homeCaseStudies = {
 export const projectBand = {
   eyebrow: "What I build",
   title: "WeSwapCards",
-  text: "Collectors were posting long lists of missing cards and duplicates across social media and group chats. I built one place for them to find each other, talk and trade, on the web and as iOS and Android apps. I run it alone, user support included.",
+  text: "Collectors were posting long lists of missing cards and duplicates across social media and group chats. I built one place for them to find each other, talk and trade, on the web and as iOS and Android apps. I run it solo, user support included.",
   metricsLabel: "WeSwapCards in numbers",
   metrics: [
     { value: "16,000+", label: "trades coordinated" },

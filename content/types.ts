@@ -71,7 +71,6 @@ export interface Excerpt {
 }
 
 export type TimelineIcon = "document" | "building" | "code" | "globe" | "phone";
-
 export interface TimelineRole {
   role: string;
   period: string;

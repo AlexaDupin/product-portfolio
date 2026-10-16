@@ -8,9 +8,10 @@ import { TagList } from "@/components/ui/TagList";
 import { ArrowLink } from "@/components/ui/ArrowLink";
 import { ConfirmNote } from "@/components/ui/ConfirmNote";
 import { CaseStudyDetails } from "@/components/caseStudies/CaseStudyDetails";
-import { CaseSection } from "@/components/caseStudies/CaseSection";
+import { LabeledSection } from "@/components/ui/LabeledSection";
+import { SplitPair } from "@/components/ui/SplitPair";
 import { ResultBand } from "@/components/caseStudies/ResultBand";
-import { Steps } from "@/components/caseStudies/Steps";
+import { Steps } from "@/components/ui/Steps";
 import { BeforeAfterTable } from "@/components/caseStudies/BeforeAfterTable";
 import { ExcerptBlock } from "@/components/caseStudies/ExcerptBlock";
 import { NextCaseStudy } from "@/components/caseStudies/NextCaseStudy";
@@ -64,20 +65,20 @@ async function CaseStudy({ params }: Pick<PageProps<"/case-studies/[slug]">, "pa
       <div className={`container ${styles.body}`}>
         {!study.image.src && <Media image={study.image} sizes="(min-width: 800px) 840px, 100vw" />}
 
-        <div className={styles.pair}>
-          <CaseSection
+        <SplitPair>
+          <LabeledSection
             id="problem"
             eyebrow={caseStudyLabels.problem}
             headline={study.headlines.problem}
             paragraphs={study.problem}
           />
-          <CaseSection
+          <LabeledSection
             id="responsibility"
             eyebrow={caseStudyLabels.responsibility}
             headline={study.headlines.responsibility}
             paragraphs={study.responsibility}
           />
-        </div>
+        </SplitPair>
 
         {study.metrics ? (
           <ResultBand title={study.metricsTitle ?? caseStudyLabels.metrics} metrics={study.metrics} />
@@ -85,14 +86,14 @@ async function CaseStudy({ params }: Pick<PageProps<"/case-studies/[slug]">, "pa
           <hr className={styles.rule} />
         )}
 
-        <CaseSection id="what-i-did" eyebrow={caseStudyLabels.whatIDid} headline={study.headlines.whatIDid}>
+        <LabeledSection id="what-i-did" eyebrow={caseStudyLabels.whatIDid} headline={study.headlines.whatIDid}>
           {study.steps && <Steps steps={study.steps} />}
-        </CaseSection>
+        </LabeledSection>
 
         {study.communication && (
           <>
             <hr className={styles.rule} />
-            <CaseSection
+            <LabeledSection
               id="communication"
               eyebrow={caseStudyLabels.communication}
               headline={study.communication.title}
@@ -105,18 +106,18 @@ async function CaseStudy({ params }: Pick<PageProps<"/case-studies/[slug]">, "pa
 
         <hr className={styles.rule} />
 
-        <CaseSection id="outcome" eyebrow={caseStudyLabels.outcome} headline={study.headlines.outcome}>
+        <LabeledSection id="outcome" eyebrow={caseStudyLabels.outcome} headline={study.headlines.outcome}>
           {study.beforeAfter && <BeforeAfterTable data={study.beforeAfter} />}
           {study.outcome.map((paragraph) => (
             <p key={paragraph} className={styles.paragraph}>
               {paragraph}
             </p>
           ))}
-        </CaseSection>
+        </LabeledSection>
 
-        <CaseSection id="approach" eyebrow={caseStudyLabels.approach} paragraphs={study.approach} variant="soft">
+        <LabeledSection id="approach" eyebrow={caseStudyLabels.approach} paragraphs={study.approach} variant="soft">
           <TagList tags={study.tags} label={caseStudyLabels.skills} showLabel />
-        </CaseSection>
+        </LabeledSection>
 
         {study.deepDive && <ArrowLink link={study.deepDive} />}
 

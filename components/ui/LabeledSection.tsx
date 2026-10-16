@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
-import styles from "./CaseSection.module.css";
+import styles from "./LabeledSection.module.css";
 
-interface CaseSectionProps {
+interface LabeledSectionProps {
   id: string;
   eyebrow: string;
   headline?: string;
@@ -11,8 +11,15 @@ interface CaseSectionProps {
   children?: ReactNode;
 }
 
-/** One part of a case study: small label, one-line headline, then the detail. */
-export function CaseSection({ id, eyebrow, headline, paragraphs = [], variant = "plain", children }: CaseSectionProps) {
+/** One part of a page: small accent label, one-line headline, then the detail. */
+export function LabeledSection({
+  id,
+  eyebrow,
+  headline,
+  paragraphs = [],
+  variant = "plain",
+  children,
+}: LabeledSectionProps) {
   return (
     <section className={`${styles.section} ${styles[variant]}`} aria-labelledby={id}>
       <p className={styles.eyebrow} id={headline ? undefined : id}>

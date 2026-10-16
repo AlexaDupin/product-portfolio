@@ -5,14 +5,22 @@ import type { LinkItem, Metric, PageMeta } from "./types";
 export const whatIBuildMeta: PageMeta = {
   title: "What I build",
   description:
-    "WeSwapCards, the trading platform I designed, built and support alone for 1,000+ WeWard card collectors on web, iOS and Android, plus a smaller AI job search workflow.",
+    "WeSwapCards, the trading platform I designed, built and support solo for 1,000+ WeWard card collectors on web, iOS and Android, plus a smaller AI job search workflow.",
 };
 
 export const whatIBuildPage = {
   eyebrow: "What I build",
   title: "I build products that solve a real problem for people.",
-  lead: "WeSwapCards is my main project. I designed, built and run it alone, user support included.",
+  lead: "WeSwapCards is my main project. I designed, built and run it solo, user support included.",
 };
+
+/** A link shown as a card with the destination's logo. Logos are decorative; the label names the destination. */
+export interface LogoLink extends LinkItem {
+  detail: string;
+  logo: string;
+  /** For logos that are already a full square tile: fill the whole box instead of sitting inside it. */
+  logoFill?: boolean;
+}
 
 export interface DiagramNode {
   title: string;
@@ -20,56 +28,82 @@ export interface DiagramNode {
 }
 
 export const weswapcards = {
+  eyebrow: "Personal project",
   title: "WeSwapCards",
-  tagline: "A platform where WeWard collectors find swap partners, message about trades and track progress toward complete sets.",
-  why: {
-    title: "Why I built it",
-    paragraphs: [
-      "WeWard card collectors were posting long lists of the cards they were missing and the duplicates they could trade, on social media and across scattered group chats. Finding a match meant reading through everyone's lists by hand, and people lost track of who had what.",
-      "No good tool existed, so I built WeSwapCards to give them one place to find each other, talk and trade. It launched in February 2025 after four months of development.",
-      "About a year later, WeWard launched a similar feature inside its own app, which confirmed the need was real.",
-    ],
-  },
-  what: {
-    title: "What it is",
-    paragraphs: [
-      "WeSwapCards runs on the web and as iOS and Android apps. I designed, built and run it alone: architecture, frontend, backend, database, auth, deployment and user support.",
-    ],
-  },
+  tagline: "A web and mobile app where WeWard collectors find swap partners, message about trades and track progress toward complete sets.",
   laptopImage: weswapcardsScreens.desktopHome,
   phoneImage: weswapcardsScreens.iosFindCard,
-  metricsTitle: "Key numbers",
+  metricsTitle: "Key metrics",
   metrics: [
     { value: "1,000+", label: "members" },
     { value: "16,000+", label: "trades coordinated" },
     { value: "200,000+", label: "messages exchanged" },
-    { value: "317", label: "average monthly active users, July 2025 to February 2026 (peak 334 in January 2026)" },
-    { value: "35,000+", label: "API calls a day, at peak" },
-    { value: "100+", label: "app downloads in the first week across both stores" },
+    {
+      value: "317",
+      label: "average monthly active users",
+      note: "(Jul 2025–Feb 2026)",
+    },
   ] satisfies Metric[],
-  metricsNote: "Mobile apps live on the App Store and Google Play since the end of September 2026.",
-  learned: {
-    title: "What I learned",
+  role: {
+    eyebrow: "My role",
+    headline: "I designed, built and run it solo, end to end",
     paragraphs: [
-      "Activity dropped after WeWard launched its own feature. The mobile apps are partly a response: a way to compete on a different surface.",
+      "Architecture, frontend, backend, database, authentication, deployment and user support are all mine. I keep adding features, fixing what users report and answering their questions.",
+    ],
+  },
+  why: {
+    eyebrow: "Why I built it",
+    headline: "Collectors had no good way to trade",
+    paragraphs: [
+      "WeWard collectors were trading through long lists of missing cards and duplicates, posted across social media and group chats. Finding a match meant reading everyone's lists by hand.",
+      "I built WeSwapCards to give them one place to find each other, talk and trade. It launched in February 2025 after four months of development.",
+      "About a year later, WeWard launched a similar feature inside its own app, which confirmed the need was real.",
+    ],
+  },
+  what: {
+    eyebrow: "What it is",
+    headline: "One place to find, talk and trade",
+    paragraphs: [
+      "WeSwapCards runs on the web and as iOS and Android apps. Collectors track the cards they have and the ones they're missing, find people who have the duplicates they need, and message each other to arrange the trade.",
+    ],
+  },
+  steps: {
+    eyebrow: "What I did",
+    headline: "From a problem I saw to a product people use.",
+    items: [
+      {
+        title: "Shaped the product around the problem",
+        text: "I based the core features on what collectors were struggling with: tracking their collection, finding swap partners and arranging trades without reading endless lists.",
+      },
+      {
+        title: "Built the web platform",
+        text: "A React web app and a Node.js/Express REST API, with PostgreSQL for data, Clerk for sign-in and Cloudinary for images.",
+      },
+      {
+        title: "Expanded to iOS and Android",
+        text: "Mobile apps in React Native with Expo and strict TypeScript, on the same API, with push notifications and user blocking and reporting to meet App Store and Play Store rules. They've been live since the end of September 2026.",
+      },
+      {
+        title: "Run it and support users",
+        text: "I handle all user support and reports myself, turn reports into fixes, and use Sentry to catch errors in production.",
+      },
     ],
   },
   stack: {
-    title: "Stack",
-    groups: [
-      {
-        term: "Web",
-        description:
-          "JavaScript: React, Node.js/Express REST API, PostgreSQL, Clerk auth, Cloudinary, Sentry. Hosted on o2switch.",
-      },
-      {
-        term: "Mobile",
-        description: "React Native with Expo and strict TypeScript, using the same API.",
-      },
+    eyebrow: "Tech stack",
+    items: [
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "React Native (Expo)",
+      "Node.js / Express",
+      "PostgreSQL",
+      "Clerk",
+      "Cloudinary",
+      "Sentry",
     ],
   },
   diagram: {
-    title: "How it fits together",
     description:
       "Web and mobile clients call one REST API, which stores data in PostgreSQL and works with Clerk for sign-in, Cloudinary for images and Sentry for error monitoring.",
     clients: [
@@ -85,27 +119,93 @@ export const weswapcards = {
     ] satisfies DiagramNode[],
   },
   highlights: {
-    title: "Highlights",
+    eyebrow: "Technical highlights",
     items: [
-      "A layered REST API serving web and mobile, with a peak of 1M+ requests in a month.",
-      "Found a slow chat query over 57,000+ conversations with EXPLAIN ANALYZE. Indexes cut it from 10.5 ms to 1.2 ms.",
-      "A mobile app with 200+ Jest tests, push notifications, and user blocking and reporting to meet App Store and Play Store rules.",
-      "I handle all user support and reports myself.",
+      {
+        value: "1M+",
+        title: "Requests in a month, at peak",
+        text: "A layered REST API serves both the web app and the mobile apps.",
+      },
+      {
+        value: "35,000+",
+        title: "API calls a day, at peak",
+        text: "The same API handles the busiest days for web and mobile users.",
+      },
+      {
+        value: "10.5 → 1.2 ms",
+        title: "Faster chat query",
+        text: "I found a slow query over 57,000+ conversations with EXPLAIN ANALYZE and fixed it with indexes.",
+      },
+      {
+        value: "200+",
+        title: "Jest tests on mobile",
+        text: "The tests cover the React Native app, written in strict TypeScript.",
+      },
     ],
   },
-  linksTitle: "Links",
-  links: [
-    { label: "Live site", href: "https://weswapcards.com", external: true },
-    { label: "App Store", href: "https://apps.apple.com/us/app/weswapcards/id6810779158", external: true },
+  results: {
+    eyebrow: "Results",
+    items: [
+      {
+        title: "End-to-end ownership",
+        text: "I designed, built and run the whole product solo, from the first idea to production and user support.",
+      },
+      {
+        title: "Real usage",
+        text: "1,000+ members, 16,000+ trades coordinated and 200,000+ messages exchanged.",
+      },
+      {
+        title: "Mobile launch",
+        text: "iOS and Android apps live since the end of September 2026, with 100+ downloads in the first week.",
+      },
+    ],
+  },
+  linksTitle: "Links and apps",
+  linkCards: [
     {
-      label: "Google Play",
+      label: "Live website",
+      detail: "Visit WeSwapCards",
+      href: "https://weswapcards.com",
+      external: true,
+      logo: "/images/logos/weswapcards.png",
+    },
+    {
+      label: "Android app",
+      detail: "Get it on Google Play",
       href: "https://play.google.com/store/apps/details?id=com.weswapcards.app",
       external: true,
+      logo: "/images/logos/google-play.svg",
     },
-    { label: "GitHub (web)", href: "https://github.com/AlexaDupin/WeSwapCards", external: true },
-    { label: "GitHub (mobile)", href: "https://github.com/AlexaDupin/WeSwapCards-native", external: true },
-    { label: "Full technical case study", href: links.weswapcardsDeepDive, external: true },
-  ] satisfies LinkItem[],
+    {
+      label: "iOS app",
+      detail: "Available on the App Store",
+      href: "https://apps.apple.com/us/app/weswapcards/id6810779158",
+      external: true,
+      logo: "/images/logos/app-store.svg",
+    },
+    {
+      label: "GitHub (web)",
+      detail: "React and Node.js code",
+      href: "https://github.com/AlexaDupin/WeSwapCards",
+      external: true,
+      logo: "/images/logos/github.svg",
+    },
+    {
+      label: "GitHub (mobile)",
+      detail: "React Native code",
+      href: "https://github.com/AlexaDupin/WeSwapCards-native",
+      external: true,
+      logo: "/images/logos/github.svg",
+    },
+    {
+      label: "Technical case study",
+      detail: "On my developer portfolio",
+      href: links.weswapcardsDeepDive,
+      external: true,
+      logo: "/images/logos/dev-portfolio.svg",
+      logoFill: true,
+    },
+  ] satisfies LogoLink[],
 };
 
 export const aiWorkflow = {
