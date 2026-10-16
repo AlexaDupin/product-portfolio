@@ -10,10 +10,11 @@
   text-transform: none;
 }
 
+/* Light comes from the fill itself: a small same-hue gradient, brighter toward the right. */
 .pink {
-  background: var(--pill-pink-bg);
+  background: linear-gradient(100deg, var(--pill-pink-bg) 0%, var(--pill-pink-light) 100%);
 }
 
 .sand {
-  background: var(--pill-sand-bg);
+  background: linear-gradient(100deg, var(--pill-sand-bg) 0%, var(--pill-sand-light) 100%);
 }

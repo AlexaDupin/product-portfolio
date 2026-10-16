@@ -55,8 +55,9 @@ Personal portfolio for **Product Specialist** and **asynchronous technical suppo
 ## Design (locked mockup "Home · Final (locked)")
 
 - Fonts: Schibsted Grotesk headings (700–800, letter-spacing -0.02em), Public Sans body (400–600). No italics.
-- Palette Rose & Sand: bg #FFFFFF · ink #2A1F27 · muted #5E5560 · borders #ECE7EA · soft gray #F4F1EC · links/accents #8A2F63 · pills (changed 2026-10-16) flat dark pink #9A3C6E and sand #A86545 (the hero's bottom-right #C9825E, deepened to pass AA with white; the exact hero tone fails at 3.07:1), white semibold text, no glow or shadow · image placeholders #F6EEF2, #F4F2E6 · primary button #E6EE8E with ink text · dark sections #3B2333 · footer #2A1F27 · on dark: white, muted #EADDE6, eyebrow #F1F4C7.
-- The home hero gradient is the **only** background gradient. Everything else flat.
+- Palette Rose & Sand: bg #FFFFFF · ink #2A1F27 · muted #5E5560 · borders #ECE7EA · soft gray #F4F1EC · links/accents #8A2F63 · pills (changed 2026-10-16, owner's choice) white semibold text on a small same-hue gradient brighter toward the right: pink #9A3C6E → #BD5C8C, golden sand #CCA661 → #D8B672 (sand's right end kept subtle so white text stays readable). No glow, box-shadow or text-shadow. Known trade-off accepted by the owner: white on the sand pill is about 2:1, below WCAG AA · image placeholders #F6EEF2, #F4F2E6 · primary button #E6EE8E with ink text · dark sections #3B2333 · footer #2A1F27 · on dark: white, muted #EADDE6, eyebrow #F1F4C7.
+- The home hero gradient is the only large background gradient. Exception: pills use a small same-hue gradient (see palette). Everything else flat.
+- Buttons: hover only changes the background color (no lift, no halo).
 - Numbers never colored (ink, or white on dark). One approved exception (2026-10-16): the home metrics strip figures use a "liquid glass" text effect (translucent plum fill clipped to the text, plus a drop shadow; no diagonal light band), with a plain `CanvasText` fallback in forced-colors mode. Don't extend it elsewhere without asking.
 - No emojis, scribbles or handwritten elements.
 - Cards white with thin border; color only from pills, buttons and dark sections.
