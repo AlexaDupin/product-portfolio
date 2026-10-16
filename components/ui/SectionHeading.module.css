@@ -1,0 +1,27 @@
+.heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px 24px;
+  margin-bottom: 28px;
+}
+
+.text {
+  display: grid;
+  gap: 12px;
+}
+
+.large {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 800;
+}
+
+.medium {
+  font-size: clamp(1.5rem, 3.5vw, 2rem);
+}
+
+.lead {
+  max-width: 62ch;
+  color: var(--muted);
+}

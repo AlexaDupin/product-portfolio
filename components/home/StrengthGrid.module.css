@@ -1,0 +1,15 @@
+.grid {
+  display: grid;
+  gap: 16px;
+}
+
+.stack {
+  display: grid;
+  gap: 16px;
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1.15fr 1fr;
+  }
+}

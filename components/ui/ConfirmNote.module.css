@@ -1,0 +1,23 @@
+.note {
+  display: grid;
+  gap: 8px;
+  padding: 16px 20px;
+  border: 2px dashed var(--accent);
+  border-radius: var(--radius-sm);
+  background: var(--white);
+  font-size: 0.875rem;
+}
+
+.title {
+  color: var(--accent);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.75rem;
+}
+
+.list {
+  display: grid;
+  gap: 6px;
+  padding-left: 18px;
+}

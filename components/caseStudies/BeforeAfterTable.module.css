@@ -1,0 +1,66 @@
+.wrap {
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.table th {
+  padding: 12px 20px;
+  background: var(--soft);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+.table td {
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+  vertical-align: top;
+}
+
+.table td + td,
+.table th + th {
+  border-left: 1px solid var(--border);
+}
+
+/* Phones: each row becomes a stacked pair with its own labels. */
+@media (max-width: 639px) {
+  .table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+
+  .table tr {
+    display: grid;
+  }
+
+  .table td {
+    display: grid;
+    gap: 4px;
+  }
+
+  .table td + td {
+    border-left: 0;
+    border-top: 1px dashed var(--border);
+  }
+
+  .table td::before {
+    content: attr(data-label);
+    color: var(--muted);
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,43 @@
+.timeline {
+  display: grid;
+  gap: 0;
+  list-style: none;
+  border-left: 2px solid var(--border);
+}
+
+.item {
+  position: relative;
+  display: grid;
+  gap: 4px;
+  padding: 0 0 28px 24px;
+}
+
+.item:last-child {
+  padding-bottom: 0;
+}
+
+.item::before {
+  content: "";
+  position: absolute;
+  top: 6px;
+  left: -7px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid var(--plum);
+  border-radius: 50%;
+  background: var(--white);
+}
+
+.period {
+  color: var(--muted);
+  font-size: 0.8125rem;
+  font-weight: 600;
+}
+
+.role {
+  font-size: 1.125rem;
+}
+
+.text {
+  color: var(--muted);
+}

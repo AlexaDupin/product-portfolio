@@ -1,0 +1,40 @@
+.steps {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 16px;
+  padding: 20px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.number {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  color: var(--ink);
+  font-family: var(--font-heading);
+  font-weight: 800;
+}
+
+.body {
+  display: grid;
+  gap: 4px;
+}
+
+.title {
+  font-size: 1.0625rem;
+}
+
+.text {
+  color: var(--muted);
+}

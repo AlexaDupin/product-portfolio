@@ -1,0 +1,23 @@
+.section {
+  display: grid;
+  gap: 14px;
+}
+
+.title {
+  font-size: clamp(1.375rem, 3vw, 1.75rem);
+}
+
+.paragraph {
+  font-size: 1.0625rem;
+}
+
+.highlight {
+  padding: 28px;
+  border-radius: var(--radius);
+  background: var(--soft);
+}
+
+.highlight .paragraph {
+  font-size: 1.125rem;
+  font-weight: 500;
+}

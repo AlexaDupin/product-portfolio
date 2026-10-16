@@ -1,0 +1,46 @@
+.band {
+  background: var(--plum);
+  color: var(--white);
+}
+
+.inner {
+  display: grid;
+  gap: 32px;
+  align-items: center;
+  padding-block: var(--section-space);
+}
+
+.media {
+  aspect-ratio: 4 / 3;
+}
+
+.body {
+  display: grid;
+  justify-items: start;
+  gap: 16px;
+}
+
+.eyebrow {
+  color: var(--on-dark-eyebrow);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 2.75rem);
+  font-weight: 800;
+}
+
+.text {
+  max-width: 52ch;
+  color: var(--on-dark-muted);
+}
+
+@media (min-width: 1024px) {
+  .inner {
+    grid-template-columns: 1.1fr 1fr;
+    gap: 56px;
+  }
+}

@@ -1,0 +1,19 @@
+.pill {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 999px;
+  color: var(--pill-text);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-transform: none;
+}
+
+.pink {
+  background: var(--pill-pink-bg);
+}
+
+.sand {
+  background: var(--pill-sand-bg);
+}

@@ -1,0 +1,110 @@
+.list {
+  display: grid;
+}
+
+.item {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  gap: 4px;
+}
+
+.value {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: inherit;
+}
+
+.label {
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+/* strip */
+.strip {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.strip .item {
+  align-items: center;
+  padding: 24px 12px;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+
+.strip .item:nth-child(odd) {
+  border-right: 1px solid var(--border);
+}
+
+.strip .value {
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
+  font-weight: 800;
+  /* Liquid glass figures: translucent plum fill clipped to the text. */
+  background: linear-gradient(180deg, rgba(59, 35, 51, 0.62) 0%, rgba(59, 35, 51, 0.92) 55%, rgba(42, 31, 39, 0.8) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 1px 0 rgba(255, 255, 255, 0.9)) drop-shadow(0 3px 4px rgba(42, 31, 39, 0.22));
+}
+
+@media (forced-colors: active) {
+  .strip .value {
+    background: none;
+    color: CanvasText;
+    filter: none;
+  }
+}
+
+@media (min-width: 768px) {
+  .strip {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .strip .item {
+    padding: 32px 16px;
+    border-bottom: 0;
+    border-right: 1px solid var(--border);
+  }
+
+  .strip .item:last-child {
+    border-right: 0;
+  }
+}
+
+/* band */
+.band {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.band .item {
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: -1px;
+  border-right: 1px solid var(--border);
+  margin-right: -1px;
+}
+
+.band .value {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+}
+
+/* inline (dark) */
+.inline {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), max-content));
+  gap: 16px 32px;
+}
+
+.inline .value {
+  font-size: 1.75rem;
+  color: var(--white);
+}
+
+.inline .label {
+  color: var(--on-dark-muted);
+}

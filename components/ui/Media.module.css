@@ -1,0 +1,47 @@
+.frame {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  border-radius: var(--radius);
+  object-fit: cover;
+}
+
+.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  text-align: center;
+}
+
+.pink {
+  background: var(--placeholder-pink);
+}
+
+.sand {
+  background: var(--placeholder-sand);
+}
+
+.dark {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.label {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.dark .label {
+  color: var(--on-dark-muted);
+}
+
+.figure {
+  display: grid;
+  gap: 8px;
+}
+
+.caption {
+  color: var(--muted);
+  font-size: 0.8125rem;
+}

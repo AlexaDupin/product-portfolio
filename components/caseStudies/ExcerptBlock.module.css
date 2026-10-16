@@ -1,0 +1,28 @@
+.excerpt {
+  display: grid;
+  gap: 12px;
+  padding: 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--white);
+}
+
+.label {
+  justify-self: start;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--pill-sand-bg);
+  color: var(--pill-text);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.title {
+  font-size: 1.25rem;
+}
+
+.list {
+  display: grid;
+  gap: 8px;
+  padding-left: 20px;
+}
