@@ -155,7 +155,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Triaging app release bugs for 42 language teams",
     summary:
       "For five years I triaged localization bugs on Booking.com's iOS and Android releases, every two weeks, so they could be fixed before each release reached the stores.",
-    tags: ["Bug triage", "Jira", "SLAs", "Escalation", "Multilingual support"],
+    tags: ["Bug triage", "Jira", "SLAs", "Escalation", "Documentation", "Process improvement"],
     image: {
       label: "Release triage board",
       alt: "Hands typing on a laptop on a wooden desk",
@@ -185,7 +185,7 @@ export const caseStudies: CaseStudy[] = [
     headlines: {
       problem: "Bugs had to be fixed before each release reached the stores",
       responsibility: "I triaged the tickets from 42 language teams",
-      whatIDid: "Every ticket went through the same four steps before reaching the person who would fix it.",
+      whatIDid: "I triaged every ticket the same way and kept track of what kept going wrong.",
       outcome: "Engineers and copywriters received tickets that were already checked.",
     },
     steps: [
@@ -193,6 +193,10 @@ export const caseStudies: CaseStudy[] = [
       { title: "Check", text: "I checked the ticket was complete before passing it on." },
       { title: "Route", text: "I routed it to engineers or copywriters, depending on what needed fixing." },
       { title: "Follow up", text: "When a ticket was unclear, I followed up with the reporter in chat." },
+      {
+        title: "Document recurring issues",
+        text: "I gathered the most common problems in bug reporting, such as tickets missing information and issues teams ran into while testing, and added them to the app testing FAQ and runbook.",
+      },
     ],
     metrics: [
       { value: "5 years", label: "of triage on biweekly app releases" },
@@ -205,17 +209,14 @@ export const caseStudies: CaseStudy[] = [
       paragraphs: [
         "Most of the people I supported weren't technical. When a ticket was unclear, I followed up with the reporter directly in chat.",
         "I answered the teams' questions through the team inbox and chat, and I wrote the testing guides they used.",
-        "During high-volume incidents, I also regularly handled customer service tickets in French, English and Spanish.",
       ],
     },
     outcome: [
-      "Engineers and copywriters received tickets that had already been reproduced and checked, and reporters had someone to ask when something wasn't clear.",
+      "Reporters had someone to ask when something wasn't clear.",
+      "The most common problems were written up in the app testing FAQ and runbook, where teams could look them up.",
     ],
     approach: [
-      "I check that each ticket has what the engineer or copywriter needs to fix it, and I follow up with the reporter when something is unclear.",
-    ],
-    confirm: [
-      "A concrete, anonymized example of how you clarified an unclear ticket or instruction for a non-technical reporter.",
+      "I check that each ticket has what the engineer or copywriter needs to fix it, I follow up with the reporter when something is unclear, and I add recurring problems to the documentation.",
     ],
   },
   {
