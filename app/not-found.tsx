@@ -12,7 +12,7 @@ export default function NotFound() {
   return (
     <PageHeader eyebrow={notFoundPage.eyebrow} title={notFoundPage.title} lead={notFoundPage.lead}>
       <div>
-        <ButtonLink link={notFoundPage.cta} variant="dark" />
+        <ButtonLink link={notFoundPage.cta} variant="primary" />
       </div>
     </PageHeader>
   );

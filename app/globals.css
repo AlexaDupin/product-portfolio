@@ -19,6 +19,12 @@
   --on-dark-muted: #eadde6;
   --on-dark-eyebrow: #f1f4c7;
   --page-top: #f6eef2;
+  --hero-gradient:
+    radial-gradient(circle at 78% 30%, #b0457f 0%, rgba(176, 69, 127, 0) 34%),
+    radial-gradient(circle at 15% 70%, #a13d78 0%, rgba(161, 61, 120, 0) 30%),
+    radial-gradient(circle at 10% 10%, #8e8a3c 0%, rgba(142, 138, 60, 0) 34%),
+    radial-gradient(circle at 90% 95%, #c9825e 0%, rgba(201, 130, 94, 0) 32%),
+    linear-gradient(135deg, #3b2333 0%, #2e2a20 100%);
 
   --font-body: var(--font-public-sans), system-ui, sans-serif;
   --font-heading: var(--font-schibsted), var(--font-body);
@@ -75,7 +81,9 @@ body {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6 {
   margin: 0;
   font-family: var(--font-heading);
   font-weight: 700;

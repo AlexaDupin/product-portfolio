@@ -1,5 +1,5 @@
 import { person } from "./site";
-import type { PageMeta } from "./types";
+import type { PageMeta, TimelineEntry } from "./types";
 
 export const aboutMeta: PageMeta = {
   title: "About",
@@ -10,28 +10,37 @@ export const aboutMeta: PageMeta = {
 export const aboutPage = {
   eyebrow: "About",
   title: "I help people use products well, and I build them too.",
-  lead: `Based in ${person.location}. I speak French, English and Spanish.`,
+  lead: `Based in ${person.location}.`,
 };
 
 export const path = {
   title: "My path",
+  rolesLabel: "Roles",
   items: [
     {
-      period: "2008–2011",
-      role: "Translation project manager",
+      period: "2008 – 2011",
+      title: "Translation Project Manager",
+      icon: "document",
       text: "Client-facing, by phone and email, from quote to delivery, in French, English and Spanish.",
     },
     {
-      period: "2011–2025",
-      role: "French Localization Specialist, Booking.com",
-      text: "Localization, release triage, user testing and training.",
+      period: "2011 – 2025",
+      title: "Booking.com",
+      icon: "building",
+      logo: { src: "/images/booking-logo.png", width: 148, height: 148 },
+      text: "Localization, release triage, user testing and training. From 2019, also coordinated iOS/Android localization QA within the Mobile Support Team.",
+      roles: [
+        { role: "Localization Specialist", period: "2011 – 2025", icon: "globe" },
+        { role: "Mobile Support Team", period: "2019 – 2025", icon: "phone" },
+      ],
     },
     {
       period: "Since 2025",
-      role: "Full-stack developer, WeSwapCards",
-      text: "Building and running WeSwapCards, after a full-stack bootcamp and a French state web developer qualification in 2023.",
+      title: "Full-Stack Developer, WeSwapCards",
+      icon: "code",
+      text: "Building and running WeSwapCards, after a full-stack bootcamp and a professional web developer certification in 2023.",
     },
-  ],
+  ] satisfies TimelineEntry[],
 };
 
 export const thread = {
@@ -45,6 +54,7 @@ export const enjoy = {
   title: "What I enjoy",
   paragraphs: [
     "Getting deep into a product, testing it by hand, working out what's underneath and why behavior changes, then explaining it clearly to users. That's what I liked most at Booking.com, across the apps, the website and the partner products.",
+    "I also enjoy improving processes and building solutions that make things easier for the people who use them.",
   ],
 };
 

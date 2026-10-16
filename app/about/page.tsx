@@ -18,7 +18,7 @@ export default function AboutPage() {
       <PageHeader eyebrow={aboutPage.eyebrow} title={aboutPage.title} lead={aboutPage.lead} />
       <div className={`container ${styles.body}`}>
         <StorySection id="path" title={path.title}>
-          <Timeline items={path.items} />
+          <Timeline items={path.items} rolesLabel={path.rolesLabel} />
         </StorySection>
         <StorySection id="thread" title={thread.title} paragraphs={thread.paragraphs} highlight />
         <StorySection id="enjoy" title={enjoy.title} paragraphs={enjoy.paragraphs} />

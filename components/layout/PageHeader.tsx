@@ -12,7 +12,7 @@ interface PageHeaderProps {
   children?: ReactNode;
 }
 
-/** Flat pale pink top used on every page except Home, or an image top when a background is given. */
+/** Inner page top: the home hero gradient, or an image top when a background is given. */
 export function PageHeader({ eyebrow, title, lead, background, children }: PageHeaderProps) {
   const backgroundSrc = background?.src;
   // Screenshots carry their own text, so they're blurred to keep the headline readable.

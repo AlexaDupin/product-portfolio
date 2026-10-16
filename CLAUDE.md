@@ -56,13 +56,13 @@ Personal portfolio for **Product Specialist** and **asynchronous technical suppo
 
 - Fonts: Schibsted Grotesk headings (700–800, letter-spacing -0.02em), Public Sans body (400–600). No italics.
 - Palette Rose & Sand: bg #FFFFFF · ink #2A1F27 · muted #5E5560 · borders #ECE7EA · soft gray #F4F1EC · section tint #FAF8F4 (very light warm band behind "What I do best", added 2026-10-16) · links/accents #8A2F63 · pills (changed 2026-10-16, owner's choice) white semibold text on a small same-hue gradient brighter toward the right: pink #9A3C6E → #BD5C8C, golden sand #CCA661 → #D8B672 (sand's right end kept subtle so white text stays readable). No glow, box-shadow or text-shadow. Known trade-off accepted by the owner: white on the sand pill is about 2:1, below WCAG AA · image placeholders #F6EEF2, #F4F2E6 · primary button #E6EE8E with ink text · dark sections #3B2333 · footer #2A1F27 · on dark: white, muted #EADDE6, eyebrow #F1F4C7.
-- The home hero gradient is the only large background gradient. Exception: pills use a small same-hue gradient (see palette). Everything else flat.
+- The hero gradient (`--hero-gradient` in globals.css) is the only large background gradient, used by the home hero and every inner page top. Exception: pills use a small same-hue gradient (see palette). Everything else flat.
 - Buttons: hover only changes the background color (no lift, no halo).
 - Numbers never colored (ink, or white on dark). One approved exception (2026-10-16): the home metrics strip figures use a "liquid glass" text effect (translucent plum fill clipped to the text, plus a drop shadow; no diagonal light band), with a plain `CanvasText` fallback in forced-colors mode. Don't extend it elsewhere without asking.
 - No emojis, scribbles or handwritten elements.
 - Cards white with thin border; color only from pills, buttons and dark sections.
-- Inner page tops: flat pale pink #F6EEF2 with dark text.
-- Case study tops (changed 2026-10-16): when the case study's image has a `src`, it fills the hero under a flat plum overlay (rgba(42,31,39,0.74)) with white text, and isn't repeated in the page body. Screenshots (`device` set) are blurred so their own text doesn't compete with the headline. Case studies without an image keep the flat pink top.
+- Inner page tops (changed 2026-10-16): the same hero gradient as Home, with white text and the light eyebrow color. Applies to About, What I build, Case studies, 404 and case studies without an image.
+- Case study tops (changed 2026-10-16): when the case study's image has a `src`, it fills the hero under a flat plum overlay (rgba(42,31,39,0.74)) with white text, and isn't repeated in the page body. Screenshots (`device` set) are blurred so their own text doesn't compete with the headline. Case studies without an image use the hero gradient.
 - Subtle hover only. Nav: transparent over home hero, sticky flat plum #3B2333 after scroll and on all other pages.
 - "Coming soon" items: visible badge, not clickable, no link-like hover.
 - Images: clearly labeled placeholders until real screenshots. No stock photos with text.
@@ -71,7 +71,7 @@ Personal portfolio for **Product Specialist** and **asynchronous technical suppo
 
 - Plain, concrete, sober, confident without hype. Active voice, contractions, short paragraphs.
 - No em dashes. No buzzwords ("passionate", "results-driven", "leverage", "synergy", "game-changer"), no slogans.
-- Booking.com: public website/app screenshots only, captioned "(public version)". No internal tools, Jira tickets, betas, partner platform, internal guides or data. No logo use implying endorsement.
+- Booking.com: public website/app screenshots only, captioned "(public version)". No internal tools, Jira tickets, betas, partner platform, internal guides or data. No logo use implying endorsement. Owner-approved exception (2026-10-16): the Booking.com logo (`public/images/booking-logo.png`, supplied by the owner) marks the Booking.com entry in the About page's "My path" timeline only, as on a CV.
 
 ## Factual accuracy
 

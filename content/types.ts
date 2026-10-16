@@ -68,6 +68,25 @@ export interface Excerpt {
   items: string[];
 }
 
+export type TimelineIcon = "document" | "building" | "code" | "globe" | "phone";
+
+export interface TimelineRole {
+  role: string;
+  period: string;
+  icon: TimelineIcon;
+}
+
+export interface TimelineEntry {
+  period: string;
+  title: string;
+  icon: TimelineIcon;
+  text?: string;
+  /** A company's own logo image, shown instead of the icon. Decorative: the title names the company. */
+  logo?: { src: string; width: number; height: number };
+  /** Roles held at this company, shown branching off the entry. */
+  roles?: TimelineRole[];
+}
+
 export interface CaseStudyHeader {
   role?: string;
   context?: string;

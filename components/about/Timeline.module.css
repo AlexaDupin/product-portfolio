@@ -1,43 +1,161 @@
 .timeline {
+  --icon-size: 48px;
+  --row-gap: 24px;
   display: grid;
-  gap: 0;
+  gap: var(--row-gap);
   list-style: none;
-  border-left: 2px solid var(--border);
 }
 
 .item {
   position: relative;
   display: grid;
-  gap: 4px;
-  padding: 0 0 28px 24px;
+  grid-template-columns: var(--icon-size) minmax(0, 1fr);
+  gap: 16px;
 }
 
-.item:last-child {
-  padding-bottom: 0;
-}
-
-.item::before {
+/* Each entry draws the line from its icon down into the next icon, so it stops at the last one. */
+.item:not(:last-child)::after {
   content: "";
   position: absolute;
-  top: 6px;
-  left: -7px;
-  width: 12px;
-  height: 12px;
-  border: 2px solid var(--plum);
+  top: calc(var(--icon-size) / 2);
+  bottom: calc(-1 * (var(--row-gap) + var(--icon-size) / 2));
+  left: calc(var(--icon-size) / 2 - 1px);
+  width: 2px;
+  background: var(--border);
+}
+
+.icon {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: var(--icon-size);
+  height: var(--icon-size);
   border-radius: 50%;
+  background: var(--page-top);
+  color: var(--accent);
+  box-shadow: 0 0 0 4px var(--white);
+}
+
+.icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* A company logo image in place of the icon, same size, sitting above the line. */
+.logo {
+  position: relative;
+  z-index: 1;
+  width: var(--icon-size);
+  height: var(--icon-size);
   background: var(--white);
+  box-shadow: 0 0 0 4px var(--white);
+}
+
+.body {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  padding-top: 2px;
 }
 
 .period {
   color: var(--muted);
-  font-size: 0.8125rem;
-  font-weight: 600;
+  font-size: 0.875rem;
 }
 
-.role {
-  font-size: 1.125rem;
+.title {
+  font-size: 1.25rem;
 }
 
 .text {
   color: var(--muted);
+}
+
+/* Roles at one company branch off a thin line, each with a small icon. */
+.roles {
+  --role-icon: 40px;
+  position: relative;
+  display: grid;
+  gap: 16px;
+  margin-top: 16px;
+  padding-left: 24px;
+  list-style: none;
+}
+
+.roles::before {
+  content: "";
+  position: absolute;
+  top: calc(var(--role-icon) / 2);
+  bottom: calc(var(--role-icon) / 2);
+  left: 0;
+  width: 1px;
+  background: var(--border);
+}
+
+.role {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--role-icon) minmax(0, 1fr);
+  align-items: center;
+  gap: 14px;
+}
+
+.role::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -24px;
+  width: 18px;
+  height: 1px;
+  background: var(--border);
+}
+
+.role::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 3px);
+  left: -27px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #cfc6cc;
+}
+
+.roleIcon {
+  display: grid;
+  place-items: center;
+  width: var(--role-icon);
+  height: var(--role-icon);
+  border-radius: 50%;
+  background: var(--page-top);
+  color: var(--accent);
+}
+
+.roleIcon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.roleTitle {
+  font-family: var(--font-heading);
+  font-size: 1.0625rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+@media (min-width: 640px) {
+  .timeline {
+    --icon-size: 56px;
+    --row-gap: 32px;
+  }
+
+  .item {
+    gap: 24px;
+  }
+
+  .icon svg {
+    width: 24px;
+    height: 24px;
+  }
 }

@@ -1,15 +1,16 @@
+/* Every inner page top shares the home hero gradient, with white text. */
 .header {
+  --muted: var(--on-dark-muted);
+  --header-rule: rgba(255, 255, 255, 0.2);
   position: relative;
-  background: var(--page-top);
+  background: var(--hero-gradient);
+  color: var(--white);
 }
 
 /* Image top: the photo sits under a flat dark plum overlay so white text stays readable. */
 .withImage {
-  --muted: var(--on-dark-muted);
-  --header-rule: rgba(255, 255, 255, 0.2);
   overflow: hidden;
   background: var(--plum);
-  color: var(--white);
 }
 
 .withImage::after {
@@ -33,10 +34,6 @@
   z-index: 1;
 }
 
-.withImage .eyebrow {
-  color: var(--on-dark-eyebrow);
-}
-
 .inner {
   display: grid;
   gap: 16px;
@@ -44,7 +41,7 @@
 }
 
 .eyebrow {
-  color: var(--accent);
+  color: var(--on-dark-eyebrow);
   font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -57,8 +54,10 @@
   font-weight: 800;
 }
 
+/* Reserves two lines so a short subtitle doesn't make one page's hero shorter than the others. */
 .lead {
   max-width: 60ch;
+  min-height: 2lh;
   color: var(--muted);
   font-size: 1.0625rem;
 }

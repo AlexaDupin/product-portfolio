@@ -142,7 +142,7 @@ export const caseStudies: CaseStudy[] = [
         "Five years of triaging localization bugs on Booking.com's biweekly iOS and Android releases, reported by 42 language teams in Jira, under a 48-hour SLA.",
     },
     header: {
-      role: "French Localization Specialist, release triage",
+      role: "Localization Specialist, Mobile Support Team",
       context: "Booking.com iOS and Android apps",
       timeline: "5 years of biweekly releases",
       tools: "Jira, team inbox, chat",
@@ -209,7 +209,7 @@ export const caseStudies: CaseStudy[] = [
         "How I trained new linguists worldwide in mobile app testing through live video sessions, and onboarded 20+ new hires at Booking.com.",
     },
     header: {
-      role: "French Localization Specialist, trainer",
+      role: "Localization Specialist, Mobile Support Team",
       context: "Booking.com mobile app testing",
       tools: "Live video sessions",
     },
@@ -449,7 +449,7 @@ export const caseStudies: CaseStudy[] = [
         "The iOS and Android app testing guides I wrote for 42 language teams at Booking.com, and a sample on writing bug reports engineers can act on.",
     },
     header: {
-      role: "Author",
+      role: "Localization Specialist, Mobile Support Team",
       context: "Booking.com iOS and Android app testing",
       tools: "Jira",
     },
@@ -503,7 +503,7 @@ export const caseStudies: CaseStudy[] = [
       description: "How I rolled out SDL Trados across a translation agency, wrote the user guide and trained the team.",
     },
     header: {
-      role: "Translation project manager",
+      role: "Translation Project Manager",
       context: "Translation agency",
       tools: "SDL Trados",
     },

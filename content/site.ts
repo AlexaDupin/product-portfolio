@@ -47,7 +47,8 @@ export const nav = {
 
 export const contact = {
   title: "Let's talk",
-  text: "Open to Product Specialist and technical support roles in New York, hybrid or remote.",
+  // The non-breaking space keeps "New York" together on one line.
+  text: "Open to Product Specialist and Technical Support roles in New York, hybrid or remote.",
   cta: { label: "Connect on LinkedIn", href: links.linkedin, external: true } satisfies LinkItem,
 };
 
