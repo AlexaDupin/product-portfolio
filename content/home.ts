@@ -69,8 +69,11 @@ export const strengths: {
     ],
     image: {
       label: "Image: a bug report next to the fixed screen",
-      alt: "Placeholder for an illustration of a bug report shown next to the fixed screen",
+      alt: "Hands holding a phone with an app open, in front of a laptop on a desk",
       tone: "pink",
+      src: "/images/photo-phone-testing.jpg",
+      width: 1600,
+      height: 1200,
     },
   },
   others: [
@@ -82,8 +85,11 @@ export const strengths: {
       links: [{ label: "Training new testers", href: caseStudyPath("training-testers") }],
       image: {
         label: "Image: training",
-        alt: "Placeholder for a photo of a training session",
+        alt: "A person on a group video call, with several participants on a laptop screen",
         tone: "sand",
+        src: "/images/photo-video-call.jpg",
+        width: 1600,
+        height: 1280,
       },
     },
     {
@@ -94,8 +100,11 @@ export const strengths: {
       links: [{ label: "Usability research", href: caseStudyPath("usability-research") }],
       image: {
         label: "Image: usability session",
-        alt: "Placeholder for a photo of a usability session",
+        alt: "Two women at a table, one using a laptop while the other watches and talks with her",
         tone: "pink",
+        src: "/images/photo-usability.jpg",
+        width: 1600,
+        height: 1067,
       },
     },
   ],
@@ -117,8 +126,11 @@ export const projectBand = {
   ] satisfies Metric[],
   link: { label: "See what I build", href: routes.whatIBuild } satisfies LinkItem,
   image: {
-    label: "Screenshots: WeSwapCards on web and phone",
-    alt: "Placeholder for screenshots of WeSwapCards on a laptop and a phone",
+    label: "Screenshot: WeSwapCards home page",
+    alt: "WeSwapCards home page: \"Your duplicates are someone else's missing card\", with a button to create an account",
     tone: "pink",
+    src: "/images/weswapcards-web.jpg",
+    width: 782,
+    height: 737,
   } satisfies ImageSpec,
 };

@@ -52,8 +52,11 @@ export const caseStudies: CaseStudy[] = [
     tags: ["Troubleshooting", "Root cause analysis", "Authentication", "React", "Clerk"],
     image: {
       label: "WeSwapCards sign in",
-      alt: "Placeholder for a screenshot of the WeSwapCards sign-in page",
+      alt: "WeSwapCards sign-in page with an email field and a Continue button",
       tone: "pink",
+      src: "/images/weswapcards-sign-in.jpg",
+      width: 681,
+      height: 506,
     },
     meta: {
       title: "Login troubleshooting on WeSwapCards",
@@ -131,10 +134,12 @@ export const caseStudies: CaseStudy[] = [
       "For five years I triaged localization bugs on Booking.com's iOS and Android releases, every two weeks, so they could be fixed before each release reached the stores.",
     tags: ["Bug triage", "Jira", "SLAs", "Escalation", "Multilingual support"],
     image: {
-      label: "Booking.com app (public)",
-      alt: "Placeholder for a screenshot of the public Booking.com app",
+      label: "Release triage board",
+      alt: "Hands typing on a laptop on a wooden desk",
       tone: "sand",
-      caption: "Booking.com app (public version)",
+      src: "/images/photo-laptop-typing.jpg",
+      width: 1600,
+      height: 1067,
     },
     meta: {
       title: "Release bug triage at Booking.com",
@@ -197,8 +202,11 @@ export const caseStudies: CaseStudy[] = [
     tags: ["Onboarding", "Training", "Mobile app testing", "Remote collaboration"],
     image: {
       label: "Training session",
-      alt: "Placeholder for an image of a remote training session",
+      alt: "A person on a group video call, with several participants on a laptop screen",
       tone: "pink",
+      src: "/images/photo-video-call.jpg",
+      width: 1600,
+      height: 1280,
     },
     meta: {
       title: "Training international testers",
@@ -257,8 +265,11 @@ export const caseStudies: CaseStudy[] = [
     tags: ["Incident response", "Root cause analysis", "Monitoring", "Node.js", "Sentry"],
     image: {
       label: "Monitoring dashboard",
-      alt: "Placeholder for a screenshot of a monitoring dashboard",
+      alt: "A laptop screen showing performance charts and graphs",
       tone: "sand",
+      src: "/images/photo-dashboard.jpg",
+      width: 1600,
+      height: 1067,
     },
     meta: {
       title: "Production outage after a host upgrade",

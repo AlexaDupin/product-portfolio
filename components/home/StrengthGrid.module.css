@@ -1,3 +1,7 @@
+.band {
+  background: var(--section-tint);
+}
+
 .grid {
   display: grid;
   gap: 16px;

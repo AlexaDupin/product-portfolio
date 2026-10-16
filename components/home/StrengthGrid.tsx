@@ -6,7 +6,7 @@ import styles from "./StrengthGrid.module.css";
 
 export function StrengthGrid() {
   return (
-    <section id={anchors.whatIDoBest} className="section" aria-labelledby="strengths-title">
+    <section id={anchors.whatIDoBest} className={`section ${styles.band}`} aria-labelledby="strengths-title">
       <div className="container">
         <SectionHeading id="strengths-title" title={strengths.title} lead={strengths.lead} size="large" />
         <div className={styles.grid}>
