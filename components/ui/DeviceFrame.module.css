@@ -1,0 +1,75 @@
+/* Laptop: dark lid with a thin bezel, flat aluminium base with a finger notch. */
+.laptop {
+  width: 100%;
+  filter: drop-shadow(0 18px 24px rgba(42, 31, 39, 0.18));
+}
+
+.laptopLid {
+  padding: 2.4% 2.4% 3%;
+  border-radius: 14px 14px 4px 4px;
+  background: #1f1a1d;
+}
+
+.laptopScreen {
+  overflow: hidden;
+  border-radius: 3px;
+  background: var(--white);
+}
+
+.laptopBase {
+  position: relative;
+  width: 112%;
+  height: 0;
+  margin-left: -6%;
+  padding-bottom: 3.2%;
+  border-radius: 0 0 14px 14px;
+  background: #d8d3d6;
+}
+
+.laptopBase::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 16%;
+  height: 40%;
+  border-radius: 0 0 8px 8px;
+  background: #bfb8bc;
+  transform: translateX(-50%);
+}
+
+/* Phone: rounded dark body, slim bezel, dynamic-island pill. */
+.phone {
+  position: relative;
+  padding: 3.2%;
+  border-radius: 16% / 7.5%;
+  background: #1f1a1d;
+  filter: drop-shadow(0 18px 24px rgba(42, 31, 39, 0.25));
+}
+
+.phone::before {
+  content: "";
+  position: absolute;
+  top: 3.4%;
+  left: 50%;
+  z-index: 1;
+  width: 30%;
+  height: 3%;
+  border-radius: 999px;
+  background: #1f1a1d;
+  transform: translateX(-50%);
+}
+
+.phoneScreen {
+  overflow: hidden;
+  border-radius: 13% / 6%;
+  background: var(--white);
+}
+
+/* Screens take the screenshot's own proportions, so nothing is cropped. */
+.laptopScreen > img,
+.phoneScreen > img {
+  display: block;
+  width: 100%;
+  height: auto;
+}

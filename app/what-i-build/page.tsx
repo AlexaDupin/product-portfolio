@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/layout/PageHeader";
-import { Media } from "@/components/ui/Media";
+import { DeviceShowcase } from "@/components/ui/DeviceShowcase";
 import { Metrics } from "@/components/ui/Metrics";
 import { StorySection } from "@/components/ui/StorySection";
 import { LinkList } from "@/components/ui/LinkList";
@@ -32,7 +32,7 @@ export default function WhatIBuildPage() {
         </header>
 
         <StorySection id="why" title={why.title} paragraphs={why.paragraphs} />
-        <Media image={weswapcards.image} sizes="(min-width: 800px) 760px, 100vw" />
+        <DeviceShowcase laptop={weswapcards.laptopImage} phone={weswapcards.phoneImage} />
         <StorySection id="what" title={what.title} paragraphs={what.paragraphs} />
 
         <StorySection id="numbers" title={weswapcards.metricsTitle}>

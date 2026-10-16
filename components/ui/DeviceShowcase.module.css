@@ -1,0 +1,15 @@
+.showcase {
+  position: relative;
+  padding: 0 6% 10% 0;
+}
+
+.laptop {
+  width: 100%;
+}
+
+.phone {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 25%;
+}

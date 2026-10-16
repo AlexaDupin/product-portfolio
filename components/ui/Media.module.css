@@ -14,6 +14,22 @@
   text-align: center;
 }
 
+.stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 6% 8%;
+}
+
+.stage .laptop {
+  width: 92%;
+}
+
+.stage .phone {
+  width: 32%;
+}
+
 .pink {
   background: var(--placeholder-pink);
 }

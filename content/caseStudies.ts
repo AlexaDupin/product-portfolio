@@ -1,3 +1,4 @@
+import { weswapcardsScreens } from "./screens";
 import { links } from "./site";
 import type { CaseStudy, PageMeta } from "./types";
 
@@ -50,14 +51,7 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "Users who had just signed in kept landing back on the login page. I traced every redirect path and changed how the app tells signed-out visitors apart from signed-in users.",
     tags: ["Troubleshooting", "Root cause analysis", "Authentication", "React", "Clerk"],
-    image: {
-      label: "WeSwapCards sign in",
-      alt: "WeSwapCards sign-in page with an email field and a Continue button",
-      tone: "pink",
-      src: "/images/weswapcards-sign-in.jpg",
-      width: 681,
-      height: 506,
-    },
+    image: weswapcardsScreens.desktopChapters,
     meta: {
       title: "Login troubleshooting on WeSwapCards",
       description:

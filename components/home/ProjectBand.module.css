@@ -10,10 +10,6 @@
   padding-block: var(--section-space);
 }
 
-.media {
-  aspect-ratio: 4 / 3;
-}
-
 .body {
   display: grid;
   justify-items: start;

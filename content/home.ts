@@ -1,3 +1,4 @@
+import { weswapcardsScreens } from "./screens";
 import { anchors, caseStudyPath, routes } from "./site";
 import type { ImageSpec, LinkItem, Metric, PageMeta, PillTone } from "./types";
 
@@ -125,12 +126,6 @@ export const projectBand = {
     { value: "200,000+", label: "messages exchanged" },
   ] satisfies Metric[],
   link: { label: "See what I build", href: routes.whatIBuild } satisfies LinkItem,
-  image: {
-    label: "Screenshot: WeSwapCards home page",
-    alt: "WeSwapCards home page: \"Your duplicates are someone else's missing card\", with a button to create an account",
-    tone: "pink",
-    src: "/images/weswapcards-web.jpg",
-    width: 782,
-    height: 737,
-  } satisfies ImageSpec,
+  laptopImage: weswapcardsScreens.desktopHome,
+  phoneImage: weswapcardsScreens.iosFindCard,
 };

@@ -1,5 +1,6 @@
+import { weswapcardsScreens } from "./screens";
 import { links } from "./site";
-import type { ImageSpec, LinkItem, Metric, PageMeta } from "./types";
+import type { LinkItem, Metric, PageMeta } from "./types";
 
 export const whatIBuildMeta: PageMeta = {
   title: "What I build",
@@ -35,11 +36,8 @@ export const weswapcards = {
       "WeSwapCards runs on the web and as iOS and Android apps. I designed, built and run it alone: architecture, frontend, backend, database, auth, deployment and user support.",
     ],
   },
-  image: {
-    label: "Screenshots: WeSwapCards on web and phone",
-    alt: "Placeholder for screenshots of WeSwapCards on a laptop and a phone",
-    tone: "pink",
-  } satisfies ImageSpec,
+  laptopImage: weswapcardsScreens.desktopHome,
+  phoneImage: weswapcardsScreens.iosFindCard,
   metricsTitle: "Key numbers",
   metrics: [
     { value: "1,000+", label: "members" },

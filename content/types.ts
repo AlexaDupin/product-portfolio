@@ -8,6 +8,8 @@ export type PillTone = "pink" | "sand";
 
 export type ImageTone = "pink" | "sand";
 
+export type DeviceType = "laptop" | "phone";
+
 export interface Category {
   id: CategoryId;
   label: string;
@@ -24,6 +26,8 @@ export interface ImageSpec {
   src?: string;
   width?: number;
   height?: number;
+  /** Shows the screenshot inside a CSS laptop or phone frame. */
+  device?: DeviceType;
 }
 
 export interface LinkItem {
