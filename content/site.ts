@@ -6,7 +6,7 @@ export const person = {
   languages: "French · English · Spanish",
 };
 
-export const siteUrl = "https://alexadupin.vercel.app";
+export const siteUrl = "https://alexa-dupin.vercel.app";
 
 export const links = {
   linkedin: "https://www.linkedin.com/in/alexa-dupin/",
@@ -118,3 +118,11 @@ export const defaultMeta: PageMeta = {
 };
 
 export const titleTemplate = "%s | Alexa Dupin";
+
+/** The picture shown when a link to the site is shared (LinkedIn, Slack, messages). */
+export const shareImage = {
+  alt: "Alexa Dupin, Product Specialist & Technical Support: troubleshooting, bug triage, user enablement and process improvement.",
+  eyebrow: person.name,
+  title: "Product Specialist & Technical Support",
+  keywords: ["Troubleshooting", "Bug triage", "User enablement", "Process improvement"],
+};

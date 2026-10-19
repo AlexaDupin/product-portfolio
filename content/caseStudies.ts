@@ -768,7 +768,7 @@ export const caseStudies: CaseStudy[] = [
     title: "Adding monitoring after a production outage",
     summary:
       "After a silent outage, I added error tracking and a health check, so backend errors are recorded in Sentry and I can check the server's state on demand.",
-    tags: ["Monitoring", "Sentry", "Error handling", "Root cause analysis", "Prevention", "API"],
+    tags: ["Monitoring", "Sentry", "Error handling", "API"],
     image: {
       label: "Server rack",
       alt: "A server rack with network cables and status lights",

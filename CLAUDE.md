@@ -68,6 +68,7 @@ Personal portfolio for **Product Specialist** and **asynchronous technical suppo
 - Subtle hover only. Nav: transparent over home hero, sticky flat plum #3B2333 after scroll and on all other pages.
 - Unpublished case studies stay in content as `status: "coming-soon"` with `hidden: true` and never appear on the site (no "Coming soon" cards).
 - Images: clearly labeled placeholders until real screenshots. No stock photos with text.
+- Share preview image (`app/opengraph-image.tsx`, text in `shareImage` in `content/site.ts`) is locked (owner, 2026-10-19): dark plum with two soft pink glows, name as a small sand eyebrow, "Product Specialist & Technical Support" at 72px in Schibsted Grotesk ExtraBold (`assets/fonts/`), keywords Troubleshooting • Bug triage • User enablement • Process improvement. No link, no photos. Don't change it without asking.
 
 ## Writing rules
 
