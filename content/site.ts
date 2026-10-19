@@ -2,6 +2,8 @@ import type { Category, CategoryId, LinkItem, PageMeta } from "./types";
 
 export const person = {
   name: "Alexa Dupin",
+  /** The monogram in the browser tab and iPhone icons. */
+  initials: "AD",
   location: "Brooklyn, NY",
   languages: "French · English · Spanish",
 };

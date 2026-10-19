@@ -16,13 +16,14 @@ const background = [
   "linear-gradient(135deg, #2a1f27 0%, #3b2333 100%)",
 ].join(", ");
 
-export default async function OpenGraphImage() {
-  // TTF files: this renderer can't read the site's woff2 files from next/font. Geist is the renderer's own default font.
-  const [heading, body] = await Promise.all([
-    readFile(join(process.cwd(), "assets/fonts/SchibstedGrotesk-ExtraBold.ttf")),
-    readFile(join(process.cwd(), "node_modules/next/dist/compiled/@vercel/og/Geist-Regular.ttf")),
-  ]);
+// TTF files: this renderer can't read the site's woff2 files from next/font. Geist is the renderer's own default font.
+// Read once when the module loads, not per request, so the image stays static (prerendered at build time).
+const [heading, body] = await Promise.all([
+  readFile(join(process.cwd(), "assets/fonts/SchibstedGrotesk-ExtraBold.ttf")),
+  readFile(join(process.cwd(), "node_modules/next/dist/compiled/@vercel/og/Geist-Regular.ttf")),
+]);
 
+export default function OpenGraphImage() {
   return new ImageResponse(
     (
       <div
