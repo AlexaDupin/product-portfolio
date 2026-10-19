@@ -28,7 +28,8 @@ export interface ImageSpec {
   height?: number;
   /** Shows the screenshot inside a CSS laptop or phone frame. */
   device?: DeviceType;
-}
+  /** Blur it when used as a hero background, because its own text would compete with the headline. Screenshots (`device`) are always blurred. */
+  blurInHero?: boolean;}
 
 export interface LinkItem {
   label: string;

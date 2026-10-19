@@ -16,7 +16,7 @@ interface PageHeaderProps {
 export function PageHeader({ eyebrow, title, lead, background, children }: PageHeaderProps) {
   const backgroundSrc = background?.src;
   // Screenshots carry their own text, so they're blurred to keep the headline readable.
-  const imageClass = `${styles.backgroundImage} ${background?.device ? styles.blurred : ""}`;
+  const imageClass = `${styles.backgroundImage} ${background?.device || background?.blurInHero ? styles.blurred : ""}`;
 
   return (
     <header className={`${styles.header} ${backgroundSrc ? styles.withImage : ""}`}>

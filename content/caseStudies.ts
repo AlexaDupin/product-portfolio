@@ -49,15 +49,15 @@ export const caseStudies: CaseStudy[] = [
     slug: "login-redirects",
     status: "live",
     category: "resolve-issues",
-    title: "When signed-in users kept getting sent back to login",
+    title: "Fixing a sign-in loop on desktop",
     summary:
       "Users who had just signed in kept landing back on the login page. I helped each one with troubleshooting steps, spotted the pattern across several reports, then fixed the root cause.",
     tags: ["User support", "Troubleshooting", "Root cause analysis", "Authentication", "React", "Clerk"],
     image: weswapcardsScreens.desktopChapters,
     meta: {
-      title: "Login troubleshooting on WeSwapCards",
+      title: "Fixing a sign-in loop on desktop",
       description:
-        "How I investigated reports of signed-in users being sent back to login on WeSwapCards, found the weak point and redesigned the flow.",
+        "How I helped WeSwapCards users stuck in a sign-in loop on desktop, spotted the pattern across several reports, and fixed how the app handled missing account data.",
     },
     header: {
       role: "Solo developer and support",
@@ -146,6 +146,76 @@ export const caseStudies: CaseStudy[] = [
     },
     approach: [
       "I reply to each user with steps they can try right away. When several users report the same problem, I investigate the cause in the product and fix it there. Here, the cause was how the app handled missing account data, rather than sign-in itself.",
+    ],
+  },
+  {
+    slug: "sentry-login-alert",
+    status: "live",
+    category: "resolve-issues",
+    title: "A Sentry login alert, from triage to fix",
+    summary:
+      "Sentry flagged 11 login verification failures with no error details. I narrowed them down to one user on one iPhone over 36 seconds, then removed a single point of failure in how logins are verified.",
+    tags: ["Bug triage", "Sentry", "Log analysis", "Root cause analysis", "Working safely in production"],
+    image: {
+      label: "Recreated Sentry alert",
+      alt: "Recreated Sentry alert: \"Login verification failed\" on the live API, high priority, 11 events from 1 user, shown as a single spike on the chart",
+      tone: "pink",
+      src: "/images/sentry-alert-recreated.svg",
+      width: 1600,
+      height: 1000,
+      blurInHero: true,
+    },
+    meta: {
+      title: "A Sentry login alert, from triage to fix",
+      description:
+        "How I triaged a high-priority Sentry alert about login verification failures on WeSwapCards, narrowed it down with production evidence, and removed a single point of failure.",
+    },
+    header: {
+      role: "Solo developer and support",
+      context: "WeSwapCards",
+      timeline: "October 2026",
+      tools: "Sentry, Clerk, Node.js",
+    },
+    problem: [
+      "Sentry raised a high-priority alert: 11 login verification failures on the live API, with no error details, because Clerk discards them for this error type.",
+    ],
+    responsibility: [
+      "I own the product, so I triaged the alert, led the investigation and decided on the fix. I worked with an AI coding assistant and approved every step that touched production.",
+    ],
+    headlines: {
+      problem: "An urgent alert with no error details",
+      responsibility: "I triaged it and decided on the fix",
+      whatIDid: "I narrowed it down step by step before changing anything.",
+      outcome: "Login checks no longer depend on a network call to Clerk.",
+    },
+    steps: [
+      {
+        title: "Read the report",
+        text: "I traced the error to the login check in the API and listed the two possible causes: a network failure while fetching Clerk's signing key, or a bad login token from one device.",
+      },
+      {
+        title: "Narrowed it down",
+        text: "All the failures arrived at once, from one user on one iPhone, while their dashboard was loading. It was one person reloading a few times, not a problem spread over days.",
+      },
+      {
+        title: "Checked the evidence on production, read-only",
+        text: "The server access log showed the failures lasted 36 seconds. Public pages kept working, no other signed-in user was affected, and these were the only login failures that month. The user kept using the app normally afterward.",
+      },
+      {
+        title: "Removed a single point of failure",
+        text: "I configured Clerk to verify logins with a locally stored public key instead of downloading it each time, which removes the network dependency. It was a setting change, with no code changes.",
+      },
+      {
+        title: "Tested before trusting",
+        text: "I ran Clerk's real verification code against a test key in several formats, plus a wrong key that had to be rejected, to settle which format was safe. Then I verified the deployed value matched, checked the health endpoint, and tested real logins on web and mobile.",
+      },
+    ],
+    outcome: [
+      "The root cause wasn't proven. The change removes one of the two possible causes, so a network problem while fetching Clerk's key can no longer fail a login.",
+      "This alert existed because of the monitoring I added after the outage.",
+    ],
+    approach: [
+      "When the evidence is thin, I narrow it down step by step, test my assumptions before acting, and choose the fix that removes risk without creating new problems.",
     ],
   },
   {
@@ -309,6 +379,7 @@ export const caseStudies: CaseStudy[] = [
     header: {
       role: "Solo developer and support",
       context: "WeSwapCards production API",
+      timeline: "October 2026",
       tools: "Node.js, Clerk, Sentry",
     },
     problem: [
@@ -353,7 +424,6 @@ export const caseStudies: CaseStudy[] = [
       href: links.weswapcardsDeepDive,
       external: true,
     },
-    confirm: ["When the outage happened (month and year)."],
   },
   {
     slug: "user-reports-to-fixes",

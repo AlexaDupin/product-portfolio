@@ -50,6 +50,8 @@ async function CaseStudy({ params }: Pick<PageProps<"/case-studies/[slug]">, "pa
   }
 
   const category = categoryById(study.category);
+  // A real image becomes the hero background; a placeholder stays in the body.
+  const imageInHero = Boolean(study.image.src);
 
   return (
     <article>
@@ -57,13 +59,13 @@ async function CaseStudy({ params }: Pick<PageProps<"/case-studies/[slug]">, "pa
         eyebrow={<Pill label={category.label} tone={category.tone} />}
         title={study.title}
         lead={study.summary}
-        background={study.image}
+        background={imageInHero ? study.image : undefined}
       >
         <CaseStudyDetails header={study.header} />
       </PageHeader>
 
       <div className={`container ${styles.body}`}>
-        {!study.image.src && <Media image={study.image} sizes="(min-width: 800px) 840px, 100vw" />}
+        {!imageInHero && <Media image={study.image} sizes="(min-width: 800px) 840px, 100vw" />}
 
         <SplitPair>
           <LabeledSection

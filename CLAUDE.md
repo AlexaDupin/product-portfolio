@@ -7,7 +7,7 @@ Personal portfolio for **Product Specialist** and **asynchronous technical suppo
 - Lead with understanding users, investigating technical issues, explaining solutions, improving workflows and preventing repeat problems.
 - Technical knowledge is a differentiator, but the main story stays readable for non-engineer recruiters and hiring managers.
 - Home answers "what does she do and how" first, through three strengths ("What I do best"), each linking to the case studies that prove it.
-- Home case studies, in order: WeSwapCards login troubleshooting, Booking.com release bug triage, training international testers, production outage after a host upgrade.
+- Home case studies, in order: WeSwapCards sign-in loop ("Fixing a sign-in loop on desktop", slug `login-redirects`), Booking.com release bug triage, training international testers, production outage after a host upgrade.
 - Other case studies are easy to find on the Case studies page without equal visual weight.
 
 ## Tech and code standards
@@ -84,6 +84,7 @@ Personal portfolio for **Product Specialist** and **asynchronous technical suppo
 - No invented metrics, quotes, conversations, testimonials, satisfaction scores or logos. Constructed examples are labeled as samples.
 - Missing fact → `[CONFIRM: ...]`, visibly marked as unfinished.
 - Never claim: CI/CD, AWS/GCP/Azure, serverless, coverage percentages, Postman, "QA tooling", releases shipped "on time", or team work on WeSwapCards (solo project).
+- Sentry login alert case study (`sentry-login-alert`, added 2026-10-19): the root cause wasn't proven, so say "removed a single point of failure", never "found and fixed the bug". Keep it a small-scale process story (one user, 36 seconds, resolved on its own), not a crisis. Never identify the user ("one user on an iPhone" only). Don't mention the separate sign-up errors. No metric band. Not on the home page. Its image is a recreated alert card (`public/images/sentry-alert-recreated.svg`, used as a blurred hero background like other case studies; no on-page "recreated" caption, by owner's choice; its alt text says it is recreated) that includes the Sentry logo from Simple Icons (owner-approved), never a real Sentry screenshot: no API address, hostnames, IPs, Sentry org/project/issue IDs, Clerk instance details, file paths, release hashes, headers or user-agent.
 - WeWard's later feature: state as fact only; never suggest it copied WeSwapCards. API traffic is "at peak". Don't list Render.
 - AI job search workflow: Alexa reviews every result; never "applies automatically/in bulk". Keep it smaller than WeSwapCards; don't present her as an AI specialist.
 

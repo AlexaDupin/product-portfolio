@@ -66,7 +66,7 @@ export const strengths: {
     text: "I reproduce what users report, follow it across the product and hand engineers a clear, complete picture. Five years of app release triage at Booking.com, and every issue on my own app.",
     links: [
       { label: "Release bug triage", href: caseStudyPath("release-bug-triage") },
-      { label: "Login troubleshooting", href: caseStudyPath("login-redirects") },
+      { label: "Sign-in loop fix", href: caseStudyPath("login-redirects") },
     ],
     image: {
       label: "Image: a bug report next to the fixed screen",
