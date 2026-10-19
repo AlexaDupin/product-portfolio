@@ -661,6 +661,7 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "product-deep-dive",
     status: "coming-soon",
+    hidden: true,
     category: "understand-users",
     title: "Product deep dive",
     summary:
@@ -670,17 +671,94 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "duplicate-data-cleanup",
-    status: "coming-soon",
+    status: "live",
     category: "resolve-issues",
-    title: "Duplicate data cleanup",
+    title: "Cleaning up duplicate card records",
     summary:
-      "Found 350+ duplicate rows in PostgreSQL caused by a race condition in check-then-insert code, and fixed it with upserts and a unique index.",
-    tags: ["PostgreSQL", "Root cause analysis"],
+      "I removed 250+ duplicate records from the database and fixed the code that let them happen, so they can't come back.",
+    tags: ["PostgreSQL", "SQL", "Data integrity", "Data cleaning", "Root cause analysis", "Concurrency"],
     image: { label: "Data blocks", alt: "An abstract grid of blue blocks", tone: "sand", src: "/images/photo-data-blocks.jpg", width: 1600, height: 1000 },
+    meta: {
+      title: "Cleaning up duplicate card records",
+      description:
+        "How I found and removed 250+ duplicate records in the WeSwapCards PostgreSQL database, then fixed the cause in the app and in the database so duplicates can't be inserted again.",
+    },
+    header: {
+      role: "Solo developer and owner",
+      context: "WeSwapCards (web + mobile, Node.js/Express API, PostgreSQL)",
+      timeline: "August 2025",
+      tools: "PostgreSQL, SQL, Node.js",
+    },
+    problem: [
+      "WeSwapCards stores each user's card collection in one table: which cards they own and whether they have duplicates to trade. Nothing in the database stopped the same card from being saved twice for the same user.",
+      "The app checked whether a card existed before inserting it, in two separate steps. If two requests arrived at almost the same time, both could find no card and both could insert one. Some database operations were also launched without waiting for them to finish, which made this more likely. The result was duplicate records in users' collections.",
+    ],
+    responsibility: ["I own the whole product, so I investigated the data, cleaned it up and fixed the cause."],
+    headlines: {
+      problem: "The same card could be saved twice for one user",
+      responsibility: "I cleaned up the data and fixed the cause",
+      whatIDid: "I removed the duplicates, then blocked new ones in the app and in the database.",
+      outcome: "Duplicates are now blocked in the app and in the database.",
+    },
+    steps: [
+      {
+        title: "Investigated the data",
+        text: "I looked through the collections table in PostgreSQL and found 250+ duplicate records.",
+      },
+      { title: "Removed the duplicates", text: "I removed them by hand, directly in the database." },
+      {
+        title: "Made saving a card one step",
+        text: "I replaced the two-step check-then-insert with a single database operation (an upsert) that creates the record or updates the existing one, and skips the update when the value hasn't changed. I applied it to single card updates and to bulk updates of a whole chapter.",
+      },
+      {
+        title: "Added a rule in the database",
+        text: "I added a unique index on the user and card combination, so the database itself rejects any duplicate, whatever part of the app tries to insert it.",
+      },
+    ],
+    communication: {
+      title: "In plain terms",
+      paragraphs: [
+        "The race condition: two requests arriving at the same moment could each check for a card, find nothing and each add the same card.",
+        "The upsert: the app now asks the database to add the card or update it if it's already there, in one step, so there's no gap for a second request to slip into.",
+      ],
+    },
+    metricsTitle: "Result",
+    metrics: [{ value: "250+", label: "duplicate records removed" }],
+    beforeAfter: {
+      beforeLabel: "Before",
+      afterLabel: "After",
+      rows: [
+        {
+          before: "Two separate steps: check, then insert.",
+          after: "One upsert that creates or updates the record.",
+        },
+        {
+          before: "No rule in the database against duplicates.",
+          after: "A unique index on the user and card combination.",
+        },
+        {
+          before: "Simultaneous requests could create duplicates.",
+          after: "Duplicates can't be inserted.",
+        },
+      ],
+    },
+    outcome: [
+      "The 250+ duplicates are gone, and the unique index confirms none remained when it was created.",
+      "The app handles repeated or simultaneous requests safely, and repeating the same operation no longer creates extra records.",
+    ],
+    approach: [
+      "When I clean up bad data, I also find out why it got there and fix the cause at the level where it can't be bypassed.",
+    ],
+    deepDive: {
+      label: "Technical details on my developer portfolio",
+      href: links.weswapcardsDeepDive,
+      external: true,
+    },
   },
   {
     slug: "api-debugging",
     status: "coming-soon",
+    hidden: true,
     category: "resolve-issues",
     title: "API debugging walkthrough",
     summary:
@@ -784,15 +862,17 @@ export const caseStudies: CaseStudy[] = [
   {
     slug: "help-center-articles",
     status: "coming-soon",
+    hidden: true,
     category: "prevent-repeats",
-    title: "Help center articles, EN + FR",
-    summary: "Short articles for WeSwapCards users on sign-in issues, failed trades and account deletion.",
+    title: "Help center articles",
+    summary: "Short English articles for WeSwapCards users on sign-in issues, failed trades and account deletion.",
     tags: ["Knowledge base", "Documentation"],
     image: { label: "Reading on a tablet", alt: "A person holding a tablet", tone: "pink", src: "/images/photo-tablet-reading.jpg", width: 1600, height: 1000 },
   },
   {
     slug: "onboarding-video",
     status: "coming-soon",
+    hidden: true,
     category: "enable-users",
     title: "Onboarding video",
     summary: "A 3-minute walkthrough of one WeSwapCards feature for a first-time user.",

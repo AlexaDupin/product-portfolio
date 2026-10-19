@@ -61,7 +61,6 @@ export const footer = {
 };
 
 export const ui = {
-  comingSoon: "Coming soon",
   confirmLabel: "Unfinished: needs confirmation",
   confirmPrefix: "CONFIRM",
   newTabHint: "(opens in a new tab)",

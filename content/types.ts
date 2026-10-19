@@ -133,8 +133,10 @@ export interface LiveCaseStudy extends CaseStudyBase {
   confirm?: string[];
 }
 
+/** An unpublished idea, kept in content but never shown on the site. See BACKLOG.md. */
 export interface ComingSoonCaseStudy extends CaseStudyBase {
   status: "coming-soon";
+  hidden: true;
 }
 
 export type CaseStudy = LiveCaseStudy | ComingSoonCaseStudy;

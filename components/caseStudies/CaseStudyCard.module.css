@@ -5,10 +5,6 @@
   gap: 12px;
 }
 
-.mediaWrap {
-  position: relative;
-}
-
 .media {
   aspect-ratio: 5 / 3;
   transition: opacity 0.2s ease;
@@ -43,11 +39,11 @@
   border-radius: var(--radius);
 }
 
-.live:hover .media {
+.card:hover .media {
   opacity: 0.85;
 }
 
-.live:hover .link {
+.card:hover .link {
   text-decoration: underline;
   text-decoration-thickness: 1px;
 }
@@ -67,26 +63,4 @@
 
 .detailed .body {
   gap: 8px;
-}
-
-.soon .title {
-  color: var(--muted);
-}
-
-.soon .media {
-  opacity: 0.7;
-}
-
-.badge {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  padding: 3px 10px;
-  border-radius: 999px;
-  background: var(--ink);
-  color: var(--white);
-  font-size: 0.6875rem;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
 }

@@ -1,13 +1,13 @@
 import { CaseStudyCard } from "@/components/caseStudies/CaseStudyCard";
 import type { CardGridItem } from "@/components/caseStudies/CardGrid";
-import type { CaseStudy, CategoryId } from "@/content/types";
+import type { CategoryId, LiveCaseStudy } from "@/content/types";
 
 export interface CaseStudyCardItem extends CardGridItem {
   category: CategoryId;
 }
 
 /** Renders case studies as card items ready for a CardGrid. */
-export const toCardItems = (studies: CaseStudy[], detailed = false): CaseStudyCardItem[] =>
+export const toCardItems = (studies: LiveCaseStudy[], detailed = false): CaseStudyCardItem[] =>
   studies.map((study) => ({
     key: study.slug,
     category: study.category,

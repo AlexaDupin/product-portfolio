@@ -9,6 +9,7 @@ Personal portfolio for **Product Specialist** and **asynchronous technical suppo
 - Home answers "what does she do and how" first, through three strengths ("What I do best"), each linking to the case studies that prove it.
 - Home case studies, in order: WeSwapCards sign-in loop ("Fixing a sign-in loop on desktop", slug `login-redirects`), Booking.com release bug triage, training international testers, production outage after a host upgrade.
 - Other case studies are easy to find on the Case studies page without equal visual weight.
+- Hidden case studies and future ideas are listed in BACKLOG.md.
 
 ## Tech and code standards
 
@@ -65,7 +66,7 @@ Personal portfolio for **Product Specialist** and **asynchronous technical suppo
 - Case study tops (changed 2026-10-16): when the case study's image has a `src`, it fills the hero under a flat plum overlay (rgba(42,31,39,0.74)) with white text, and isn't repeated in the page body. Screenshots (`device` set) are blurred so their own text doesn't compete with the headline. Case studies without an image use the hero gradient.
 - Case study body (redesigned 2026-10-16): Problem and My responsibility side by side; a Result/In numbers band (single metric shown large, numbers in ink); What I did with numbered steps; What changed with the before/after table, then the outcome paragraphs (keep accuracy caveats here); How I work on the soft block. Each section has a small accent label and a one-line headline from `headlines` in content, written only from facts already on that page.
 - Subtle hover only. Nav: transparent over home hero, sticky flat plum #3B2333 after scroll and on all other pages.
-- "Coming soon" items: visible badge, not clickable, no link-like hover.
+- Unpublished case studies stay in content as `status: "coming-soon"` with `hidden: true` and never appear on the site (no "Coming soon" cards).
 - Images: clearly labeled placeholders until real screenshots. No stock photos with text.
 
 ## Writing rules
@@ -93,7 +94,7 @@ Personal portfolio for **Product Specialist** and **asynchronous technical suppo
 ## Definition of done
 
 - All pages and internal links work (run the link-check script); external links listed and confirmed.
-- "Coming soon" items visibly non-clickable.
+- No hidden case study or "Coming soon" text appears anywhere on the site.
 - Mobile nav, keyboard nav, focus states, contrast and reduced motion checked.
 - No placeholder text presented as finished content; every `[CONFIRM]` listed.
 - Every case study editable through `content/` only.
