@@ -12,6 +12,7 @@ import { LabeledSection } from "@/components/ui/LabeledSection";
 import { SplitPair } from "@/components/ui/SplitPair";
 import { ResultBand } from "@/components/caseStudies/ResultBand";
 import { Steps } from "@/components/ui/Steps";
+import { InfoColumns } from "@/components/ui/InfoColumns";
 import { BeforeAfterTable } from "@/components/caseStudies/BeforeAfterTable";
 import { ExcerptBlock } from "@/components/caseStudies/ExcerptBlock";
 import { NextCaseStudy } from "@/components/caseStudies/NextCaseStudy";
@@ -73,7 +74,13 @@ async function CaseStudy({ params }: Pick<PageProps<"/case-studies/[slug]">, "pa
             eyebrow={caseStudyLabels.problem}
             headline={study.headlines.problem}
             paragraphs={study.problem}
-          />
+          >
+            {study.links?.problem && (
+              <p>
+                <ArrowLink link={study.links.problem} />
+              </p>
+            )}
+          </LabeledSection>
           <LabeledSection
             id="responsibility"
             eyebrow={caseStudyLabels.responsibility}
@@ -110,6 +117,12 @@ async function CaseStudy({ params }: Pick<PageProps<"/case-studies/[slug]">, "pa
 
         {study.excerpt && !study.communication && <ExcerptBlock excerpt={study.excerpt} />}
 
+        {study.usage && (
+          <LabeledSection id="usage" eyebrow={study.usage.title}>
+            <InfoColumns items={study.usage.items} />
+          </LabeledSection>
+        )}
+
         <hr className={styles.rule} />
 
         <LabeledSection id="outcome" eyebrow={caseStudyLabels.outcome} headline={study.headlines.outcome}>
@@ -119,13 +132,23 @@ async function CaseStudy({ params }: Pick<PageProps<"/case-studies/[slug]">, "pa
               {paragraph}
             </p>
           ))}
+          {study.links?.outcome && (
+            <p>
+              <ArrowLink link={study.links.outcome} />
+            </p>
+          )}
         </LabeledSection>
 
         <LabeledSection id="approach" eyebrow={caseStudyLabels.approach} paragraphs={study.approach} variant="soft">
           <TagList tags={study.tags} label={caseStudyLabels.skills} showLabel onSoft />
         </LabeledSection>
 
-        {study.deepDive && <ArrowLink link={study.deepDive} />}
+        {(study.links?.end || study.deepDive) && (
+          <div className={styles.endLinks}>
+            {study.links?.end && <ArrowLink link={study.links.end} />}
+            {study.deepDive && <ArrowLink link={study.deepDive} />}
+          </div>
+        )}
 
         {study.confirm && <ConfirmNote items={study.confirm} />}
 

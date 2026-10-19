@@ -125,6 +125,10 @@ export interface LiveCaseStudy extends CaseStudyBase {
   steps?: Step[];
   communication?: TextBlock;
   excerpt?: Excerpt;
+  /** Short titled points on how something is used day to day, including its limits. */
+  usage?: { title: string; items: { title: string; text: string }[] };
+  /** Links shown inside a section, or at the end of the page, to related case studies. */
+  links?: { problem?: LinkItem; outcome?: LinkItem; end?: LinkItem };
   deepDive?: LinkItem;
   confirm?: string[];
 }

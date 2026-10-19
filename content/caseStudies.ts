@@ -1,5 +1,5 @@
 import { weswapcardsScreens } from "./screens";
-import { links } from "./site";
+import { caseStudyPath, links } from "./site";
 import type { CaseStudy, PageMeta } from "./types";
 
 export const caseStudiesMeta: PageMeta = {
@@ -173,11 +173,12 @@ export const caseStudies: CaseStudy[] = [
     header: {
       role: "Solo developer and support",
       context: "WeSwapCards",
-      timeline: "October 2026",
+      timeline: "October 14–19, 2026",
       tools: "Sentry, Clerk, Node.js",
     },
     problem: [
-      "Sentry raised a high-priority alert: 11 login verification failures on the live API, with no error details, because Clerk discards them for this error type.",
+      "On October 14, 2026, Sentry raised a high-priority alert: 11 login verification failures on the live API, with no error details, because Clerk discards them for this error type.",
+      "This was a separate, much smaller issue than the July outage: one user, 36 seconds, resolved on its own. I use it here to show how I handle a Sentry alert from start to finish.",
     ],
     responsibility: [
       "I own the product, so I triaged the alert, led the investigation and decided on the fix. I worked with an AI coding assistant and approved every step that touched production.",
@@ -203,7 +204,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "Removed a single point of failure",
-        text: "I configured Clerk to verify logins with a locally stored public key instead of downloading it each time, which removes the network dependency. It was a setting change, with no code changes.",
+        text: "On October 19, I configured Clerk to verify logins with a locally stored public key instead of downloading it each time, which removes the network dependency. It was a setting change, with no code changes.",
       },
       {
         title: "Tested before trusting",
@@ -212,11 +213,14 @@ export const caseStudies: CaseStudy[] = [
     ],
     outcome: [
       "The root cause wasn't proven. The change removes one of the two possible causes, so a network problem while fetching Clerk's key can no longer fail a login.",
-      "This alert existed because of the monitoring I added after the outage.",
+      "This alert existed because of the monitoring I added after the July outage.",
     ],
     approach: [
       "When the evidence is thin, I narrow it down step by step, test my assumptions before acting, and choose the fix that removes risk without creating new problems.",
     ],
+    links: {
+      outcome: { label: "Read how I added that monitoring", href: caseStudyPath("monitoring-after-outage") },
+    },
   },
   {
     slug: "release-bug-triage",
@@ -379,7 +383,7 @@ export const caseStudies: CaseStudy[] = [
     header: {
       role: "Solo developer and support",
       context: "WeSwapCards production API",
-      timeline: "October 2026",
+      timeline: "July 2026",
       tools: "Node.js, Clerk, Sentry",
     },
     problem: [
@@ -423,6 +427,9 @@ export const caseStudies: CaseStudy[] = [
       label: "Read the full technical deep-dive on my developer portfolio",
       href: links.weswapcardsDeepDive,
       external: true,
+    },
+    links: {
+      end: { label: "Read what I added after the outage: monitoring", href: caseStudyPath("monitoring-after-outage") },
     },
   },
   {
@@ -683,12 +690,96 @@ export const caseStudies: CaseStudy[] = [
   },
   {
     slug: "monitoring-after-outage",
-    status: "coming-soon",
+    status: "live",
     category: "prevent-repeats",
-    title: "Monitoring after the outage",
-    summary: "What I added so the next failure shows up right away.",
-    tags: ["Monitoring", "Sentry"],
-    image: { label: "Server rack", alt: "A server rack with network cables and status lights", tone: "sand", src: "/images/photo-server-rack.jpg", width: 1600, height: 1000 },
+    title: "Adding monitoring after a production outage",
+    summary:
+      "After a silent outage, I added error tracking and a health check so the next failure shows up right away.",
+    tags: ["Monitoring", "Sentry", "Error handling", "Root cause analysis", "Prevention", "API"],
+    image: {
+      label: "Server rack",
+      alt: "A server rack with network cables and status lights",
+      tone: "sand",
+      src: "/images/photo-server-rack.jpg",
+      width: 1600,
+      height: 1000,
+    },
+    meta: {
+      title: "Adding monitoring after a production outage",
+      description:
+        "How I added Sentry error tracking, a health check and centralized error handling to WeSwapCards after a silent production outage, and what that monitoring does and doesn't cover.",
+    },
+    header: {
+      role: "Solo developer and owner",
+      context: "WeSwapCards (web + mobile, one Node.js/Express API, hosted on o2switch)",
+      timeline: "July–August 2026",
+      tools: "Sentry, Node.js, Express",
+    },
+    problem: [
+      "In July 2026, a host runtime upgrade broke sign-in-protected pages. The server looked healthy, nothing in my code had changed, and nothing alerted me. I had to find the cause from the symptoms alone.",
+      "Beyond the bug itself, I had no way to see a failure as it happened or to quickly check the server's state.",
+    ],
+    responsibility: [
+      "I own the whole product, so after fixing the outage I decided what monitoring the project needed and built it.",
+    ],
+    headlines: {
+      problem: "The outage gave no warning",
+      responsibility: "I decided what monitoring the project needed",
+      whatIDid: "I added error tracking, a health check and one place to handle errors.",
+      outcome: "Backend errors now show up in Sentry instead of going unnoticed.",
+    },
+    steps: [
+      {
+        title: "Added error tracking",
+        text: "I added Sentry error tracking to the backend, so API errors, including server errors (500s), are recorded with their context instead of failing silently.",
+      },
+      {
+        title: "Added a health check",
+        text: "I added a /api/health endpoint that confirms the server is up and the settings the app needs are present.",
+      },
+      {
+        title: "Centralized error handling",
+        text: "Errors in the API are handled in one place, reported to Sentry, and users get a consistent error response.",
+      },
+    ],
+    communication: {
+      title: "In plain terms",
+      paragraphs: [
+        "Sentry is a service that records errors on the server as they happen, with enough detail to find the cause.",
+        "The health check is an address on the server I can open to confirm it's running and has the settings it needs.",
+      ],
+    },
+    usage: {
+      title: "How I use it",
+      items: [
+        { title: "During normal use", text: "Sentry reports backend errors as they happen." },
+        {
+          title: "On demand",
+          text: "I open /api/health to confirm a deploy is live, or to check the server when something looks wrong.",
+        },
+        {
+          title: "The limit",
+          text: "If the server is completely down, no errors reach Sentry. An external uptime check on /api/health would cover that.",
+        },
+        { title: "Coverage", text: "Sentry covers the backend only, not the website or the mobile apps." },
+      ],
+    },
+    outcome: [
+      "I can check the server's state in seconds instead of guessing from symptoms.",
+      "In October 2026, Sentry flagged a separate, much smaller sign-in issue: one user, for 36 seconds. I followed it from the alert to a preventive change.",
+    ],
+    approach: [
+      "After fixing a bug, I also make sure the next failure will be visible, and I'm clear about what my monitoring does and doesn't cover.",
+    ],
+    links: {
+      problem: { label: "Read the outage case study", href: caseStudyPath("production-outage") },
+      outcome: { label: "Read the Sentry alert case study", href: caseStudyPath("sentry-login-alert") },
+    },
+    deepDive: {
+      label: "Technical details on my developer portfolio",
+      href: links.weswapcardsDeepDive,
+      external: true,
+    },
   },
   {
     slug: "help-center-articles",
