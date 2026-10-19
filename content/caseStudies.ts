@@ -1,5 +1,5 @@
 import { weswapcardsScreens } from "./screens";
-import { caseStudyPath, links } from "./site";
+import { caseStudyPath } from "./site";
 import type { CaseStudy, PageMeta } from "./types";
 
 export const caseStudiesMeta: PageMeta = {
@@ -29,6 +29,7 @@ export const caseStudyLabels = {
   outcome: "What changed",
   approach: "How I work",
   communication: "Communication",
+  flow: "How the new process worked",
   skills: "Skills shown",
   metrics: "In numbers",
   next: "Next case study",
@@ -40,8 +41,8 @@ export const caseStudyLabels = {
 export const featuredSlugs = [
   "login-redirects",
   "release-bug-triage",
-  "training-testers",
-  "production-outage",
+  "in-app-bug-reporting",
+  "sentry-login-alert",
 ] as const;
 
 export const caseStudies: CaseStudy[] = [
@@ -149,6 +150,192 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
+    slug: "release-bug-triage",
+    status: "live",
+    category: "resolve-issues",
+    title: "Triaging app release bugs for 42 language teams",
+    summary:
+      "For five years I triaged localization bugs on Booking.com's iOS and Android releases, every two weeks, so they could be fixed before each release reached the stores.",
+    tags: ["Bug triage", "Jira", "SLAs", "Escalation", "Documentation", "Process improvement"],
+    image: {
+      label: "Release triage board",
+      alt: "Hands typing on a laptop on a wooden desk",
+      tone: "sand",
+      src: "/images/photo-laptop-typing.jpg",
+      width: 1600,
+      height: 1067,
+    },
+    meta: {
+      title: "Release bug triage at Booking.com",
+      description:
+        "Five years of triaging localization bugs on Booking.com's biweekly iOS and Android releases, reported by 42 language teams in Jira, under a 48-hour SLA.",
+    },
+    header: {
+      role: "Localization Specialist, Mobile Support Team",
+      context: "Booking.com iOS and Android apps",
+      timeline: "5 years of biweekly releases",
+      tools: "Jira, team inbox, chat",
+    },
+    problem: [
+      "Booking.com shipped iOS and Android releases every two weeks. Language teams tested each release and reported localization bugs and improvements in Jira.",
+      "Bugs had a 48-hour SLA so they could be fixed before the release reached the stores. Each ticket had to be real, complete and in the right hands quickly.",
+    ],
+    responsibility: [
+      "I triaged the tickets reported by 42 language teams: 20 to 100 bug and improvement tickets per release. I also answered the teams' questions through the team inbox and chat.",
+    ],
+    headlines: {
+      problem: "Bugs had to be fixed before each release reached the stores",
+      responsibility: "I triaged the tickets from 42 language teams",
+      whatIDid: "I triaged every ticket the same way and kept track of what kept going wrong.",
+      outcome: "Engineers and copywriters received tickets that were already checked.",
+    },
+    steps: [
+      { title: "Reproduce", text: "I reproduced each reported issue to confirm it and see exactly what happened." },
+      { title: "Check", text: "I checked the ticket was complete before passing it on." },
+      { title: "Route", text: "I routed it to engineers or copywriters, depending on what needed fixing." },
+      { title: "Follow up", text: "When something was missing, I went back to the reporter before passing the ticket on." },
+      {
+        title: "Document recurring issues",
+        text: "I gathered the most common problems in bug reporting, such as tickets missing information and issues teams ran into while testing, and added them to the app testing FAQ and runbook.",
+      },
+    ],
+    metrics: [
+      { value: "5 years", label: "of triage on biweekly app releases" },
+      { value: "42", label: "language teams reporting" },
+      { value: "20–100", label: "tickets per release in Jira" },
+      { value: "48 h", label: "SLA for bug fixes" },
+    ],
+    communication: {
+      title: "Working with non-technical reporters",
+      paragraphs: [
+        "Most reporters were linguists rather than engineers, so I asked for missing details in plain terms, in chat.",
+        "Between releases, the testing guides I wrote gave them a reference to check before asking.",
+      ],
+    },
+    outcome: [
+      "Reporters had someone to ask when something wasn't clear.",
+      "The most common problems were written up in the app testing FAQ and runbook, where teams could look them up.",
+    ],
+    approach: [
+      "I check that each ticket has what the engineer or copywriter needs to fix it, I follow up with the reporter when something is unclear, and I add recurring problems to the documentation.",
+    ],
+    links: {
+      end: [{ label: "The Jira process started as a spreadsheet", href: caseStudyPath("in-app-bug-reporting") }],
+    },
+  },
+  {
+    slug: "in-app-bug-reporting",
+    status: "live",
+    category: "improve-processes",
+    title: "Moving bug reporting from a spreadsheet to an in-app tool",
+    summary:
+      "I worked with an engineer to replace manual bug reporting in Google Sheets with an in-app tool that creates Jira tickets automatically, then rolled it out to 42 language teams.",
+    tags: [
+      "Process improvement",
+      "Cross-team collaboration",
+      "Jira",
+      "User acceptance testing",
+      "Rollout",
+      "Training",
+      "Documentation",
+    ],
+    image: {
+      label: "Testing on a phone",
+      alt: "Hands holding a phone with an app open, in front of a laptop on a desk",
+      tone: "pink",
+      src: "/images/photo-phone-testing.jpg",
+      width: 1600,
+      height: 1200,
+      blurInHero: true,
+    },
+    meta: {
+      title: "Moving bug reporting from a spreadsheet to an in-app tool",
+      description:
+        "How I worked with an engineer at Booking.com to replace spreadsheet bug reporting with an in-app tool that creates Jira tickets, and rolled it out to 42 language teams.",
+    },
+    header: {
+      role: "Localization Specialist, Mobile Support Team",
+      context: "Booking.com iOS and Android apps, biweekly releases, 42 language teams",
+      tools: "Jira, Google Sheets, in-app reporting tool, Workplace",
+    },
+    problem: [
+      "Language teams reported localization bugs in a shared Google Sheet. Every report took manual work: taking a screenshot, creating a short link for it, then typing in the device, app version and other technical details.",
+      "Engineers didn't check the sheet, so many localization bugs were ignored and carried over from one release to the next.",
+    ],
+    responsibility: [
+      "I represented the localization side, tested the tool and rolled it out to the language teams. The engineer built it.",
+    ],
+    headlines: {
+      problem: "Bug reports sat in a sheet engineers didn't check",
+      responsibility: "I represented the people reporting the bugs",
+      whatIDid: "I presented the process, tested every build and rolled the tool out.",
+      outcome: "Localization bugs moved into the engineers' sprint.",
+    },
+    steps: [
+      {
+        title: "Presented the process",
+        text: "I presented the reporting process to the language teams and stakeholders at the team's annual meeting in Amsterdam. An engineer's questions in the Q&A led to the idea of an in-app tool.",
+      },
+      {
+        title: "Explained what reporting needed",
+        text: "I explained what localization reporting needed: what a useful bug report had to include for engineers and copywriters to act on it.",
+      },
+      {
+        title: "Tested every build",
+        text: "I tested each build and gave feedback to fine-tune the tool, then tested the final version before it went to the language teams.",
+      },
+      {
+        title: "Rolled it out",
+        text: "I rolled it out with the app testing guide I wrote, an announcement on Workplace and training sessions. All 42 language teams switched to the new process.",
+        link: { label: "Read about the testing guides", href: caseStudyPath("testing-guides") },
+      },
+    ],
+    flow: {
+      headline: "From a shake of the phone to a fix before release",
+      label: "The new reporting process, step by step",
+      nodes: [
+        { title: "Shake the app", detail: "A reporting tool pops up." },
+        { title: "Report the bug", detail: "The screenshot, device and app version are added automatically." },
+        { title: "Jira ticket", detail: "Submitting the report creates it." },
+        { title: "Review", detail: "Each ticket is reviewed and assigned to an engineer or a copywriter." },
+        { title: "Engineer or copywriter", detail: "They fix the bug or the copy." },
+        { title: "Fixed before release", detail: "Fixing localization bugs became part of the engineers' sprint." },
+      ],
+    },
+    beforeAfter: {
+      beforeLabel: "Before",
+      afterLabel: "After",
+      rows: [
+        { before: "Bugs listed in a shared Google Sheet.", after: "Bugs reported from inside the app, with a shake." },
+        {
+          before: "Screenshots and short links made by hand, technical details typed in.",
+          after: "Screenshot and technical details added automatically.",
+        },
+        {
+          before: "Engineers didn't check the sheet.",
+          after: "A Jira ticket is created, reviewed and assigned.",
+        },
+        {
+          before: "Many localization bugs ignored and carried over between releases.",
+          after: "Localization bugs are part of the engineers' sprint.",
+        },
+      ],
+    },
+    outcome: [
+      "Reporting a bug no longer meant taking screenshots or typing technical details by hand.",
+      "Reports reached engineers in Jira, where they already worked. Fixing localization bugs became part of the engineers' sprint, to be done before each store release instead of carried over.",
+    ],
+    approach: [
+      "I look for where a process breaks, explain the need clearly to the people who can fix it, and make sure the change works for everyone who has to use it.",
+    ],
+    links: {
+      end: [
+        { label: "Read about the testing guides I wrote", href: caseStudyPath("testing-guides") },
+        { label: "Read how I triaged the tickets in Jira", href: caseStudyPath("release-bug-triage") },
+      ],
+    },
+  },
+  {
     slug: "sentry-login-alert",
     status: "live",
     category: "resolve-issues",
@@ -223,214 +410,85 @@ export const caseStudies: CaseStudy[] = [
     },
   },
   {
-    slug: "release-bug-triage",
+    slug: "duplicate-data-cleanup",
     status: "live",
     category: "resolve-issues",
-    title: "Triaging app release bugs for 42 language teams",
+    title: "Cleaning up duplicate card records",
     summary:
-      "For five years I triaged localization bugs on Booking.com's iOS and Android releases, every two weeks, so they could be fixed before each release reached the stores.",
-    tags: ["Bug triage", "Jira", "SLAs", "Escalation", "Documentation", "Process improvement"],
-    image: {
-      label: "Release triage board",
-      alt: "Hands typing on a laptop on a wooden desk",
-      tone: "sand",
-      src: "/images/photo-laptop-typing.jpg",
-      width: 1600,
-      height: 1067,
-    },
+      "I removed 250+ duplicate records from the database and fixed the code that let them happen, so they can't come back.",
+    tags: ["PostgreSQL", "SQL", "Data integrity", "Data cleaning", "Root cause analysis", "Concurrency"],
+    image: { label: "Data blocks", alt: "An abstract grid of blue blocks", tone: "sand", src: "/images/photo-data-blocks.jpg", width: 1600, height: 1000 },
     meta: {
-      title: "Release bug triage at Booking.com",
+      title: "Cleaning up duplicate card records",
       description:
-        "Five years of triaging localization bugs on Booking.com's biweekly iOS and Android releases, reported by 42 language teams in Jira, under a 48-hour SLA.",
-    },
-    header: {
-      role: "Localization Specialist, Mobile Support Team",
-      context: "Booking.com iOS and Android apps",
-      timeline: "5 years of biweekly releases",
-      tools: "Jira, team inbox, chat",
-    },
-    problem: [
-      "Booking.com shipped iOS and Android releases every two weeks. Language teams tested each release and reported localization bugs and improvements in Jira.",
-      "Bugs had a 48-hour SLA so they could be fixed before the release reached the stores. Each ticket had to be real, complete and in the right hands quickly.",
-    ],
-    responsibility: [
-      "I triaged the tickets reported by 42 language teams: 20 to 100 bug and improvement tickets per release. I also answered the teams' questions through the team inbox and chat.",
-    ],
-    headlines: {
-      problem: "Bugs had to be fixed before each release reached the stores",
-      responsibility: "I triaged the tickets from 42 language teams",
-      whatIDid: "I triaged every ticket the same way and kept track of what kept going wrong.",
-      outcome: "Engineers and copywriters received tickets that were already checked.",
-    },
-    steps: [
-      { title: "Reproduce", text: "I reproduced each reported issue to confirm it and see exactly what happened." },
-      { title: "Check", text: "I checked the ticket was complete before passing it on." },
-      { title: "Route", text: "I routed it to engineers or copywriters, depending on what needed fixing." },
-      { title: "Follow up", text: "When a ticket was unclear, I followed up with the reporter in chat." },
-      {
-        title: "Document recurring issues",
-        text: "I gathered the most common problems in bug reporting, such as tickets missing information and issues teams ran into while testing, and added them to the app testing FAQ and runbook.",
-      },
-    ],
-    metrics: [
-      { value: "5 years", label: "of triage on biweekly app releases" },
-      { value: "42", label: "language teams reporting" },
-      { value: "20–100", label: "tickets per release in Jira" },
-      { value: "48 h", label: "SLA for bug fixes" },
-    ],
-    communication: {
-      title: "Working with non-technical reporters",
-      paragraphs: [
-        "Most of the people I supported weren't technical. When a ticket was unclear, I followed up with the reporter directly in chat.",
-        "I answered the teams' questions through the team inbox and chat, and I wrote the testing guides they used.",
-      ],
-    },
-    outcome: [
-      "Reporters had someone to ask when something wasn't clear.",
-      "The most common problems were written up in the app testing FAQ and runbook, where teams could look them up.",
-    ],
-    approach: [
-      "I check that each ticket has what the engineer or copywriter needs to fix it, I follow up with the reporter when something is unclear, and I add recurring problems to the documentation.",
-    ],
-  },
-  {
-    slug: "training-testers",
-    status: "live",
-    category: "enable-users",
-    title: "Training new testers around the world",
-    summary:
-      "I trained new linguists worldwide in mobile app testing through live video sessions, and onboarded 20+ new hires on my own team.",
-    tags: ["Onboarding", "Training", "Mobile app testing", "Remote collaboration"],
-    image: {
-      label: "Training session",
-      alt: "A person on a group video call, with several participants on a laptop screen",
-      tone: "pink",
-      src: "/images/photo-video-call.jpg",
-      width: 1600,
-      height: 1280,
-    },
-    meta: {
-      title: "Training international testers",
-      description:
-        "How I trained new linguists worldwide in mobile app testing through live video sessions, and onboarded 20+ new hires at Booking.com.",
-    },
-    header: {
-      role: "Localization Specialist, Mobile Support Team",
-      context: "Booking.com mobile app testing",
-      tools: "Live video sessions",
-    },
-    problem: [
-      "New linguists joined from around the world and needed to test mobile apps. Many were nervous about the technical side.",
-    ],
-    responsibility: [
-      "I trained new linguists worldwide in mobile app testing, onboarded 20+ new hires on my own team, and was the team's go-to person for app and technical issues.",
-    ],
-    headlines: {
-      problem: "New testers were nervous about the technical side",
-      responsibility: "I trained new linguists and onboarded new hires",
-      whatIDid: "I ran the training as live video sessions.",
-      outcome: "New testers started with a test they'd already walked through.",
-    },
-    steps: [
-      {
-        title: "Scheduled across time zones",
-        text: "I set up sessions at times that worked for people from Asia to South America.",
-      },
-      {
-        title: "Ran a live test together",
-        text: "Each session walked through a real test with the new testers, step by step.",
-      },
-      {
-        title: "Stayed the go-to person",
-        text: "After training, I remained the team's go-to person for app and technical issues.",
-      },
-    ],
-    metrics: [{ value: "20+", label: "new hires onboarded on my own team" }],
-    communication: {
-      title: "Explaining technical steps to non-technical people",
-      paragraphs: [
-        "Many new linguists were nervous about the technical side. Walking through a live test together meant they saw each step happen on screen and could ask questions as they came up, instead of working it out alone from written instructions.",
-      ],
-    },
-    outcome: [
-      "New testers started with a test they'd already walked through once, and knew who to ask when something technical got in the way.",
-    ],
-    approach: [
-      "I teach technical steps by going through them with people, and I answer their questions as they come up.",
-    ],
-  },
-  {
-    slug: "production-outage",
-    status: "live",
-    category: "resolve-issues",
-    title: "Production outage after a host upgrade",
-    summary:
-      "Signed-in pages stopped returning data while the server looked healthy. I narrowed it down one step at a time to a runtime change on the host.",
-    tags: ["Incident response", "Root cause analysis", "Monitoring", "Node.js", "Sentry"],
-    image: {
-      label: "Monitoring dashboard",
-      alt: "A laptop screen showing performance charts and graphs",
-      tone: "sand",
-      src: "/images/photo-dashboard.jpg",
-      width: 1600,
-      height: 1067,
-    },
-    meta: {
-      title: "Production outage after a host upgrade",
-      description:
-        "How I traced a WeSwapCards production outage to a runtime change on the host, fixed it and added monitoring so the next failure shows up sooner.",
+        "How I found and removed 250+ duplicate records in the WeSwapCards PostgreSQL database, then fixed the cause in the app and in the database so duplicates can't be inserted again.",
     },
     header: {
       role: "Solo developer and support",
-      context: "WeSwapCards production API",
-      timeline: "July 2026",
-      tools: "Node.js, Clerk, Sentry",
+      context: "WeSwapCards (web + mobile, Node.js/Express API, PostgreSQL)",
+      timeline: "August–September 2025",
+      tools: "PostgreSQL, SQL, Node.js",
     },
     problem: [
-      "Authenticated pages on WeSwapCards stopped returning data. The server looked healthy, and nothing had changed in my code or settings.",
+      "WeSwapCards stores each user's card collection in one table: which cards they own and whether they have duplicates to trade. Nothing in the database stopped the same card from being saved twice for the same user.",
+      "The app checked whether a card existed before inserting it, in two separate steps. If two requests arrived at almost the same time, both could find no card and both could insert one. Some database operations were also launched without waiting for them to finish, which made this more likely. The result was duplicate records in users' collections.",
     ],
-    responsibility: ["I run WeSwapCards solo, so finding and fixing the outage was on me."],
+    responsibility: ["I own the whole product, so I investigated the data, cleaned it up and fixed the cause."],
     headlines: {
-      problem: "Signed-in pages stopped returning data",
-      responsibility: "Finding and fixing the outage was on me",
-      whatIDid: "I worked from the symptom to the cause, ruling things out one at a time.",
-      outcome: "Signed-in pages worked again, with more visibility into the API.",
+      problem: "The same card could be saved twice for one user",
+      responsibility: "I cleaned up the data and fixed the cause",
+      whatIDid: "I removed the duplicates, then blocked new ones in the app and in the database.",
+      outcome: "The same card can no longer be saved twice.",
     },
     steps: [
       {
-        title: "Ruled things out",
-        text: "I checked the token, the keys and the network one by one.",
+        title: "Investigated the data",
+        text: "I looked through the collections table in PostgreSQL and found 250+ duplicate records.",
+      },
+      { title: "Removed the duplicates", text: "I removed them by hand, directly in the database." },
+      {
+        title: "Made saving a card one step",
+        text: "I replaced the two-step check-then-insert with a single database operation (an upsert) that creates the record or updates the existing one. For single cards, it also skips the update when the value hasn't changed. Bulk updates of a whole chapter use the same create-or-update approach.",
       },
       {
-        title: "Found the root cause",
-        text: "The host had upgraded Node. An old node-fetch polyfill in my code was overriding the new built-in fetch and breaking Clerk's token verification. The cause was in the runtime, not my application logic.",
-      },
-      { title: "Fixed it", text: "A one-line guard fixed it." },
-      {
-        title: "Prevented a repeat",
-        text: "I added Sentry tracing and a health endpoint that checks dependencies.",
+        title: "Added a rule in the database",
+        text: "I added a unique index on the user and card combination, so the database itself rejects any duplicate, whatever part of the app tries to insert it.",
       },
     ],
     communication: {
       title: "In plain terms",
       paragraphs: [
-        "An old add-on in my code replaced something the new version of Node already had built in. The sign-in check depended on the built-in version, so signed-in requests failed even though everything else looked normal.",
+        "The race condition: two requests arriving at the same moment could each check for a card, find nothing and each add the same card.",
+        "The upsert: the app now asks the database to add the card or update it if it's already there, in one step, so there's no gap for a second request to slip into.",
+      ],
+    },
+    metricsTitle: "Result",
+    metrics: [{ value: "250+", label: "duplicate records removed" }],
+    beforeAfter: {
+      beforeLabel: "Before",
+      afterLabel: "After",
+      rows: [
+        {
+          before: "Two separate steps: check, then insert.",
+          after: "One upsert that creates or updates the record.",
+        },
+        {
+          before: "No rule in the database against duplicates.",
+          after: "A unique index on the user and card combination.",
+        },
+        {
+          before: "Simultaneous requests could create duplicates.",
+          after: "Duplicates can't be inserted.",
+        },
       ],
     },
     outcome: [
-      "Authenticated pages returned data again after the fix. Sentry tracing and the health endpoint now give me more visibility into the API and the services it depends on.",
+      "The 250+ duplicates are gone, and the unique index confirms none remained when it was created.",
+      "The app handles repeated or simultaneous requests safely, and repeating the same operation no longer creates extra records.",
     ],
     approach: [
-      "When something breaks without a code change, I also check the environment: the host, the runtime and the services the app depends on. I test one possible cause at a time.",
+      "When I clean up bad data, I also find out why it got there and fix the cause at the level where it can't be bypassed.",
     ],
-    deepDive: {
-      label: "Read the full technical deep-dive on my developer portfolio",
-      href: links.weswapcardsDeepDive,
-      external: true,
-    },
-    links: {
-      end: { label: "Read what I added after the outage: monitoring", href: caseStudyPath("monitoring-after-outage") },
-    },
   },
   {
     slug: "user-reports-to-fixes",
@@ -497,66 +555,143 @@ export const caseStudies: CaseStudy[] = [
     ],
   },
   {
-    slug: "usability-research",
+    slug: "training-testers",
     status: "live",
-    category: "understand-users",
-    title: "Usability research at Booking.com",
+    category: "enable-users",
+    title: "Training new testers around the world",
     summary:
-      "I moderated 30+ usability sessions with real users of the website and apps, and scripted sessions with hotel partners.",
-    tags: ["User research", "Usability testing", "Moderation", "Task scripting"],
+      "I trained new linguists worldwide in mobile app testing through live video sessions, and onboarded 20+ new hires on my own team.",
+    tags: ["Onboarding", "Training", "Mobile app testing", "Remote collaboration"],
     image: {
-      label: "Usability session",
-      alt: "Two women at a table, one using a laptop while the other watches and talks with her",
+      label: "Training session",
+      alt: "A person on a group video call, with several participants on a laptop screen",
+      tone: "pink",
+      src: "/images/photo-video-call.jpg",
+      width: 1600,
+      height: 1280,
+    },
+    meta: {
+      title: "Training international testers",
+      description:
+        "How I trained new linguists worldwide in mobile app testing through live video sessions, and onboarded 20+ new hires at Booking.com.",
+    },
+    header: {
+      role: "Localization Specialist, Mobile Support Team",
+      context: "Booking.com mobile app testing",
+      tools: "Live video sessions",
+    },
+    problem: [
+      "New linguists joined from around the world and needed to test mobile apps. Many were nervous about the technical side.",
+    ],
+    responsibility: [
+      "I trained new linguists worldwide in mobile app testing, onboarded 20+ new hires on my own team, and was the team's go-to person for app and technical issues.",
+    ],
+    headlines: {
+      problem: "New testers were nervous about the technical side",
+      responsibility: "I trained new linguists and onboarded new hires",
+      whatIDid: "I ran the training as live video sessions.",
+      outcome: "New testers knew the steps and who to ask.",
+    },
+    steps: [
+      {
+        title: "Scheduled across time zones",
+        text: "I set up sessions at times that worked for people from Asia to South America.",
+      },
+      {
+        title: "Ran a live test together",
+        text: "Each session walked through a real test with the new testers, step by step.",
+      },
+      {
+        title: "Stayed the go-to person",
+        text: "Once they were testing on their own, they came to me with app and technical questions.",
+      },
+    ],
+    metrics: [{ value: "20+", label: "new hires onboarded on my own team" }],
+    communication: {
+      title: "Explaining technical steps to non-technical people",
+      paragraphs: [
+        "Walking through a live test together meant they saw each step happen on screen and could ask questions as they came up, instead of working it out alone from written instructions.",
+      ],
+    },
+    outcome: [
+      "Each new tester had gone through a real test once before working alone, and knew who to contact when something technical got in the way.",
+    ],
+    approach: [
+      "I teach technical steps by going through them with people, and I answer their questions as they come up.",
+    ],
+  },
+  {
+    slug: "production-outage",
+    status: "live",
+    category: "resolve-issues",
+    title: "Production outage after a host upgrade",
+    summary:
+      "Signed-in pages stopped returning data while the server looked healthy. I narrowed it down one step at a time to a runtime change on the host.",
+    tags: ["Incident response", "Root cause analysis", "Monitoring", "Node.js", "Sentry"],
+    image: {
+      label: "Monitoring dashboard",
+      alt: "A laptop screen showing performance charts and graphs",
       tone: "sand",
-      src: "/images/photo-usability.jpg",
+      src: "/images/photo-dashboard.jpg",
       width: 1600,
       height: 1067,
     },
     meta: {
-      title: "Usability research at Booking.com",
+      title: "Production outage after a host upgrade",
       description:
-        "How I moderated 30+ usability sessions with Booking.com users and scripted task-based sessions with hotel partners.",
+        "How I traced a WeSwapCards production outage to a runtime change on the host, fixed it and added monitoring so the next failure shows up sooner.",
     },
     header: {
-      role: "Session moderator",
-      context: "Booking.com website, apps and partner platform",
+      role: "Solo developer and support",
+      context: "WeSwapCards production API",
+      timeline: "July 2026",
+      tools: "Node.js, Clerk, Sentry",
     },
     problem: [
-      "Product teams wanted to see where real people struggled with the website, the apps and the partner platform.",
+      "Authenticated pages on WeSwapCards stopped returning data. The server looked healthy, and nothing had changed in my code or settings.",
     ],
-    responsibility: [
-      "I moderated 30+ sessions with real users of the website and apps, and scripted sessions with hotel partners on the partner platform.",
-    ],
+    responsibility: ["I run WeSwapCards solo, so finding and fixing the outage was on me."],
     headlines: {
-      problem: "Product teams wanted to see where people struggled",
-      responsibility: "I moderated user sessions and scripted partner sessions",
-      whatIDid: "Each session was built around tasks, so we could watch what people actually did.",
-      outcome: "Insights went to the product team.",
+      problem: "Signed-in pages stopped returning data",
+      responsibility: "Finding and fixing the outage was on me",
+      whatIDid: "I worked from the symptom to the cause, ruling things out one at a time.",
+      outcome: "Signed-in pages worked again, with more visibility into the API.",
     },
     steps: [
       {
-        title: "Scripted the tasks",
-        text: "For hotel partner sessions, I scripted tasks for partners to complete on the partner platform.",
+        title: "Ruled things out",
+        text: "I checked the token, the keys and the network one by one.",
       },
       {
-        title: "Moderated the sessions",
-        text: "I asked participants to complete tasks and watched where they struggled.",
+        title: "Found the root cause",
+        text: "The host had upgraded Node. An old node-fetch polyfill in my code was overriding the new built-in fetch and breaking Clerk's token verification. The cause was in the runtime, not my application logic.",
       },
-      { title: "Shared insights", text: "Insights from the sessions went to the product team." },
+      { title: "Fixed it", text: "A one-line guard makes the old add-on load only when Node has no built-in fetch." },
+      {
+        title: "Added monitoring",
+        text: "I added Sentry error tracking and a health endpoint that checks the services the API depends on.",
+      },
     ],
-    metrics: [{ value: "30+", label: "usability sessions moderated" }],
+    communication: {
+      title: "In plain terms",
+      paragraphs: [
+        "An old add-on in my code replaced something the new version of Node already had built in. The sign-in check depended on the built-in version, so signed-in requests failed even though everything else looked normal.",
+      ],
+    },
     outcome: [
-      "My part was to surface where people struggled and pass those insights to the product team, who decided what to change.",
+      "Authenticated pages returned data again after the fix. Sentry tracing and the health endpoint now give me more visibility into the API and the services it depends on.",
     ],
-    approach: ["I watch people use the product, note where they struggle and pass it on to the team that can change it."],
-    confirm: [
-      "The kinds of friction you saw in sessions, described in general terms with no internal data.",
+    approach: [
+      "When something breaks without a code change, I also check the environment: the host, the runtime and the services the app depends on. I test one possible cause at a time.",
     ],
+    links: {
+      end: [{ label: "Read what I added after the outage: monitoring", href: caseStudyPath("monitoring-after-outage") }],
+    },
   },
   {
     slug: "testing-guides",
     status: "live",
-    category: "prevent-repeats",
+    category: "improve-processes",
     title: "Testing guides for 42 language teams",
     summary:
       "I wrote the iOS and Android app testing guides for all 42 language teams, from installing the beta app to reporting bugs in Jira.",
@@ -617,162 +752,22 @@ export const caseStudies: CaseStudy[] = [
     approach: [
       "When people ask the same question more than once, I add the answer to a guide.",
     ],
-  },
-  {
-    slug: "tool-rollout",
-    status: "live",
-    category: "enable-users",
-    title: "Rolling out a new tool at a translation agency",
-    summary: "I rolled out SDL Trados across a translation agency, wrote the user guide and trained the team.",
-    tags: ["Tool rollout", "Training", "Documentation"],
-    image: {
-      label: "Team training",
-      alt: "A trainer presenting to colleagues seated around a table in a meeting room",
-      tone: "pink",
-      src: "/images/photo-team-training.jpg",
-      width: 1600,
-      height: 1000,
-    },
-    meta: {
-      title: "Tool rollout at a translation agency",
-      description: "How I rolled out SDL Trados across a translation agency, wrote the user guide and trained the team.",
-    },
-    header: {
-      role: "Translation Project Manager",
-      context: "Translation agency",
-      tools: "SDL Trados",
-    },
-    problem: ["The agency moved to SDL Trados, and the whole team needed to learn it."],
-    responsibility: ["I rolled out the tool across the agency, wrote the user guide and trained the team."],
-    headlines: {
-      problem: "The whole team needed to learn a new tool",
-      responsibility: "I handled the rollout, the guide and the training",
-      whatIDid: "The rollout came with two things people could rely on: training and a written guide.",
-      outcome: "The team had training and a guide to come back to.",
-    },
-    steps: [
-      { title: "Rolled it out", text: "I rolled out SDL Trados across the agency." },
-      { title: "Wrote the guide", text: "I wrote the user guide." },
-      { title: "Trained the team", text: "I trained the team to use it." },
-    ],
-    outcome: ["The team had both training and a written guide to come back to."],
-    approach: ["When I roll out a tool, I train people on it and give them a written guide to refer back to."],
-  },
-  {
-    slug: "product-deep-dive",
-    status: "coming-soon",
-    hidden: true,
-    category: "understand-users",
-    title: "Product deep dive",
-    summary:
-      "A hands-on teardown of one public SaaS product: how it works, what changes with each setting, where users are likely to get stuck, and a short explainer for a new user.",
-    tags: ["Product analysis", "Documentation"],
-    image: { label: "Laptop work", alt: "A person typing on a laptop at a desk", tone: "pink", src: "/images/photo-laptop-work.jpg", width: 1600, height: 1000 },
-  },
-  {
-    slug: "duplicate-data-cleanup",
-    status: "live",
-    category: "resolve-issues",
-    title: "Cleaning up duplicate card records",
-    summary:
-      "I removed 250+ duplicate records from the database and fixed the code that let them happen, so they can't come back.",
-    tags: ["PostgreSQL", "SQL", "Data integrity", "Data cleaning", "Root cause analysis", "Concurrency"],
-    image: { label: "Data blocks", alt: "An abstract grid of blue blocks", tone: "sand", src: "/images/photo-data-blocks.jpg", width: 1600, height: 1000 },
-    meta: {
-      title: "Cleaning up duplicate card records",
-      description:
-        "How I found and removed 250+ duplicate records in the WeSwapCards PostgreSQL database, then fixed the cause in the app and in the database so duplicates can't be inserted again.",
-    },
-    header: {
-      role: "Solo developer and owner",
-      context: "WeSwapCards (web + mobile, Node.js/Express API, PostgreSQL)",
-      timeline: "August 2025",
-      tools: "PostgreSQL, SQL, Node.js",
-    },
-    problem: [
-      "WeSwapCards stores each user's card collection in one table: which cards they own and whether they have duplicates to trade. Nothing in the database stopped the same card from being saved twice for the same user.",
-      "The app checked whether a card existed before inserting it, in two separate steps. If two requests arrived at almost the same time, both could find no card and both could insert one. Some database operations were also launched without waiting for them to finish, which made this more likely. The result was duplicate records in users' collections.",
-    ],
-    responsibility: ["I own the whole product, so I investigated the data, cleaned it up and fixed the cause."],
-    headlines: {
-      problem: "The same card could be saved twice for one user",
-      responsibility: "I cleaned up the data and fixed the cause",
-      whatIDid: "I removed the duplicates, then blocked new ones in the app and in the database.",
-      outcome: "Duplicates are now blocked in the app and in the database.",
-    },
-    steps: [
-      {
-        title: "Investigated the data",
-        text: "I looked through the collections table in PostgreSQL and found 250+ duplicate records.",
-      },
-      { title: "Removed the duplicates", text: "I removed them by hand, directly in the database." },
-      {
-        title: "Made saving a card one step",
-        text: "I replaced the two-step check-then-insert with a single database operation (an upsert) that creates the record or updates the existing one, and skips the update when the value hasn't changed. I applied it to single card updates and to bulk updates of a whole chapter.",
-      },
-      {
-        title: "Added a rule in the database",
-        text: "I added a unique index on the user and card combination, so the database itself rejects any duplicate, whatever part of the app tries to insert it.",
-      },
-    ],
-    communication: {
-      title: "In plain terms",
-      paragraphs: [
-        "The race condition: two requests arriving at the same moment could each check for a card, find nothing and each add the same card.",
-        "The upsert: the app now asks the database to add the card or update it if it's already there, in one step, so there's no gap for a second request to slip into.",
-      ],
-    },
-    metricsTitle: "Result",
-    metrics: [{ value: "250+", label: "duplicate records removed" }],
-    beforeAfter: {
-      beforeLabel: "Before",
-      afterLabel: "After",
-      rows: [
+    links: {
+      end: [
         {
-          before: "Two separate steps: check, then insert.",
-          after: "One upsert that creates or updates the record.",
-        },
-        {
-          before: "No rule in the database against duplicates.",
-          after: "A unique index on the user and card combination.",
-        },
-        {
-          before: "Simultaneous requests could create duplicates.",
-          after: "Duplicates can't be inserted.",
+          label: "The guide also covered the in-app reporting tool: read how it replaced a spreadsheet",
+          href: caseStudyPath("in-app-bug-reporting"),
         },
       ],
     },
-    outcome: [
-      "The 250+ duplicates are gone, and the unique index confirms none remained when it was created.",
-      "The app handles repeated or simultaneous requests safely, and repeating the same operation no longer creates extra records.",
-    ],
-    approach: [
-      "When I clean up bad data, I also find out why it got there and fix the cause at the level where it can't be bypassed.",
-    ],
-    deepDive: {
-      label: "Technical details on my developer portfolio",
-      href: links.weswapcardsDeepDive,
-      external: true,
-    },
-  },
-  {
-    slug: "api-debugging",
-    status: "coming-soon",
-    hidden: true,
-    category: "resolve-issues",
-    title: "API debugging walkthrough",
-    summary:
-      "Reproducing an expired token, a bad payload and a rejected webhook signature, step by step, in an API client.",
-    tags: ["APIs", "Troubleshooting"],
-    image: { label: "Code on screen", alt: "Code on a computer screen", tone: "pink", src: "/images/photo-code-screen.jpg", width: 1600, height: 1000 },
   },
   {
     slug: "monitoring-after-outage",
     status: "live",
-    category: "prevent-repeats",
+    category: "improve-processes",
     title: "Adding monitoring after a production outage",
     summary:
-      "After a silent outage, I added error tracking and a health check so the next failure shows up right away.",
+      "After a silent outage, I added error tracking and a health check, so backend errors are recorded in Sentry and I can check the server's state on demand.",
     tags: ["Monitoring", "Sentry", "Error handling", "Root cause analysis", "Prevention", "API"],
     image: {
       label: "Server rack",
@@ -785,10 +780,10 @@ export const caseStudies: CaseStudy[] = [
     meta: {
       title: "Adding monitoring after a production outage",
       description:
-        "How I added Sentry error tracking, a health check and centralized error handling to WeSwapCards after a silent production outage, and what that monitoring does and doesn't cover.",
+        "How I added Sentry error tracking and a health check to the WeSwapCards API after a silent production outage, and what that monitoring does and doesn't cover.",
     },
     header: {
-      role: "Solo developer and owner",
+      role: "Solo developer and support",
       context: "WeSwapCards (web + mobile, one Node.js/Express API, hosted on o2switch)",
       timeline: "July–August 2026",
       tools: "Sentry, Node.js, Express",
@@ -803,28 +798,28 @@ export const caseStudies: CaseStudy[] = [
     headlines: {
       problem: "The outage gave no warning",
       responsibility: "I decided what monitoring the project needed",
-      whatIDid: "I added error tracking, a health check and one place to handle errors.",
+      whatIDid: "I added error tracking and a health check, and started handling errors in one place.",
       outcome: "Backend errors now show up in Sentry instead of going unnoticed.",
     },
     steps: [
       {
         title: "Added error tracking",
-        text: "I added Sentry error tracking to the backend, so API errors, including server errors (500s), are recorded with their context instead of failing silently.",
+        text: "I added Sentry to the backend, so API errors, including server errors (500s), are recorded with their context instead of failing silently. It also traces a share of requests, which shows where time goes when something is slow.",
       },
       {
         title: "Added a health check",
-        text: "I added a /api/health endpoint that confirms the server is up and the settings the app needs are present.",
+        text: "I added a /api/health endpoint that checks the database, the settings the app needs and Clerk's sign-in service, and reports whether the server is healthy or degraded.",
       },
       {
-        title: "Centralized error handling",
-        text: "Errors in the API are handled in one place, reported to Sentry, and users get a consistent error response.",
+        title: "Started centralizing error handling",
+        text: "I added one error handler that reports to Sentry and returns a consistent response. Part of the API uses it so far; other routes still return their own errors.",
       },
     ],
     communication: {
       title: "In plain terms",
       paragraphs: [
         "Sentry is a service that records errors on the server as they happen, with enough detail to find the cause.",
-        "The health check is an address on the server I can open to confirm it's running and has the settings it needs.",
+        "The health check is an address on the server I can open to confirm it's running and that the database, its settings and the sign-in service respond.",
       ],
     },
     usage: {
@@ -853,21 +848,141 @@ export const caseStudies: CaseStudy[] = [
       problem: { label: "Read the outage case study", href: caseStudyPath("production-outage") },
       outcome: { label: "Read the Sentry alert case study", href: caseStudyPath("sentry-login-alert") },
     },
-    deepDive: {
-      label: "Technical details on my developer portfolio",
-      href: links.weswapcardsDeepDive,
-      external: true,
+  },
+  {
+    slug: "tool-rollout",
+    status: "live",
+    category: "enable-users",
+    title: "Rolling out a new tool at a translation agency",
+    summary:
+      "I rolled out SDL Trados at a translation agency and trained the team. Using its word counts and repetition analysis cut quote preparation time by 40 to 60%.",
+    tags: ["Tool rollout", "Training", "Documentation", "Process improvement"],
+    image: {
+      label: "Team training",
+      alt: "A trainer presenting to colleagues seated around a table in a meeting room",
+      tone: "pink",
+      src: "/images/photo-team-training.jpg",
+      width: 1600,
+      height: 1000,
     },
+    meta: {
+      title: "Tool rollout at a translation agency",
+      description:
+        "How I rolled out SDL Trados at a translation agency, trained a team of four and cut quote preparation time by 40 to 60%.",
+    },
+    header: {
+      role: "Translation Project Manager",
+      context: "Translation agency, team of four",
+      tools: "SDL Trados",
+    },
+    problem: ["The agency moved to SDL Trados, and the team of four needed to learn it."],
+    responsibility: ["I led the rollout across the agency, wrote the user guide and trained the team."],
+    headlines: {
+      problem: "A team of four had to switch to a new tool",
+      responsibility: "I led the rollout, from setup to training",
+      whatIDid: "I connected the tool to our quoting, then taught the team to use it.",
+      outcome: "Quotes took 40 to 60% less time to prepare.",
+    },
+    steps: [
+      {
+        title: "Brought it into quoting",
+        text: "I integrated the tool's word counts and repetition analysis into how we prepared quotes.",
+      },
+      { title: "Wrote the guide", text: "I wrote a user guide the team could refer to after training." },
+      { title: "Trained the team", text: "I trained my colleagues to use it in their daily work." },
+    ],
+    metricsTitle: "Result",
+    metrics: [{ value: "40–60%", label: "less time to prepare a quote" }],
+    outcome: [
+      "With the word counts and repetition analysis built in, preparing a quote took 40 to 60% less time. After the training, the team also had a written guide to come back to.",
+    ],
+    approach: ["When I roll out a tool, I connect it to the work people already do, then train them and leave a guide behind."],
+  },
+  {
+    slug: "usability-research",
+    status: "live",
+    category: "understand-users",
+    title: "Usability research at Booking.com",
+    summary:
+      "I moderated 30+ usability sessions with real users of the website and apps, and scripted sessions with hotel partners.",
+    tags: ["User research", "Usability testing", "Moderation", "Task scripting"],
+    image: {
+      label: "Usability session",
+      alt: "Two women at a table, one using a laptop while the other watches and talks with her",
+      tone: "sand",
+      src: "/images/photo-usability.jpg",
+      width: 1600,
+      height: 1067,
+    },
+    meta: {
+      title: "Usability research at Booking.com",
+      description:
+        "How I moderated 30+ usability sessions with Booking.com users and scripted task-based sessions with hotel partners.",
+    },
+    header: {
+      role: "Session moderator",
+      context: "Booking.com website, apps and partner platform",
+    },
+    problem: [
+      "Product teams wanted to see where real people struggled with the website, the apps and the partner platform.",
+    ],
+    responsibility: [
+      "I moderated 30+ sessions with real users of the website and apps, and scripted sessions with hotel partners on the partner platform.",
+    ],
+    headlines: {
+      problem: "Product teams wanted to see where people struggled",
+      responsibility: "I moderated user sessions and scripted partner sessions",
+      whatIDid: "Each session was built around tasks, so we could watch what people actually did.",
+      outcome: "The product team decided what to change.",
+    },
+    steps: [
+      {
+        title: "Scripted the tasks",
+        text: "For hotel partner sessions, I scripted tasks for partners to complete on the partner platform.",
+      },
+      {
+        title: "Moderated the sessions",
+        text: "I asked participants to complete tasks and watched where they struggled.",
+      },
+      { title: "Reported back", text: "I reported what we observed to the product team." },
+    ],
+    metrics: [{ value: "30+", label: "usability sessions moderated" }],
+    outcome: [
+      "My part was to surface where people struggled and pass those insights to the product team, who decided what to change.",
+    ],
+    approach: ["I keep my role to observing and reporting, and leave product decisions to the team that owns them."],
   },
   {
     slug: "help-center-articles",
     status: "coming-soon",
     hidden: true,
-    category: "prevent-repeats",
+    category: "enable-users",
     title: "Help center articles",
     summary: "Short English articles for WeSwapCards users on sign-in issues, failed trades and account deletion.",
     tags: ["Knowledge base", "Documentation"],
     image: { label: "Reading on a tablet", alt: "A person holding a tablet", tone: "pink", src: "/images/photo-tablet-reading.jpg", width: 1600, height: 1000 },
+  },
+  {
+    slug: "api-debugging",
+    status: "coming-soon",
+    hidden: true,
+    category: "resolve-issues",
+    title: "API debugging walkthrough",
+    summary:
+      "Reproducing an expired token, a bad payload and a rejected webhook signature, step by step, in an API client.",
+    tags: ["APIs", "Troubleshooting"],
+    image: { label: "Code on screen", alt: "Code on a computer screen", tone: "pink", src: "/images/photo-code-screen.jpg", width: 1600, height: 1000 },
+  },
+  {
+    slug: "product-deep-dive",
+    status: "coming-soon",
+    hidden: true,
+    category: "understand-users",
+    title: "Product deep dive",
+    summary:
+      "A hands-on teardown of one public SaaS product: how it works, what changes with each setting, where users are likely to get stuck, and a short explainer for a new user.",
+    tags: ["Product analysis", "Documentation"],
+    image: { label: "Laptop work", alt: "A person typing on a laptop at a desk", tone: "pink", src: "/images/photo-laptop-work.jpg", width: 1600, height: 1000 },
   },
   {
     slug: "onboarding-video",

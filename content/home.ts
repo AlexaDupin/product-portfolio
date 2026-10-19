@@ -83,7 +83,10 @@ export const strengths: {
       tone: "sand",
       title: "I explain technical steps so people can act on them.",
       text: "Testing guides for 42 teams and live training for new testers worldwide.",
-      links: [{ label: "Training new testers", href: caseStudyPath("training-testers") }],
+      links: [
+        { label: "Training new testers", href: caseStudyPath("training-testers") },
+        { label: "Testing guides", href: caseStudyPath("testing-guides") },
+      ],
       image: {
         label: "Image: training",
         alt: "A person on a group video call, with several participants on a laptop screen",
@@ -98,7 +101,10 @@ export const strengths: {
       tone: "pink",
       title: "I bring what users struggle with back to the product.",
       text: "30+ usability sessions, and user reports turned into fixes on my own app.",
-      links: [{ label: "Usability research", href: caseStudyPath("usability-research") }],
+      links: [
+        { label: "Usability research", href: caseStudyPath("usability-research") },
+        { label: "User reports to fixes", href: caseStudyPath("user-reports-to-fixes") },
+      ],
       image: {
         label: "Image: usability session",
         alt: "Two women at a table, one using a laptop while the other watches and talks with her",

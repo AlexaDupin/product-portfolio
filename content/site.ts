@@ -82,10 +82,10 @@ export const categories: Category[] = [
     description: "Reproducing problems, finding the real cause and getting them fixed.",
   },
   {
-    id: "prevent-repeats",
-    label: "Prevent repeats",
+    id: "improve-processes",
+    label: "Improve processes",
     tone: "sand",
-    description: "Writing things down and adding checks so the same problem doesn't come back.",
+    description: "Making the way work gets done clearer and more reliable, with better tools, guides and checks.",
   },
   {
     id: "enable-users",

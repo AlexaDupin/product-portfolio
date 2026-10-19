@@ -85,7 +85,7 @@ export const weswapcards = {
       },
       {
         title: "Run it and support users",
-        text: "I handle all user support and reports myself, turn reports into fixes, and use Sentry to catch errors in production.",
+        text: "I handle all user support and reports myself, turn reports into fixes, and use Sentry to catch API errors in production.",
       },
     ],
   },

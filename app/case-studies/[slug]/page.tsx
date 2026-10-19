@@ -15,6 +15,7 @@ import { Steps } from "@/components/ui/Steps";
 import { InfoColumns } from "@/components/ui/InfoColumns";
 import { BeforeAfterTable } from "@/components/caseStudies/BeforeAfterTable";
 import { ExcerptBlock } from "@/components/caseStudies/ExcerptBlock";
+import { ProcessFlow } from "@/components/caseStudies/ProcessFlow";
 import { NextCaseStudy } from "@/components/caseStudies/NextCaseStudy";
 import { CaseStudyFallback } from "@/components/caseStudies/CaseStudyFallback";
 import { caseStudyLabels } from "@/content/caseStudies";
@@ -99,6 +100,12 @@ async function CaseStudy({ params }: Pick<PageProps<"/case-studies/[slug]">, "pa
           {study.steps && <Steps steps={study.steps} />}
         </LabeledSection>
 
+        {study.flow && (
+          <LabeledSection id="process" eyebrow={caseStudyLabels.flow} headline={study.flow.headline}>
+            <ProcessFlow label={study.flow.label} nodes={study.flow.nodes} />
+          </LabeledSection>
+        )}
+
         {study.communication && (
           <>
             <hr className={styles.rule} />
@@ -145,7 +152,9 @@ async function CaseStudy({ params }: Pick<PageProps<"/case-studies/[slug]">, "pa
 
         {(study.links?.end || study.deepDive) && (
           <div className={styles.endLinks}>
-            {study.links?.end && <ArrowLink link={study.links.end} />}
+            {study.links?.end?.map((link) => (
+              <ArrowLink key={link.href} link={link} />
+            ))}
             {study.deepDive && <ArrowLink link={study.deepDive} />}
           </div>
         )}

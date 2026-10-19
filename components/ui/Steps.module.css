@@ -51,6 +51,10 @@
   color: var(--muted);
 }
 
+.link {
+  margin-top: 4px;
+}
+
 @media (min-width: 640px) {
   .step {
     gap: 32px;

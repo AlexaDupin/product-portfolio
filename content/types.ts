@@ -1,7 +1,7 @@
 export type CategoryId =
   | "understand-users"
   | "resolve-issues"
-  | "prevent-repeats"
+  | "improve-processes"
   | "enable-users";
 
 export type PillTone = "pink" | "sand";
@@ -52,6 +52,8 @@ export interface PageMeta {
 export interface Step {
   title: string;
   text: string;
+  /** A related page, linked under the step text. */
+  link?: LinkItem;
 }
 
 export interface BeforeAfter {
@@ -125,10 +127,12 @@ export interface LiveCaseStudy extends CaseStudyBase {
   steps?: Step[];
   communication?: TextBlock;
   excerpt?: Excerpt;
+  /** A process shown as a simple top-to-bottom diagram, after the steps. */
+  flow?: { headline: string; label: string; nodes: { title: string; detail: string }[] };
   /** Short titled points on how something is used day to day, including its limits. */
   usage?: { title: string; items: { title: string; text: string }[] };
   /** Links shown inside a section, or at the end of the page, to related case studies. */
-  links?: { problem?: LinkItem; outcome?: LinkItem; end?: LinkItem };
+  links?: { problem?: LinkItem; outcome?: LinkItem; end?: LinkItem[] };
   deepDive?: LinkItem;
   confirm?: string[];
 }
