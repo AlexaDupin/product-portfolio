@@ -37,7 +37,7 @@ Personal portfolio for **Product Specialist** and **asynchronous technical suppo
 ## Security
 
 - No secrets, `.env` files, contact form, email address or CV. Only contact: LinkedIn.
-- No analytics, tracking, chat widgets or third-party scripts without approval.
+- No analytics, tracking, chat widgets or third-party scripts without approval. Approved (owner, 2026-10-20): Vercel Web Analytics only, via `@vercel/analytics` (pinned) and `<Analytics />` in the root layout. It's cookieless and served from the site's own domain, so the CSP stays same-origin. Nothing else.
 - No `dangerouslySetInnerHTML`. New-tab external links use `rel="noopener noreferrer"`.
 - Security headers in `next.config` (CSP for a static site, X-Content-Type-Options, Referrer-Policy, frame protection); verify fonts and images still load.
 - Fonts via `next/font` only.

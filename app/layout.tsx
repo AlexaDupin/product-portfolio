@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Public_Sans, Schibsted_Grotesk } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { SiteNav } from "@/components/layout/SiteNav";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { ContactSection } from "@/components/layout/ContactSection";
@@ -50,6 +51,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <ContactSection />
         </main>
         <SiteFooter />
+        {/* Vercel Web Analytics: cookieless page views, served from this site's own domain on Vercel. */}
+        <Analytics />
       </body>
     </html>
   );
