@@ -7,14 +7,14 @@ interface SectionHeadingProps {
   title: string;
   lead?: string;
   action?: LinkItem;
-  size?: "large" | "medium";
 }
 
-export function SectionHeading({ id, title, lead, action, size = "medium" }: SectionHeadingProps) {
+/** Home section heading: short accent bar, large title, optional lead and a link on the right. */
+export function SectionHeading({ id, title, lead, action }: SectionHeadingProps) {
   return (
     <div className={styles.heading}>
       <div className={styles.text}>
-        <h2 id={id} className={styles[size]}>
+        <h2 id={id} className={styles.title}>
           {title}
         </h2>
         {lead && <p className={styles.lead}>{lead}</p>}

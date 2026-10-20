@@ -4,21 +4,28 @@
   align-items: flex-end;
   justify-content: space-between;
   gap: 12px 24px;
-  margin-bottom: clamp(28px, 4vw, 44px);
+  margin-bottom: clamp(32px, 5vw, 56px);
 }
 
 .text {
   display: grid;
-  gap: 12px;
+  gap: 14px;
 }
 
-.large {
+/* Short accent bar above the title, as in the home mockup. */
+.text::before {
+  content: "";
+  width: 32px;
+  height: 3px;
+  margin-bottom: 6px;
+  border-radius: 2px;
+  background: var(--accent);
+}
+
+/* One size for every home section title. */
+.title {
   font-size: clamp(2rem, 5vw, 3rem);
   font-weight: 800;
-}
-
-.medium {
-  font-size: clamp(1.5rem, 3.5vw, 2rem);
 }
 
 .lead {

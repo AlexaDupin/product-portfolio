@@ -34,6 +34,12 @@
   list-style: none;
 }
 
+/* The smaller cards list their links one per line, whatever the text width. */
+.compact .links {
+  flex-direction: column;
+  gap: 6px;
+}
+
 .chip {
   display: inline-block;
   padding: 6px 14px;

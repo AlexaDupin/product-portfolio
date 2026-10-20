@@ -85,12 +85,12 @@ export const strengths: {
       { label: "Sign-in loop fix", href: caseStudyPath("login-redirects") },
     ],
     image: {
-      label: "Image: a bug report next to the fixed screen",
-      alt: "Hands holding a phone with an app open, in front of a laptop on a desk",
+      label: "Image: checking an app on a phone next to a laptop",
+      alt: "A person looking at a phone, with an open laptop beside them on a desk",
       tone: "pink",
-      src: "/images/photo-phone-testing.jpg",
+      src: "/images/photo-phone-laptop.jpg",
       width: 1600,
-      height: 1200,
+      height: 1067,
     },
   },
   others: [

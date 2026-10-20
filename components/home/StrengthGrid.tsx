@@ -8,7 +8,7 @@ export function StrengthGrid() {
   return (
     <section id={anchors.whatIDoBest} className={`section ${styles.band}`} aria-labelledby="strengths-title">
       <div className="container">
-        <SectionHeading id="strengths-title" title={strengths.title} lead={strengths.lead} size="large" />
+        <SectionHeading id="strengths-title" title={strengths.title} lead={strengths.lead} />
         <div className={styles.grid}>
           <StrengthCard strength={strengths.featured} featured />
           <div className={styles.stack}>
