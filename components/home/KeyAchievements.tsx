@@ -10,8 +10,9 @@ export function KeyAchievements() {
       <div className="container">
         <SectionHeading id="achievements-title" title={achievements.title} />
         <ul className={styles.grid}>
-          {achievements.items.map(({ title, text, link }) => (
+          {achievements.items.map(({ context, title, text, link }) => (
             <li key={title} className={styles.card}>
+              <p className={styles.context}>{context}</p>
               <h3 className={styles.headline}>{title}</h3>
               <p className={styles.text}>{text}</p>
               <p className={styles.link}>

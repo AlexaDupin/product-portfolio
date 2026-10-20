@@ -56,10 +56,14 @@ export interface Step {
   link?: LinkItem;
 }
 
+export type PriorityLevel = "high" | "moderate" | "low";
+
 export interface BeforeAfter {
   beforeLabel: string;
   afterLabel: string;
-  rows: { before: string; after: string }[];
+  /** Header for an optional first column showing each row's priority. */
+  priorityLabel?: string;
+  rows: { before: string; after: string; priority?: { level: PriorityLevel; label: string } }[];
 }
 
 export interface TextBlock {
@@ -69,11 +73,12 @@ export interface TextBlock {
 
 export interface Excerpt {
   title: string;
-  /** Required for constructed examples ("Sample written for this portfolio"); omit for real communications. */
+  /** A note shown above the steps, e.g. for a constructed sample; omit when the content reflects the real material. */
   label?: string;
   /** "mail" for messages sent to users, "document" for guides. */
   icon: "mail" | "document";
-  items: string[];
+  /** Each step, optionally with an example shown on its own line below it. */
+  items: (string | { text: string; example: string })[];
 }
 
 export type TimelineIcon = "document" | "building" | "code" | "globe" | "phone";
@@ -119,6 +124,8 @@ export interface LiveCaseStudy extends CaseStudyBase {
   problem: string[];
   responsibility: string[];
   outcome: string[];
+  /** Label for the outcome section; defaults to the shared "What changed" label. */
+  outcomeLabel?: string;
   approach: string[];
   metrics?: Metric[];
   /** Label for the metrics block; defaults to the shared "In numbers" label. */

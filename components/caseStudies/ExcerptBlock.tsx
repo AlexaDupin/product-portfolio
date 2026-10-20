@@ -21,11 +21,15 @@ export function ExcerptBlock({ excerpt }: ExcerptBlockProps) {
       <div className={styles.body}>
         {label && <p className={styles.label}>{label}</p>}
         <ol className={styles.list}>
-          {items.map((item) => (
-            <li key={item} className={styles.item}>
-              {item}
-            </li>
-          ))}
+          {items.map((item) => {
+            const { text, example } = typeof item === "string" ? { text: item, example: undefined } : item;
+            return (
+              <li key={text} className={styles.item}>
+                {text}
+                {example && <span className={styles.example}>{example}</span>}
+              </li>
+            );
+          })}
         </ol>
       </div>
     </aside>

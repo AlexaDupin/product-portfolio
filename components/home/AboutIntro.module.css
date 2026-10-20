@@ -1,0 +1,23 @@
+/* Sits right after the metrics strip, so it takes the usual section space only below. */
+.section {
+  padding-block: clamp(56px, 8vw, 96px) 0;
+}
+
+.inner {
+  display: grid;
+  justify-items: center;
+  gap: 20px;
+  max-width: 720px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* About 22–24px on desktop, down to 19px on phones; regular weight, ink. */
+.text {
+  display: grid;
+  gap: 16px;
+  color: var(--ink);
+  font-size: clamp(1.1875rem, 2.2vw, 1.5rem);
+  font-weight: 400;
+  line-height: 1.6;
+}

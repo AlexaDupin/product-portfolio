@@ -7,7 +7,7 @@ Personal portfolio for **Product Specialist** and **asynchronous technical suppo
 - Lead with understanding users, investigating technical issues, explaining solutions, improving workflows and preventing repeat problems.
 - Technical knowledge is a differentiator, but the main story stays readable for non-engineer recruiters and hiring managers.
 - Home answers "what does she do and how" first, through three strengths ("What I do best"), each linking to the case studies that prove it.
-- Case studies are ordered by strength, strongest first (owner, 2026-10-19), in `content/caseStudies.ts`. Home shows the top four: sign-in loop (`login-redirects`), release bug triage, in-app bug reporting, Sentry login alert. Hidden entries go last.
+- Case studies are ordered by strength, strongest first (owner, 2026-10-19), in `content/caseStudies.ts`. Home shows four (owner, 2026-10-20): sign-in loop (`login-redirects`), release bug triage, in-app bug reporting, training testers. The Sentry alert stays on the Case studies page. Hidden entries go last.
 - Other case studies are easy to find on the Case studies page without equal visual weight.
 - Home "Key achievements" (owner, 2026-10-20): four result cards right after the metrics strip, each linking to its case study. Numbers live there and in the metrics strip; the "What I do best" cards describe skills, with no numbers.
 - Hidden case studies and future ideas are listed in BACKLOG.md.
@@ -61,6 +61,7 @@ Personal portfolio for **Product Specialist** and **asynchronous technical suppo
 - The hero gradient (`--hero-gradient` in globals.css) is the only large background gradient, used by the home hero and every inner page top. Exception: pills use a small same-hue gradient (see palette). Everything else flat.
 - Buttons: hover only changes the background color (no lift, no halo).
 - Numbers never colored (ink, or white on dark). One approved exception (2026-10-16): the home metrics strip and the What I build key metrics use a "liquid glass" text effect (plum fill clipped to the text, slightly lighter at the top, kept dark enough for strong contrast, plus a white highlight and soft shadow; no diagonal light band), with a plain `CanvasText` fallback in forced-colors mode. Don't extend it elsewhere without asking.
+- Priority tags (owner-approved exception, 2026-10-20): the user reports case study's before/after table has a Priority column with tinted tags, red for high, orange for moderate, yellow for low (`--priority-*` tokens, dark text, AA contrast). Use them only for priority.
 - No emojis, scribbles or handwritten elements.
 - Cards white with thin border; color only from pills, buttons and dark sections.
 - Inner page tops (changed 2026-10-16): the same hero gradient as Home, with white text and the light eyebrow color. Applies to About, What I build, Case studies, 404 and case studies without an image.
@@ -84,11 +85,12 @@ Personal portfolio for **Product Specialist** and **asynchronous technical suppo
 - Use only facts the user provided. Never strengthen a claim.
 - Keep implemented changes distinct from measured outcomes; qualitative outcomes stay qualitative.
 - Never imply a code change reduced user-reported incidents unless the owner states it (login case: ~13 → 4 is **code paths**; legacy redirect flow with forced sign-out still exists). Owner-confirmed fact (2026-10-16): after the login fix, the emails about that issue stopped. State it as what happened, with no count and no percentage.
-- No invented metrics, quotes, conversations, testimonials, satisfaction scores or logos. Constructed examples are labeled as samples.
+- No invented metrics, quotes, conversations, testimonials, satisfaction scores or logos. Constructed examples are labeled as samples, except the testing guides bug report steps, which the owner confirmed reflect the real guide (owner, 2026-10-20: no sample label there, and no "my own observation" caveat on that page).
 - Missing fact → `[CONFIRM: ...]`, visibly marked as unfinished.
 - In-app bug reporting: "about 90% of localization bugs fixed before release" comes from the owner's own Jira tracking (unresolved bugs filtered by release version), not an official report. Always keep "about". The engineer built the tool.
+- Usability research (owner, 2026-10-20): the product team set each study's topic and wrote every script; the owner never scripted tasks. After a three-day moderator training, she moderated the French-speaking sessions, prepared each user journey from the scenario she was given, met product to understand the goal, and helped turn the friction users hit into hypotheses to test, including French-only A/B tests when a translation might be the cause. The goal was finding friction in the localized product (translation or product, often unclear), not separating the two. Never say she ran the A/B tests.
 - Two separate 48-hour windows at Booking.com: language teams had 48 hours to test each release (testing guides); the mobile support team had a 48-hour SLA on the bugs (release triage). Never merge them.
-- Training: about 30 localization specialists worldwide and 15 people on the owner's own team, both in app testing. Never "30+".
+- Training: 30+ localization specialists worldwide (live video) and 15 people on the owner's own team (on site), both in app testing (owner, 2026-10-20). After the guide and the training, non-actionable tickets dropped sharply: the owner's own observation, no figure.
 - Never claim: CI/CD, AWS/GCP/Azure, serverless, coverage percentages, Postman, "QA tooling", releases shipped "on time", or team work on WeSwapCards (solo project).
 - The developer portfolio's WeSwapCards deep-dive describes an earlier outage, in January (the API runtime wouldn't start: OpenSSL mismatch on Node 16, fixed by moving to Node 22). It isn't the July 2026 outage, though the owner thinks they're probably linked. Don't claim that link, and don't link the July outage, monitoring or duplicate cleanup case studies to the deep-dive (it doesn't cover them).
 - WeSwapCards case study role label: "Solo developer and support".

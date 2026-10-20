@@ -1,5 +1,5 @@
 import { weswapcardsScreens } from "./screens";
-import { anchors, caseStudyPath, routes } from "./site";
+import { caseStudyPath, routes } from "./site";
 import type { ImageSpec, LinkItem, Metric, PageMeta, PillTone } from "./types";
 
 export const homeMeta: PageMeta = {
@@ -12,21 +12,33 @@ export const hero = {
   eyebrow: "Product Specialist · Technical Support",
   title: "Where engineering meets users.",
   subtitle: "I get to know products inside out, then help people use them.",
-  primaryCta: { label: "See what I do", href: `#${anchors.whatIDoBest}` } satisfies LinkItem,
-  secondaryCta: { label: "Get in touch", href: `#${anchors.contact}` } satisfies LinkItem,
 };
 
 export const homeMetrics: { label: string; items: Metric[] } = {
   label: "Key numbers",
   items: [
+    { value: "13 years", label: "at Booking.com" },
     { value: "5 years", label: "Jira bug triage on app releases" },
     { value: "42", label: "language teams supported" },
-    { value: "30+", label: "usability sessions moderated" },
     { value: "1,000+", label: "members on the app I built" },
   ],
 };
 
+export const aboutIntro = {
+  /** Not shown; names the section for screen readers. */
+  label: "About me",
+  paragraphs: [
+    "Most of my career has been about figuring out how products really work, and why they behave the way they do.",
+    "At Booking.com, I did that alongside product and engineering teams, testing the apps before every release and training the people who tested them.",
+    "Then curiosity took me to the other side: I learned to code and built my own products, from the first line of code to user support.",
+    "Now I'm looking for a role close to the product and the people who use it.",
+  ],
+  link: { label: "More about me", href: routes.about } satisfies LinkItem,
+};
+
 export interface Achievement {
+  /** Where it happened, shown as a small label above the headline. */
+  context: string;
   title: string;
   text: string;
   link: LinkItem;
@@ -36,23 +48,27 @@ export const achievements: { title: string; items: Achievement[] } = {
   title: "Key achievements",
   items: [
     {
+      context: "Booking.com",
       title: "About 90% of localization bugs fixed before release",
-      text: "I worked with an engineer to replace a spreadsheet engineers ignored with an in-app tool that creates Jira tickets. Localization bugs became part of the sprint.",
+      text: "With an engineer, I replaced a spreadsheet engineers didn't check consistently with an in-app tool that creates Jira tickets.",
       link: { label: "In-app reporting tool", href: caseStudyPath("in-app-bug-reporting") },
     },
     {
+      context: "Booking.com",
       title: "Language teams met a 48-hour testing deadline",
-      text: "My app testing guide set out a one-hour check and how to report bugs engineers could act on. After the guide and training sessions, fewer tickets came in incomplete or unclear.",
+      text: "My testing guide and training sessions also cut non-actionable tickets sharply.",
       link: { label: "Testing guide", href: caseStudyPath("testing-guides") },
     },
     {
-      title: "Trained 15 teammates and about 30 linguists worldwide in app testing",
-      text: "Live video sessions across time zones, walking through a real test together.",
+      context: "Booking.com",
+      title: "Trained 15 teammates and 30+ linguists worldwide in app testing",
+      text: "On site and over live video across time zones, walking through a real test together.",
       link: { label: "Training testers", href: caseStudyPath("training-testers") },
     },
     {
-      title: "Fixed a production outage within an hour of investigating",
-      text: "Sign-in broke after a host upgrade. I found the cause, fixed it, then added monitoring so backend errors show up in Sentry.",
+      context: "WeSwapCards",
+      title: "Found and fixed a silent production outage within an hour of investigating",
+      text: "Then I added monitoring so backend errors show up in Sentry.",
       link: { label: "Outage case study", href: caseStudyPath("production-outage") },
     },
   ],
@@ -79,7 +95,7 @@ export const strengths: {
     pill: "Resolve issues",
     tone: "pink",
     title: "I find the real cause behind a problem.",
-    text: "I reproduce what users report, follow it across the product and hand engineers a clear, complete picture.",
+    text: "I reproduce what users report, follow it across the product, and either fix it myself or give engineers a clear, complete picture.",
     links: [
       { label: "Release bug triage", href: caseStudyPath("release-bug-triage") },
       { label: "Sign-in loop fix", href: caseStudyPath("login-redirects") },
@@ -141,7 +157,7 @@ export const homeCaseStudies = {
 export const projectBand = {
   eyebrow: "What I build",
   title: "WeSwapCards",
-  text: "Collectors were posting long lists of missing cards and duplicates across social media and group chats. I built one place for them to find each other, talk and trade, on the web and as iOS and Android apps. I run it solo, user support included.",
+  text: "I spotted a real problem people were having, built a product to solve it and launched it on the web, iOS and Android.",
   metricsLabel: "WeSwapCards in numbers",
   metrics: [
     { value: "16,000+", label: "trades coordinated" },

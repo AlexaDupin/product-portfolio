@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
+import { AboutIntro } from "@/components/home/AboutIntro";
 import { KeyAchievements } from "@/components/home/KeyAchievements";
 import { StrengthGrid } from "@/components/home/StrengthGrid";
 import { ProjectBand } from "@/components/home/ProjectBand";
@@ -22,6 +23,7 @@ export default function HomePage() {
       <div className="container">
         <Metrics items={homeMetrics.items} label={homeMetrics.label} variant="strip" />
       </div>
+      <AboutIntro />
       <KeyAchievements />
       <StrengthGrid />
       <section className="section" aria-labelledby="home-case-studies-title">

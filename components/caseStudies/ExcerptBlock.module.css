@@ -66,6 +66,14 @@
   counter-increment: step;
 }
 
+/* An example under a step, on its own line. */
+.example {
+  display: block;
+  margin-top: 4px;
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+
 .item::before {
   content: counter(step);
   position: absolute;

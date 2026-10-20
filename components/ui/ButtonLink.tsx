@@ -2,7 +2,7 @@ import type { LinkItem } from "@/content/types";
 import { SmartLink } from "./SmartLink";
 import styles from "./ButtonLink.module.css";
 
-type Variant = "primary" | "outlineLight" | "white" | "dark";
+type Variant = "primary" | "white" | "dark";
 
 interface ButtonLinkProps {
   link: LinkItem;

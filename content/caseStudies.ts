@@ -42,7 +42,7 @@ export const featuredSlugs = [
   "login-redirects",
   "release-bug-triage",
   "in-app-bug-reporting",
-  "sentry-login-alert",
+  "training-testers",
 ] as const;
 
 export const caseStudies: CaseStudy[] = [
@@ -132,7 +132,6 @@ export const caseStudies: CaseStudy[] = [
     communication: {
       title: "Guidance users could follow without technical knowledge",
       paragraphs: [
-        "Before changing anything in the code, I replied to each user with step-by-step troubleshooting guidance they could follow on their own.",
         "The first step doubled as a test. If signing in worked in a private window, the problem likely came from data stored in their browser, which is where the root cause turned out to be.",
       ],
     },
@@ -187,11 +186,14 @@ export const caseStudies: CaseStudy[] = [
       problem: "Bugs had to be fixed before each release reached the stores",
       responsibility: "I triaged the tickets from 42 language teams",
       whatIDid: "I triaged every ticket the same way and kept track of what kept going wrong.",
-      outcome: "Engineers and copywriters received tickets that were already checked.",
+      outcome: "About 90% of localization bugs were fixed before release.",
     },
     steps: [
       { title: "Reproduce", text: "I reproduced each reported issue to confirm it and see exactly what happened." },
-      { title: "Check", text: "I checked the ticket was complete before passing it on." },
+      {
+        title: "Complete and clarify",
+        text: "I completed missing details and edited unclear tickets, so the engineer or copywriter could act on them right away.",
+      },
       { title: "Route", text: "I routed it to engineers or copywriters, depending on what needed fixing." },
       { title: "Follow up", text: "When something was missing, I went back to the reporter before passing the ticket on." },
       {
@@ -213,8 +215,7 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
     outcome: [
-      "Reporters had someone to ask when something wasn't clear.",
-      "The most common problems were written up in the app testing FAQ and runbook, where teams could look them up.",
+      "Each ticket reached the right engineer or copywriter, complete and clear enough to act on, so they could fix it before the release went out.",
     ],
     approach: [
       "I check that each ticket has what the engineer or copywriter needs to fix it, I follow up with the reporter when something is unclear, and I add recurring problems to the documentation.",
@@ -260,13 +261,13 @@ export const caseStudies: CaseStudy[] = [
     },
     problem: [
       "Language teams reported localization bugs in a shared Google Sheet. Every report took manual work: taking a screenshot, creating a short link for it, then typing in the device, app version and other technical details.",
-      "Engineers didn't check the sheet, so many localization bugs were ignored and carried over from one release to the next.",
+      "Engineers didn't check the sheet consistently, so many localization bugs were missed and carried over from one release to the next.",
     ],
     responsibility: [
       "I represented the localization side, tested the tool and rolled it out to the language teams. The engineer built it.",
     ],
     headlines: {
-      problem: "Bug reports sat in a sheet engineers didn't check",
+      problem: "Bug reports sat in a sheet engineers didn't check consistently",
       responsibility: "I represented the people reporting the bugs",
       whatIDid: "I presented the process, tested every build and rolled the tool out.",
       outcome: "Localization bugs moved into the engineers' sprint.",
@@ -312,11 +313,11 @@ export const caseStudies: CaseStudy[] = [
           after: "Screenshot and technical details added automatically.",
         },
         {
-          before: "Engineers didn't check the sheet.",
+          before: "Engineers didn't check the sheet consistently.",
           after: "A Jira ticket is created, reviewed and assigned.",
         },
         {
-          before: "Many localization bugs ignored and carried over between releases.",
+          before: "Many localization bugs missed and carried over between releases.",
           after: "Localization bugs are part of the engineers' sprint.",
         },
       ],
@@ -361,12 +362,12 @@ export const caseStudies: CaseStudy[] = [
     header: {
       role: "Solo developer and support",
       context: "WeSwapCards",
-      timeline: "October 14–19, 2026",
+      timeline: "October 2026",
       tools: "Sentry, Clerk, Node.js",
     },
     problem: [
-      "On October 14, 2026, Sentry raised a high-priority alert: 11 login verification failures on the live API, with no error details, because Clerk discards them for this error type.",
-      "This was a separate, much smaller issue than the July outage: one user, 36 seconds, resolved on its own. I investigated it right away, and I use it here to show how I handle a Sentry alert from start to finish.",
+      "Sentry raised a high-priority alert: 11 login verification failures on the live API, with no error details, because Clerk discards them for this error type.",
+      "A small issue, separate from the July outage: one user, 36 seconds, resolved on its own. I investigated it right away.",
     ],
     responsibility: [
       "I own the product, so I triaged the alert, led the investigation and decided what to change. I worked with an AI coding assistant and approved every step that touched production.",
@@ -374,38 +375,55 @@ export const caseStudies: CaseStudy[] = [
     headlines: {
       problem: "An urgent alert with no error details",
       responsibility: "I triaged it and decided what to change",
-      whatIDid: "I narrowed it down step by step before changing anything.",
+      whatIDid: "I checked the priority first, then narrowed it down before changing anything.",
       outcome: "Login checks no longer depend on a network call to Clerk.",
     },
     steps: [
       {
+        title: "Assessed the priority",
+        text: "Sentry labeled it high priority, but the report showed a single user and a short burst that had already stopped. No one was blocked, so I had time to dig into the root cause.",
+      },
+      {
         title: "Read the report",
-        text: "I traced the error to the login check in the API and listed the two possible causes: a network failure while fetching Clerk's signing key, or a bad login token from one device.",
+        text: "I traced the error to the login check in the API. Two possible causes: a network failure while fetching Clerk's signing key, or a bad login token from one device.",
       },
       {
         title: "Narrowed it down",
-        text: "All the failures arrived at once, from one user on one iPhone, while their dashboard was loading. It was one person reloading a few times, not a problem spread over days.",
+        text: "All the failures came at once, from one user on one iPhone, while their dashboard loaded.",
       },
       {
         title: "Checked the evidence on production, read-only",
-        text: "The server access log showed the failures lasted 36 seconds. Public pages kept working, no other signed-in user was affected, and these were the only login failures that month. The user kept using the app normally afterward.",
+        text: "The server access log showed the failures lasted 36 seconds. No other user was affected, and the user kept using the app normally.",
       },
       {
         title: "Removed a single point of failure",
-        text: "On October 19, I configured Clerk to verify logins with a locally stored public key instead of downloading it each time, which removes the network dependency. It was a setting change, with no code changes.",
+        text: "I set Clerk to verify logins with a locally stored public key instead of downloading it each time. A setting change, with no code changes.",
       },
       {
         title: "Tested before trusting",
-        text: "I ran Clerk's real verification code against a test key in several formats, plus a wrong key that had to be rejected, to settle which format was safe. Then I verified the deployed value matched, checked the health endpoint, and tested real logins on web and mobile.",
+        text: "I tested the key format against Clerk's own verification code, then checked the deployed value, the health endpoint and real logins on web and mobile.",
       },
     ],
     outcome: [
-      "I confirmed it was a one-off issue that cleared on its own. The root cause wasn't proven, so the change removes one of the two possible causes: a network problem while fetching Clerk's key can no longer fail a login.",
+      "I confirmed it was a one-off issue that cleared on its own. The root cause wasn't proven, so I removed one of the two possible causes: a network problem can no longer fail a login.",
       "This alert existed because of the monitoring I added after the July outage.",
     ],
     approach: [
-      "When the evidence is thin, I narrow it down step by step, test my assumptions before acting, and choose the change that removes risk without creating new problems.",
+      "I assess the priority first. Then I narrow it down step by step, test my assumptions before acting, and choose the change that removes risk without creating new problems.",
     ],
+    usage: {
+      title: "How priority shapes my response",
+      items: [
+        {
+          title: "Users are blocked",
+          text: "I work on it right away, to get them back to using the app.",
+        },
+        {
+          title: "No one is blocked",
+          text: "I take the time to find the root cause, so the same issue doesn't happen again.",
+        },
+      ],
+    },
     links: {
       outcome: { label: "Read how I added that monitoring", href: caseStudyPath("monitoring-after-outage") },
     },
@@ -446,7 +464,7 @@ export const caseStudies: CaseStudy[] = [
         title: "Investigated the data",
         text: "I looked through the collections table in PostgreSQL and found 250+ duplicate records.",
       },
-      { title: "Removed the duplicates", text: "I removed them by hand, directly in the database." },
+      { title: "Removed the duplicates", text: "I deleted them in bulk with a SQL query, run directly in the database." },
       {
         title: "Made saving a card one step",
         text: "I replaced the two-step check-then-insert with a single database operation (an upsert) that creates the record or updates the existing one. For single cards, it also skips the update when the value hasn't changed. Bulk updates of a whole chapter use the same create-or-update approach.",
@@ -456,13 +474,6 @@ export const caseStudies: CaseStudy[] = [
         text: "I added a unique index on the user and card combination, so the database itself rejects any duplicate, whatever part of the app tries to insert it.",
       },
     ],
-    communication: {
-      title: "In plain terms",
-      paragraphs: [
-        "The race condition: two requests arriving at the same moment could each check for a card, find nothing and each add the same card.",
-        "The upsert: the app now asks the database to add the card or update it if it's already there, in one step, so there's no gap for a second request to slip into.",
-      ],
-    },
     metricsTitle: "Result",
     metrics: [{ value: "250+", label: "duplicate records removed" }],
     beforeAfter: {
@@ -476,10 +487,6 @@ export const caseStudies: CaseStudy[] = [
         {
           before: "No rule in the database against duplicates.",
           after: "A unique index on the user and card combination.",
-        },
-        {
-          before: "Simultaneous requests could create duplicates.",
-          after: "Duplicates can't be inserted.",
         },
       ],
     },
@@ -497,13 +504,13 @@ export const caseStudies: CaseStudy[] = [
     category: "understand-users",
     title: "Turning user reports into product fixes",
     summary:
-      "I handle all WeSwapCards support and user reports myself. Here are reports that turned into changes in the product.",
-    tags: ["User feedback", "Support", "Product improvement", "Bug fixing"],
+      "I sort every WeSwapCards report by priority, then fix bugs and improve the product. Here are five reports that became changes.",
+    tags: ["User feedback", "Support", "Prioritization", "Product improvement", "Bug fixing"],
     image: weswapcardsScreens.iosChapters,
     meta: {
       title: "User reports to fixes on WeSwapCards",
       description:
-        "Examples of WeSwapCards user reports that I turned into product changes, from search results to a missing Forgot password link.",
+        "How I prioritize WeSwapCards user reports, and five that became changes in the product, from bulk card entry to a missing Forgot password link.",
     },
     header: {
       role: "Solo developer and support",
@@ -513,47 +520,52 @@ export const caseStudies: CaseStudy[] = [
     problem: [
       "Collectors use WeSwapCards to find trade partners and message each other. When something gets in their way, they report it to me.",
     ],
-    responsibility: [
-      "I handle all WeSwapCards support and user reports myself, from reading the report to shipping the change.",
-    ],
+    responsibility: ["I read every report, decide what to do with it and ship the change."],
     headlines: {
       problem: "Collectors tell me when something gets in their way",
-      responsibility: "I handle all support and user reports myself",
-      whatIDid: "I turned reports into changes in the product.",
-      outcome: "Five reports led to five changes in the product.",
+      responsibility: "I handle every report, from triage to release",
+      whatIDid: "I sort each report, then act on it by priority.",
+      outcome: "Five reports, five changes in the product.",
     },
+    steps: [
+      { title: "Fix bugs", text: "I fix bugs in order of how much they block users." },
+      { title: "Prioritize improvements", text: "I rank improvements by how people actually use the app." },
+      { title: "Keep the rest", text: "Other suggestions go on an ideas list for later." },
+    ],
     beforeAfter: {
+      priorityLabel: "Priority",
       beforeLabel: "What users reported",
       afterLabel: "What I changed",
       rows: [
         {
-          before: "The swap-partner search listed users with only one copy of a card.",
-          after: "The search now requires a duplicate, so it only lists people who can actually trade.",
+          priority: { level: "high", label: "High" },
+          before: "Entering cards one by one put off new users, and some stopped using the app. One wrote to me about it.",
+          after: "I added bulk actions: add all the cards of a chapter at once, or mark them all as duplicates.",
         },
         {
-          before: "Input sanitization blocked apostrophes.",
-          after: "Text with apostrophes now goes through.",
+          priority: { level: "moderate", label: "Moderate" },
+          before: "Finding several cards meant searching one at a time, with the page reloading after each search.",
+          after: "Each chapter now lists all its cards, so users can pick several in a few clicks.",
         },
         {
-          before: "Cards in the same chapter were hard to find.",
-          after: "Cards in the same chapter are easier to find.",
+          priority: { level: "moderate", label: "Moderate" },
+          before: "The mobile apps had no \"Forgot password\" link: the sign-in component used on the web doesn't exist on mobile.",
+          after: "I added the link to the mobile apps.",
         },
         {
-          before: "Messages were duplicated when sent too fast.",
-          after: "Sending quickly no longer creates duplicate messages.",
+          priority: { level: "low", label: "Low" },
+          before: "Tapping Send twice quickly sent the same message twice.",
+          after: "The Send button is disabled until the message has gone through.",
         },
         {
-          before: "The apps had no \"Forgot password\" link.",
-          after: "The apps now have a \"Forgot password\" link.",
+          priority: { level: "low", label: "Low" },
+          before: "Adding cards and updating their status happened on two separate pages. A user suggested combining them.",
+          after: "I merged them into one page.",
         },
       ],
     },
-    outcome: [
-      "Each of these is a change I implemented in response to a report. They're fixes, not measured outcomes.",
-    ],
-    approach: [
-      "I read each support report for what it says about the product, and I fix the things that get in users' way.",
-    ],
+    outcome: [],
+    approach: ["I read each report for what it says about the product, and I work first on what affects users most."],
   },
   {
     slug: "training-testers",
@@ -561,7 +573,7 @@ export const caseStudies: CaseStudy[] = [
     category: "enable-users",
     title: "Training testers around the world",
     summary:
-      "I trained about 30 localization specialists worldwide in app testing through live video sessions, and 15 people on my own team.",
+      "I trained 30+ localization specialists worldwide and 15 people on my own team in app testing, over live video and on site.",
     tags: ["Onboarding", "Training", "Mobile app testing", "Remote collaboration"],
     image: {
       label: "Training session",
@@ -574,24 +586,24 @@ export const caseStudies: CaseStudy[] = [
     meta: {
       title: "Training international testers",
       description:
-        "How I trained about 30 localization specialists worldwide in Booking.com's app testing process through live video sessions, and trained 15 people on my own team.",
+        "How I trained 30+ localization specialists worldwide in Booking.com's app testing process through live video sessions, and 15 people on my own team on site.",
     },
     header: {
       role: "Localization Specialist, Mobile Support Team",
       context: "Booking.com mobile app testing",
-      tools: "Live video sessions",
+      tools: "On-site and live video sessions",
     },
     problem: [
-      "Localization specialists around the world needed to learn the app testing process. Many were nervous about the technical side.",
+      "Localization specialists around the world had to test each biweekly iOS and Android release in their language: install the beta app, set up their device, run the tests and report bugs in Jira. Most were linguists rather than engineers, and the process could feel daunting.",
     ],
     responsibility: [
-      "I ran the app testing sessions for localization specialists worldwide, trained 15 people on my own team, and was the team's go-to person for app and technical issues.",
+      "I ran the app testing training for teams abroad and for my own team.",
     ],
     headlines: {
       problem: "Testers were nervous about the technical side",
-      responsibility: "I trained testers worldwide and on my own team",
-      whatIDid: "I ran the training as live video sessions.",
-      outcome: "Testers knew the steps and who to ask.",
+      responsibility: "I was the team's go-to person for app testing",
+      whatIDid: "I ran the training on site for my team and over live video for teams abroad.",
+      outcome: "Testers could work on their own, and knew who to ask.",
     },
     steps: [
       {
@@ -604,15 +616,15 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "Ran a live test together",
-        text: "Each session walked through a real test with the testers, step by step.",
+        text: "Each session walked through a real test, step by step.",
       },
       {
-        title: "Stayed the go-to person",
+        title: "Answered testing questions",
         text: "Once they were testing on their own, they came to me with app and technical questions.",
       },
     ],
     metrics: [
-      { value: "~30", label: "localization specialists trained worldwide in app testing" },
+      { value: "30+", label: "localization specialists trained worldwide in app testing" },
       { value: "15", label: "people on my own team trained in app testing" },
     ],
     communication: {
@@ -622,11 +634,11 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
     outcome: [
-      "Each tester had gone through a real test once before working alone, and knew who to contact when something technical got in the way.",
-      "After the guide and the training sessions, fewer tickets came in incomplete or not actionable.",
+      "Language teams could run the check in the recommended hour, so they met their 48-hour testing deadline.",
+      "After the guide and the training sessions, non-actionable tickets dropped sharply.",
     ],
     approach: [
-      "I teach technical steps by going through them with people, and I answer their questions as they come up.",
+      "I adapt how I teach to the people I'm training: on site when I can, over video across time zones, with time for questions either way.",
     ],
     links: {
       outcome: { label: "Read about the testing guide", href: caseStudyPath("testing-guides") },
@@ -677,7 +689,7 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "Found the root cause",
-        text: "The host had upgraded Node. An old node-fetch polyfill in my code was overriding the new built-in fetch and breaking Clerk's token verification. The cause was in the runtime, not my application logic.",
+        text: "The host had upgraded Node. An old add-on in my code (a node-fetch polyfill) replaced a tool the new Node already had built in, and the sign-in check depended on the built-in one. Signed-in requests failed while everything else looked normal.",
       },
       { title: "Fixed it", text: "A one-line guard makes the old add-on load only when Node has no built-in fetch." },
       {
@@ -685,12 +697,6 @@ export const caseStudies: CaseStudy[] = [
         text: "I added Sentry error tracking and a health endpoint that checks the services the API depends on.",
       },
     ],
-    communication: {
-      title: "In plain terms",
-      paragraphs: [
-        "An old add-on in my code replaced something the new version of Node already had built in. The sign-in check depended on the built-in version, so signed-in requests failed even though everything else looked normal.",
-      ],
-    },
     outcome: [
       "Authenticated pages returned data again after the fix. The hours lost before I started investigating are why I added monitoring: Sentry tracing and the health endpoint now give me more visibility into the API and the services it depends on.",
     ],
@@ -748,20 +754,23 @@ export const caseStudies: CaseStudy[] = [
     ],
     excerpt: {
       title: "How to write a bug report engineers can act on",
-      label: "Sample written for this portfolio, not taken from the original guides",
       icon: "document",
       items: [
-        "Give it a title that says what's wrong and where, for example: \"Button text cut off on the payment screen (French, iOS)\".",
-        "List the steps to reproduce it, starting from opening the app.",
+        {
+          text: "Start the title with the platform, app version, language, funnel and a short description of what's wrong.",
+          example: "Example: \"iOS 7.8 | FR | Payment | Button text cut off\"",
+        },
+        {
+          text: "List the steps to reproduce it, including the search you made if relevant.",
+          example: "Example: one room in Paris, October 20 to 22, for 2 people.",
+        },
         "Say what you expected to happen and what happened instead.",
-        "Add the device, the operating system version and the app version.",
-        "Attach a screenshot or a short screen recording.",
-        "Report one problem per ticket.",
+        "For a translation issue, add the string's tag name, the English source text and a back translation from your language.",
       ],
     },
     outcome: [
       "The guide helped language teams meet their 48-hour deadline, and they asked our team fewer questions.",
-      "After the guide and the training sessions, fewer tickets came in incomplete or not actionable. That's my own observation from triaging them, not a measured figure.",
+      "After the guide and the training sessions, non-actionable tickets dropped sharply.",
     ],
     approach: [
       "When people ask the same question more than once, I add the answer to a guide.",
@@ -818,24 +827,17 @@ export const caseStudies: CaseStudy[] = [
     steps: [
       {
         title: "Added error tracking",
-        text: "I added Sentry to the backend, so API errors, including server errors (500s), are recorded with their context instead of failing silently. It also traces a share of requests, which shows where time goes when something is slow.",
+        text: "I added Sentry, a service that records server errors as they happen, to the backend. API errors, including server errors (500s), are now recorded with enough detail to find the cause, and a share of requests is traced to show where time goes.",
       },
       {
         title: "Added a health check",
-        text: "I added a /api/health endpoint that checks the database, the settings the app needs and Clerk's sign-in service, and reports whether the server is healthy or degraded.",
+        text: "I added /api/health, an address I can open to check the server. It tests the database, the settings the app needs and Clerk's sign-in service, and reports whether the server is healthy or degraded.",
       },
       {
         title: "Started centralizing error handling",
         text: "I added one error handler that reports to Sentry and returns a consistent response. Part of the API uses it so far; other routes still return their own errors.",
       },
     ],
-    communication: {
-      title: "In plain terms",
-      paragraphs: [
-        "Sentry is a service that records errors on the server as they happen, with enough detail to find the cause.",
-        "The health check is an address on the server I can open to confirm it's running and that the database, its settings and the sign-in service respond.",
-      ],
-    },
     usage: {
       title: "How I use it",
       items: [
@@ -918,8 +920,8 @@ export const caseStudies: CaseStudy[] = [
     category: "understand-users",
     title: "Usability research at Booking.com",
     summary:
-      "I moderated 30+ usability sessions with real users of the website and apps, and scripted sessions with hotel partners.",
-    tags: ["User research", "Usability testing", "Moderation", "Task scripting"],
+      "I moderated 30+ usability sessions with French-speaking users to find friction in the localized product, and helped turn it into hypotheses to test.",
+    tags: ["User research", "Usability testing", "Moderation", "Localization"],
     image: {
       label: "Usability session",
       alt: "Two women at a table, one using a laptop while the other watches and talks with her",
@@ -931,40 +933,46 @@ export const caseStudies: CaseStudy[] = [
     meta: {
       title: "Usability research at Booking.com",
       description:
-        "How I moderated 30+ usability sessions with Booking.com users and scripted task-based sessions with hotel partners.",
+        "How I prepared and moderated 30+ usability sessions with French-speaking Booking.com users to find friction in the localized product, and helped turn it into hypotheses to test.",
     },
     header: {
-      role: "Session moderator",
+      role: "Usability session moderator, French Localization Specialist",
       context: "Booking.com website, apps and partner platform",
     },
     problem: [
-      "Product teams wanted to see where real people struggled with the website, the apps and the partner platform.",
+      "Product teams ran usability studies on specific topics, such as ski trips or single-unit accommodations. The sessions looked for friction in the localized product, which could come from the translation or from the product itself.",
     ],
     responsibility: [
-      "I moderated 30+ sessions with real users of the website and apps, and scripted sessions with hotel partners on the partner platform.",
+      "After a three-day moderator training, I moderated the sessions with French-speaking users. The product team wrote the scripts; I prepared and ran each session, then contributed to the hypotheses that came out of it as a French expert.",
     ],
     headlines: {
-      problem: "Product teams wanted to see where people struggled",
-      responsibility: "I moderated user sessions and scripted partner sessions",
-      whatIDid: "Each session was built around tasks, so we could watch what people actually did.",
-      outcome: "The product team decided what to change.",
+      problem: "Friction could come from the translation or the product",
+      responsibility: "I led the French-speaking sessions",
+      whatIDid: "I prepared each session with the product team, ran it and helped read the results.",
+      outcome: "Product teams trusted me to lead the French sessions.",
     },
     steps: [
       {
-        title: "Scripted the tasks",
-        text: "For hotel partner sessions, I scripted tasks for partners to complete on the partner platform.",
+        title: "Understood the goal",
+        text: "I met with the product team to understand the pain point and what they wanted to learn.",
+      },
+      { title: "Prepared the journey", text: "From the scenario they gave me, I prepared the user's journey before each session." },
+      {
+        title: "Led the session",
+        text: "I led the session in French, asked participants to complete tasks and watched where they struggled.",
       },
       {
-        title: "Moderated the sessions",
-        text: "I asked participants to complete tasks and watched where they struggled.",
+        title: "Suggested what to test",
+        text: "From what users did, I helped find hypotheses to test, including A/B tests in French when a translation might be causing friction.",
       },
-      { title: "Reported back", text: "I reported what we observed to the product team." },
     ],
     metrics: [{ value: "30+", label: "usability sessions moderated" }],
+    outcomeLabel: "My impact",
     outcome: [
-      "My part was to surface where people struggled and pass those insights to the product team, who decided what to change.",
+      "The product teams didn't speak French, so they relied on me to lead each session and make it as useful as possible.",
+      "Their feedback on my work was consistently positive.",
     ],
-    approach: ["I keep my role to observing and reporting, and leave product decisions to the team that owns them."],
+    approach: ["I prepare with the team that owns the question, so I know what to watch for during the session."],
   },
   {
     slug: "help-center-articles",

@@ -4,7 +4,7 @@ import type { PageMeta, TimelineEntry } from "./types";
 export const aboutMeta: PageMeta = {
   title: "About",
   description:
-    "Alexa Dupin: translation project manager, 14 years at Booking.com in localization, release triage, user testing and training, now building WeSwapCards. Based in Brooklyn, NY.",
+    "Alexa Dupin: translation project manager, 13 years at Booking.com in localization, release triage, user testing and training, now building WeSwapCards. Based in Brooklyn, NY.",
 };
 
 export const aboutPage = {

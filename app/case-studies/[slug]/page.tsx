@@ -132,7 +132,11 @@ async function CaseStudy({ params }: Pick<PageProps<"/case-studies/[slug]">, "pa
 
         <hr className={styles.rule} />
 
-        <LabeledSection id="outcome" eyebrow={caseStudyLabels.outcome} headline={study.headlines.outcome}>
+        <LabeledSection
+          id="outcome"
+          eyebrow={study.outcomeLabel ?? caseStudyLabels.outcome}
+          headline={study.headlines.outcome}
+        >
           {study.beforeAfter && <BeforeAfterTable data={study.beforeAfter} />}
           {study.outcome.map((paragraph) => (
             <p key={paragraph} className={styles.paragraph}>

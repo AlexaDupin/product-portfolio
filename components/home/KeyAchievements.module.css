@@ -15,6 +15,16 @@
   background: var(--white);
 }
 
+/* Same small-caps label as the case study section labels. */
+.context {
+  margin-bottom: -6px;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
 .headline {
   font-size: 1.1875rem;
   line-height: 1.3;

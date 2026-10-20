@@ -12,8 +12,8 @@
 .inner {
   display: grid;
   justify-items: center;
-  gap: 20px;
-  padding-block: 64px;
+  gap: clamp(20px, 3vw, 32px);
+  padding-block: clamp(64px, 10vw, 112px);
 }
 
 .eyebrow {
@@ -35,14 +35,6 @@
   max-width: 36ch;
   color: var(--on-dark-muted);
   font-size: clamp(1.0625rem, 2.2vw, 1.25rem);
-}
-
-.actions {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 8px;
 }
 
 @media (min-width: 1024px) {
