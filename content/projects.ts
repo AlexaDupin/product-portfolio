@@ -56,7 +56,7 @@ export const weswapcards = {
     headline: "Collectors had no good way to trade",
     paragraphs: [
       "WeWard collectors were trading through long lists of missing cards and duplicates, posted across social media and group chats. Finding a match meant reading everyone's lists by hand.",
-      "I built WeSwapCards to give them one place to find each other, talk and trade. It launched in February 2025 after four months of development.",
+      "I built WeSwapCards to give them one place to find each other, talk and trade. It launched in February 2025 after four months of development and user research.",
       "About a year later, WeWard launched a similar feature inside its own app, which confirmed the need was real.",
     ],
   },

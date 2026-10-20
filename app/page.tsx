@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/home/Hero";
-import { IntroCards } from "@/components/home/IntroCards";
+import { KeyAchievements } from "@/components/home/KeyAchievements";
 import { StrengthGrid } from "@/components/home/StrengthGrid";
 import { ProjectBand } from "@/components/home/ProjectBand";
 import { Metrics } from "@/components/ui/Metrics";
@@ -22,7 +22,7 @@ export default function HomePage() {
       <div className="container">
         <Metrics items={homeMetrics.items} label={homeMetrics.label} variant="strip" />
       </div>
-      <IntroCards />
+      <KeyAchievements />
       <StrengthGrid />
       <section className="section" aria-labelledby="home-case-studies-title">
         <div className="container">

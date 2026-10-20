@@ -26,20 +26,36 @@ export const homeMetrics: { label: string; items: Metric[] } = {
   ],
 };
 
-export const intro = {
-  title: "I've worked on both sides of a product.",
-  cards: [
+export interface Achievement {
+  title: string;
+  text: string;
+  link: LinkItem;
+}
+
+export const achievements: { title: string; items: Achievement[] } = {
+  title: "Key achievements",
+  items: [
     {
-      pill: "With users",
-      tone: "pink",
-      text: "At Booking.com, I moderated usability sessions, answered testers' questions, and trained new hires to use and test the apps.",
+      title: "About 90% of localization bugs fixed before release",
+      text: "I worked with an engineer to replace a spreadsheet engineers ignored with an in-app tool that creates Jira tickets. Localization bugs became part of the sprint.",
+      link: { label: "In-app reporting tool", href: caseStudyPath("in-app-bug-reporting") },
     },
     {
-      pill: "With engineers",
-      tone: "sand",
-      text: "I reproduced and triaged release bugs for five years, then learned to code and built my own app from scratch.",
+      title: "Language teams met a 48-hour testing deadline",
+      text: "My app testing guide set out a one-hour check and how to report bugs engineers could act on. After the guide and training sessions, fewer tickets came in incomplete or unclear.",
+      link: { label: "Testing guide", href: caseStudyPath("testing-guides") },
     },
-  ] satisfies { pill: string; tone: PillTone; text: string }[],
+    {
+      title: "Trained 15 teammates and about 30 linguists worldwide in app testing",
+      text: "Live video sessions across time zones, walking through a real test together.",
+      link: { label: "Training testers", href: caseStudyPath("training-testers") },
+    },
+    {
+      title: "Fixed a production outage within an hour of investigating",
+      text: "Sign-in broke after a host upgrade. I found the cause, fixed it, then added monitoring so backend errors show up in Sentry.",
+      link: { label: "Outage case study", href: caseStudyPath("production-outage") },
+    },
+  ],
 };
 
 export interface Strength {
@@ -63,7 +79,7 @@ export const strengths: {
     pill: "Resolve issues",
     tone: "pink",
     title: "I find the real cause behind a problem.",
-    text: "I reproduce what users report, follow it across the product and hand engineers a clear, complete picture. Five years of app release triage at Booking.com, and every issue on my own app.",
+    text: "I reproduce what users report, follow it across the product and hand engineers a clear, complete picture.",
     links: [
       { label: "Release bug triage", href: caseStudyPath("release-bug-triage") },
       { label: "Sign-in loop fix", href: caseStudyPath("login-redirects") },
@@ -82,9 +98,9 @@ export const strengths: {
       pill: "Enable users",
       tone: "sand",
       title: "I explain technical steps so people can act on them.",
-      text: "Testing guides for 42 teams and live training for new testers worldwide.",
+      text: "Testing guides and live training for new testers worldwide.",
       links: [
-        { label: "Training new testers", href: caseStudyPath("training-testers") },
+        { label: "Training testers", href: caseStudyPath("training-testers") },
         { label: "Testing guides", href: caseStudyPath("testing-guides") },
       ],
       image: {
@@ -100,7 +116,7 @@ export const strengths: {
       pill: "Understand users",
       tone: "pink",
       title: "I bring what users struggle with back to the product.",
-      text: "30+ usability sessions, and user reports turned into fixes on my own app.",
+      text: "Usability sessions, and user reports turned into fixes on my own app.",
       links: [
         { label: "Usability research", href: caseStudyPath("usability-research") },
         { label: "User reports to fixes", href: caseStudyPath("user-reports-to-fixes") },

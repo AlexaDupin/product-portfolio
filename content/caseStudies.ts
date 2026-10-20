@@ -178,7 +178,7 @@ export const caseStudies: CaseStudy[] = [
     },
     problem: [
       "Booking.com shipped iOS and Android releases every two weeks. Language teams tested each release and reported localization bugs and improvements in Jira.",
-      "Bugs had a 48-hour SLA so they could be fixed before the release reached the stores. Each ticket had to be real, complete and in the right hands quickly.",
+      "The mobile support team had a 48-hour SLA on these bugs, so they could be fixed before the release reached the stores. Each ticket had to be real, complete and in the right hands quickly.",
     ],
     responsibility: [
       "I triaged the tickets reported by 42 language teams: 20 to 100 bug and improvement tickets per release. I also answered the teams' questions through the team inbox and chat.",
@@ -203,7 +203,7 @@ export const caseStudies: CaseStudy[] = [
       { value: "5 years", label: "of triage on biweekly app releases" },
       { value: "42", label: "language teams reporting" },
       { value: "20–100", label: "tickets per release in Jira" },
-      { value: "48 h", label: "SLA for bug fixes" },
+      { value: "48 h", label: "SLA for the mobile support team" },
     ],
     communication: {
       title: "Working with non-technical reporters",
@@ -323,6 +323,7 @@ export const caseStudies: CaseStudy[] = [
     },
     outcome: [
       "Reporting a bug no longer meant taking screenshots or typing technical details by hand.",
+      "About 90% of localization bugs were fixed before release. I tracked this in Jira by filtering unresolved bugs by release version.",
       "Reports reached engineers in Jira, where they already worked. Fixing localization bugs became part of the engineers' sprint, to be done before each store release instead of carried over.",
     ],
     approach: [
@@ -339,7 +340,7 @@ export const caseStudies: CaseStudy[] = [
     slug: "sentry-login-alert",
     status: "live",
     category: "resolve-issues",
-    title: "A Sentry login alert, from triage to fix",
+    title: "A Sentry login alert, investigated end to end",
     summary:
       "Sentry flagged 11 login verification failures with no error details. I narrowed them down to one user on one iPhone over 36 seconds, then removed a single point of failure in how logins are verified.",
     tags: ["Bug triage", "Sentry", "Log analysis", "Root cause analysis", "Working safely in production"],
@@ -353,7 +354,7 @@ export const caseStudies: CaseStudy[] = [
       blurInHero: true,
     },
     meta: {
-      title: "A Sentry login alert, from triage to fix",
+      title: "A Sentry login alert, investigated end to end",
       description:
         "How I triaged a high-priority Sentry alert about login verification failures on WeSwapCards, narrowed it down with production evidence, and removed a single point of failure.",
     },
@@ -365,14 +366,14 @@ export const caseStudies: CaseStudy[] = [
     },
     problem: [
       "On October 14, 2026, Sentry raised a high-priority alert: 11 login verification failures on the live API, with no error details, because Clerk discards them for this error type.",
-      "This was a separate, much smaller issue than the July outage: one user, 36 seconds, resolved on its own. I use it here to show how I handle a Sentry alert from start to finish.",
+      "This was a separate, much smaller issue than the July outage: one user, 36 seconds, resolved on its own. I investigated it right away, and I use it here to show how I handle a Sentry alert from start to finish.",
     ],
     responsibility: [
-      "I own the product, so I triaged the alert, led the investigation and decided on the fix. I worked with an AI coding assistant and approved every step that touched production.",
+      "I own the product, so I triaged the alert, led the investigation and decided what to change. I worked with an AI coding assistant and approved every step that touched production.",
     ],
     headlines: {
       problem: "An urgent alert with no error details",
-      responsibility: "I triaged it and decided on the fix",
+      responsibility: "I triaged it and decided what to change",
       whatIDid: "I narrowed it down step by step before changing anything.",
       outcome: "Login checks no longer depend on a network call to Clerk.",
     },
@@ -399,11 +400,11 @@ export const caseStudies: CaseStudy[] = [
       },
     ],
     outcome: [
-      "The root cause wasn't proven. The change removes one of the two possible causes, so a network problem while fetching Clerk's key can no longer fail a login.",
+      "I confirmed it was a one-off issue that cleared on its own. The root cause wasn't proven, so the change removes one of the two possible causes: a network problem while fetching Clerk's key can no longer fail a login.",
       "This alert existed because of the monitoring I added after the July outage.",
     ],
     approach: [
-      "When the evidence is thin, I narrow it down step by step, test my assumptions before acting, and choose the fix that removes risk without creating new problems.",
+      "When the evidence is thin, I narrow it down step by step, test my assumptions before acting, and choose the change that removes risk without creating new problems.",
     ],
     links: {
       outcome: { label: "Read how I added that monitoring", href: caseStudyPath("monitoring-after-outage") },
@@ -558,9 +559,9 @@ export const caseStudies: CaseStudy[] = [
     slug: "training-testers",
     status: "live",
     category: "enable-users",
-    title: "Training new testers around the world",
+    title: "Training testers around the world",
     summary:
-      "I trained new linguists worldwide in mobile app testing through live video sessions, and onboarded 20+ new hires on my own team.",
+      "I trained about 30 localization specialists worldwide in app testing through live video sessions, and 15 people on my own team.",
     tags: ["Onboarding", "Training", "Mobile app testing", "Remote collaboration"],
     image: {
       label: "Training session",
@@ -573,7 +574,7 @@ export const caseStudies: CaseStudy[] = [
     meta: {
       title: "Training international testers",
       description:
-        "How I trained new linguists worldwide in mobile app testing through live video sessions, and onboarded 20+ new hires at Booking.com.",
+        "How I trained about 30 localization specialists worldwide in Booking.com's app testing process through live video sessions, and trained 15 people on my own team.",
     },
     header: {
       role: "Localization Specialist, Mobile Support Team",
@@ -581,16 +582,16 @@ export const caseStudies: CaseStudy[] = [
       tools: "Live video sessions",
     },
     problem: [
-      "New linguists joined from around the world and needed to test mobile apps. Many were nervous about the technical side.",
+      "Localization specialists around the world needed to learn the app testing process. Many were nervous about the technical side.",
     ],
     responsibility: [
-      "I trained new linguists worldwide in mobile app testing, onboarded 20+ new hires on my own team, and was the team's go-to person for app and technical issues.",
+      "I ran the app testing sessions for localization specialists worldwide, trained 15 people on my own team, and was the team's go-to person for app and technical issues.",
     ],
     headlines: {
-      problem: "New testers were nervous about the technical side",
-      responsibility: "I trained new linguists and onboarded new hires",
+      problem: "Testers were nervous about the technical side",
+      responsibility: "I trained testers worldwide and on my own team",
       whatIDid: "I ran the training as live video sessions.",
-      outcome: "New testers knew the steps and who to ask.",
+      outcome: "Testers knew the steps and who to ask.",
     },
     steps: [
       {
@@ -598,15 +599,22 @@ export const caseStudies: CaseStudy[] = [
         text: "I set up sessions at times that worked for people from Asia to South America.",
       },
       {
+        title: "Trained full teams, then newcomers",
+        text: "I trained whole teams first, then individual people as they joined.",
+      },
+      {
         title: "Ran a live test together",
-        text: "Each session walked through a real test with the new testers, step by step.",
+        text: "Each session walked through a real test with the testers, step by step.",
       },
       {
         title: "Stayed the go-to person",
         text: "Once they were testing on their own, they came to me with app and technical questions.",
       },
     ],
-    metrics: [{ value: "20+", label: "new hires onboarded on my own team" }],
+    metrics: [
+      { value: "~30", label: "localization specialists trained worldwide in app testing" },
+      { value: "15", label: "people on my own team trained in app testing" },
+    ],
     communication: {
       title: "Explaining technical steps to non-technical people",
       paragraphs: [
@@ -614,11 +622,15 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
     outcome: [
-      "Each new tester had gone through a real test once before working alone, and knew who to contact when something technical got in the way.",
+      "Each tester had gone through a real test once before working alone, and knew who to contact when something technical got in the way.",
+      "After the guide and the training sessions, fewer tickets came in incomplete or not actionable.",
     ],
     approach: [
       "I teach technical steps by going through them with people, and I answer their questions as they come up.",
     ],
+    links: {
+      outcome: { label: "Read about the testing guide", href: caseStudyPath("testing-guides") },
+    },
   },
   {
     slug: "production-outage",
@@ -649,6 +661,7 @@ export const caseStudies: CaseStudy[] = [
     },
     problem: [
       "Authenticated pages on WeSwapCards stopped returning data. The server looked healthy, and nothing had changed in my code or settings.",
+      "The outage lasted about 12 hours. At first I took it for a hosting issue on o2switch's side and expected it to clear on its own. Once I started investigating, I found the cause in the server logs and fixed it within an hour.",
     ],
     responsibility: ["I run WeSwapCards solo, so finding and fixing the outage was on me."],
     headlines: {
@@ -679,7 +692,7 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
     outcome: [
-      "Authenticated pages returned data again after the fix. Sentry tracing and the health endpoint now give me more visibility into the API and the services it depends on.",
+      "Authenticated pages returned data again after the fix. The hours lost before I started investigating are why I added monitoring: Sentry tracing and the health endpoint now give me more visibility into the API and the services it depends on.",
     ],
     approach: [
       "When something breaks without a code change, I also check the environment: the host, the runtime and the services the app depends on. I test one possible cause at a time.",
@@ -715,19 +728,19 @@ export const caseStudies: CaseStudy[] = [
       tools: "Jira",
     },
     problem: [
-      "Testers in 42 language teams needed one clear reference for setting up the apps, testing them and reporting what they found.",
+      "Each release, language teams had 48 hours to check the app in their language. Testers in 42 teams needed one clear reference for setting up the apps, testing them and reporting what they found.",
     ],
     responsibility: ["I wrote the iOS and Android app testing guides for all 42 language teams."],
     headlines: {
       problem: "42 language teams needed one clear testing reference",
       responsibility: "I wrote the guides for all 42 teams",
       whatIDid: "The guides covered the whole path, from installing the app to filing a ticket.",
-      outcome: "Noticeably fewer incomplete tickets, by my own observation.",
+      outcome: "Teams met the 48-hour deadline and asked fewer questions.",
     },
     steps: [
       { title: "Install", text: "Installing the beta app." },
       { title: "Set up", text: "Getting the app and device ready for testing." },
-      { title: "Test", text: "Running test scenarios efficiently." },
+      { title: "Test", text: "Running the test scenarios. The guide recommended about an hour for the check." },
       {
         title: "Report",
         text: "Reporting bugs and improvements in Jira with the information engineers and copywriters need.",
@@ -747,7 +760,8 @@ export const caseStudies: CaseStudy[] = [
       ],
     },
     outcome: [
-      "After the guides were in use, I saw noticeably fewer incomplete tickets. That's my own observation from triaging them, not a measured figure.",
+      "The guide helped language teams meet their 48-hour deadline, and they asked our team fewer questions.",
+      "After the guide and the training sessions, fewer tickets came in incomplete or not actionable. That's my own observation from triaging them, not a measured figure.",
     ],
     approach: [
       "When people ask the same question more than once, I add the answer to a guide.",
@@ -839,7 +853,7 @@ export const caseStudies: CaseStudy[] = [
     },
     outcome: [
       "I can check the server's state in seconds instead of guessing from symptoms.",
-      "In October 2026, Sentry flagged a separate, much smaller sign-in issue: one user, for 36 seconds. I followed it from the alert to a preventive change.",
+      "Since then, Sentry has reported one backend error. I investigated it as soon as it came in and confirmed it was a one-off issue that didn't recur.",
     ],
     approach: [
       "After fixing a bug, I also make sure the next failure will be visible, and I'm clear about what my monitoring does and doesn't cover.",
