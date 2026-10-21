@@ -28,10 +28,10 @@ export const path = {
       title: "Booking.com",
       icon: "building",
       logo: { src: "/images/booking-logo.png", width: 148, height: 148 },
-      text: "Localization, release triage, user testing and training. From 2019, also coordinated iOS/Android localization QA within the Mobile Support Team.",
+      text: "Localization, release triage, user testing and training. From 2017 to 2023, also coordinated iOS/Android localization QA within the Mobile Support Team.",
       roles: [
         { role: "Localization Specialist", period: "2011 – 2025", icon: "globe" },
-        { role: "Mobile Support Team", period: "2019 – 2025", icon: "phone" },
+        { role: "Mobile Support Team", period: "2017 – 2023", icon: "phone" },
       ],
     },
     {
