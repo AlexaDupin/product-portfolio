@@ -106,6 +106,18 @@ async function CaseStudy({ params }: Pick<PageProps<"/case-studies/[slug]">, "pa
           </LabeledSection>
         )}
 
+        {study.example && (
+          <>
+            <hr className={styles.rule} />
+            <LabeledSection
+              id="example"
+              eyebrow={caseStudyLabels.example}
+              headline={study.example.title}
+              paragraphs={study.example.paragraphs}
+            />
+          </>
+        )}
+
         {study.communication && (
           <>
             <hr className={styles.rule} />

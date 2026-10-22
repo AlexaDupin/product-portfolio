@@ -133,6 +133,8 @@ export interface LiveCaseStudy extends CaseStudyBase {
   beforeAfter?: BeforeAfter;
   steps?: Step[];
   communication?: TextBlock;
+  /** One concrete case from the work, shown after the steps. `title` is the section headline. */
+  example?: TextBlock;
   excerpt?: Excerpt;
   /** A process shown as a simple top-to-bottom diagram, after the steps. */
   flow?: { headline: string; label: string; nodes: { title: string; detail: string }[] };

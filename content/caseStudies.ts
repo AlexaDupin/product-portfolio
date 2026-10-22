@@ -29,6 +29,7 @@ export const caseStudyLabels = {
   outcome: "What changed",
   approach: "How I work",
   communication: "Communication",
+  example: "Example",
   flow: "How the new process worked",
   skills: "Skills shown",
   metrics: "In numbers",
@@ -963,14 +964,22 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "Suggested what to test",
-        text: "From what users did, I helped find hypotheses to test, including A/B tests in French when a translation might be causing friction.",
+        text: "I turned user behavior into hypotheses to test, including A/B tests when the wording might be causing friction.",
       },
     ],
+    example: {
+      title: "Free cancellation dates",
+      paragraphs: [
+        "In one session, a French-speaking user was asked what \"free cancellation until September 25\" meant. They weren't sure whether they could still cancel for free on September 25 itself. I agreed the wording was unclear: a guest who guessed wrong could pay an unexpected fee or contact customer service to check.",
+        "I suggested an A/B test to the copywriter and product team, comparing the current wording with \"before September 25\". The product team ran it across all languages and tracked conversion, cancellations and customer service tickets. The test was conclusive, and the team applied the change to the English source text and every other language.",
+      ],
+    },
     metrics: [{ value: "30+", label: "usability sessions moderated" }],
     outcomeLabel: "My impact",
     outcome: [
       "The product teams didn't speak French, so they relied on me to lead each session and make it as useful as possible.",
       "Their feedback on my work was consistently positive.",
+      "One of my suggestions led to new cancellation wording in every language on the site.",
     ],
     approach: ["I prepare with the team that owns the question, so I know what to watch for during the session."],
   },
