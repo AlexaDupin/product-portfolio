@@ -133,6 +133,14 @@ export interface LiveCaseStudy extends CaseStudyBase {
   beforeAfter?: BeforeAfter;
   steps?: Step[];
   communication?: TextBlock;
+  /** Label for the communication section; defaults to the shared "Communication" label. */
+  communicationLabel?: string;
+  /** A short list shown after the outcome paragraphs. */
+  outcomeList?: { intro: string; items: string[] };
+  /** A plain data table shown last in the outcome section. `label` is for screen readers. */
+  outcomeTable?: { label: string; columns: string[]; rows: string[][] };
+  /** The slug of the next case study, when it shouldn't follow the usual order. */
+  nextSlug?: string;
   /** One concrete case from the work, shown after the steps. `title` is the section headline. */
   example?: TextBlock;
   excerpt?: Excerpt;

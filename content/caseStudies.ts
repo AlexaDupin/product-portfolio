@@ -43,7 +43,7 @@ export const featuredSlugs = [
   "login-redirects",
   "release-bug-triage",
   "in-app-bug-reporting",
-  "training-testers",
+  "ai-ticket-triage",
 ] as const;
 
 export const caseStudies: CaseStudy[] = [
@@ -498,6 +498,117 @@ export const caseStudies: CaseStudy[] = [
     approach: [
       "When I clean up bad data, I also find out why it got there and fix the cause at the level where it can't be bypassed.",
     ],
+  },
+  {
+    slug: "ai-ticket-triage",
+    status: "live",
+    category: "resolve-issues",
+    title: "Testing AI ticket triage on my product's support emails",
+    summary:
+      "I tested whether an AI could triage WeSwapCards support emails the way I do. I labeled 75 real conversations myself, improved the prompt over 4 versions, then ran it once on 24 conversations it had never seen. The test showed where the AI can be trusted and where a person still needs to decide.",
+    tags: [
+      "AI triage",
+      "Prompt iteration",
+      "AI evaluation",
+      "Ticket labeling",
+      "Routing rules",
+      "Data privacy",
+      "Root cause analysis",
+    ],
+    image: weswapcardsScreens.desktopHome,
+    meta: {
+      title: "Testing AI ticket triage on support emails",
+      description:
+        "How I tested whether an AI could triage WeSwapCards support emails: 75 conversations labeled by hand, 4 prompt versions and a final run on 24 it had never seen.",
+    },
+    header: {
+      role: "Solo developer and support",
+      context: "WeSwapCards support inbox, web and mobile apps",
+      timeline: "November 2026, 2 days",
+      tools: "Claude, Excel, Node.js, Thunderbird",
+    },
+    problem: [
+      "Support teams now use AI to sort incoming tickets, but a wrong label can send a bug to the wrong queue or leave an abuse report unread. Before trusting an AI with my inbox, I wanted to know how often it agreed with me, which mistakes mattered, and which tickets should always reach a person.",
+    ],
+    responsibility: [
+      "I built the test set from my own support emails, wrote the labeling rules, labeled every conversation, wrote and improved the prompt, and measured each version against my labels.",
+    ],
+    headlines: {
+      problem: "AI triage is only useful if someone checks where it's wrong",
+      responsibility: "I designed and ran the whole test",
+      whatIDid: "I ran it like a proper evaluation",
+      outcome: "A tested prompt, and a clear rule for when a person decides",
+    },
+    metrics: [
+      { value: "75", label: "real support conversations labeled by hand" },
+      { value: "4", label: "prompt versions, a few changes at a time" },
+      {
+        value: "95%",
+        label: "of type labels matched by the final prompt, including 23 of 24 on tickets it had never seen",
+      },
+      {
+        value: "0",
+        label: "critical errors on the final test (a bug, abuse report or data request sent the wrong way)",
+      },
+    ],
+    steps: [
+      {
+        title: "Build the test set",
+        text: "I exported my support emails, kept one row per conversation and dropped notifications and test messages. A script de-identified them on my computer, replacing names, email addresses and phone numbers, before any AI saw the text.",
+      },
+      {
+        title: "Label every conversation myself",
+        text: "I defined 8 ticket types, 6 topics and a rule for whether a bug can be reproduced. I labeled each conversation as a triager would on arrival, before knowing how it was resolved.",
+      },
+      {
+        title: "Compare and find the cause of each error",
+        text: "I ran the prompt in Claude and matched its answers against mine. Every disagreement got a cause: missed bug, missing product context, unclear rule, or my own mistake.",
+      },
+      {
+        title: "Improve the prompt in small steps",
+        text: "I added product context, then ticket dates and clearer rules, then a product policy. Small steps showed me when a change fixed one error and caused another, and I stopped at version 4.",
+      },
+      {
+        title: "Test once on unseen tickets",
+        text: "I had kept 24 conversations aside from the start. I ran the final prompt on them once, with no changes afterward, to check the results held.",
+      },
+    ],
+    communicationLabel: "Data and privacy",
+    communication: {
+      title: "I de-identified users' emails before testing",
+      paragraphs: [
+        "WeSwapCards has users in Europe, so I treated their messages as personal data. I replaced names, email addresses and phone numbers locally before testing, and none of the emails appear on this page. For real use on incoming mail, I'd run the triage through an API covered by a data processing agreement, or a model running on my own computer.",
+      ],
+    },
+    outcome: [
+      "The AI matched my ticket type on 46 of 51 conversations with version 1 and 48 of 51 with version 4. On the 24 it had never seen, it matched 23. Almost every remaining disagreement was between a question and a feature request, which doesn't change who handles the ticket. A general product description didn't change the score. What helped was adding one specific product policy.",
+      "The rule I'd use: abuse reports and data deletion requests always go to a person, whatever the AI's confidence. Low confidence is a useful extra flag, but on the final test it flagged 8 of 24 tickets, so it can't be the only safeguard.",
+    ],
+    outcomeList: {
+      intro: "The emails also taught me about the product:",
+      items: [
+        "A report of cards never sent came from a rule I'd set myself: usernames couldn't contain a period, so a partner sent the cards to another user with the same name without it.",
+        "A user asked for a feature that already existed, which led me to add a tutorial on the website.",
+      ],
+    },
+    outcomeTable: {
+      label: "Type matches for each prompt version",
+      columns: ["Version", "What changed", "Type matches"],
+      rows: [
+        ["1", "Minimal context", "46 of 51"],
+        ["2", "Full product description", "46 of 51"],
+        ["3", "Ticket dates and clearer rules", "46 of 51"],
+        ["4", "Username policy", "48 of 51"],
+        ["Final test", "Version 4, unseen tickets", "23 of 24"],
+      ],
+    },
+    approach: [
+      "Before trusting an AI with a task I know well, I measure it against my own judgment. I make small changes, so I know what helped and what only moved the errors around.",
+    ],
+    links: {
+      end: [{ label: "Release bug triage", href: caseStudyPath("release-bug-triage") }],
+    },
+    nextSlug: "user-reports-to-fixes",
   },
   {
     slug: "user-reports-to-fixes",

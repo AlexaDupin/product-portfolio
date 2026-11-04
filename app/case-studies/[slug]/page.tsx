@@ -14,6 +14,7 @@ import { ResultBand } from "@/components/caseStudies/ResultBand";
 import { Steps } from "@/components/ui/Steps";
 import { InfoColumns } from "@/components/ui/InfoColumns";
 import { BeforeAfterTable } from "@/components/caseStudies/BeforeAfterTable";
+import { ResultsTable } from "@/components/caseStudies/ResultsTable";
 import { ExcerptBlock } from "@/components/caseStudies/ExcerptBlock";
 import { ProcessFlow } from "@/components/caseStudies/ProcessFlow";
 import { NextCaseStudy } from "@/components/caseStudies/NextCaseStudy";
@@ -125,7 +126,7 @@ async function CaseStudy({ params }: Pick<PageProps<"/case-studies/[slug]">, "pa
             <div className={study.excerpt ? styles.withExample : undefined}>
               <LabeledSection
                 id="communication"
-                eyebrow={caseStudyLabels.communication}
+                eyebrow={study.communicationLabel ?? caseStudyLabels.communication}
                 headline={study.communication.title}
                 paragraphs={study.communication.paragraphs}
               />
@@ -155,6 +156,23 @@ async function CaseStudy({ params }: Pick<PageProps<"/case-studies/[slug]">, "pa
               {paragraph}
             </p>
           ))}
+          {study.outcomeList && (
+            <>
+              <p className={styles.paragraph}>{study.outcomeList.intro}</p>
+              <ul className={styles.list}>
+                {study.outcomeList.items.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </>
+          )}
+          {study.outcomeTable && (
+            <ResultsTable
+              label={study.outcomeTable.label}
+              columns={study.outcomeTable.columns}
+              rows={study.outcomeTable.rows}
+            />
+          )}
           {study.links?.outcome && (
             <p>
               <ArrowLink link={study.links.outcome} />

@@ -55,15 +55,15 @@ export const achievements: { title: string; items: Achievement[] } = {
     },
     {
       context: "Booking.com",
-      title: "Language teams met a 48-hour testing deadline",
-      text: "My testing guide and training sessions also cut non-actionable tickets sharply.",
-      link: { label: "Testing guide", href: caseStudyPath("testing-guides") },
-    },
-    {
-      context: "Booking.com",
       title: "Trained 15 teammates and 30+ linguists worldwide in app testing",
       text: "On site and over live video across time zones, walking through a real test together.",
       link: { label: "Training testers", href: caseStudyPath("training-testers") },
+    },
+    {
+      context: "WeSwapCards",
+      title: "AI triage matched my labels on 71 of 75 support conversations",
+      text: "Including 23 of 24 it had never seen.",
+      link: { label: "AI triage case study", href: caseStudyPath("ai-ticket-triage") },
     },
     {
       context: "WeSwapCards",
@@ -98,6 +98,7 @@ export const strengths: {
     text: "I reproduce what users report, follow it across the product, and either fix it myself or give engineers a clear, complete picture.",
     links: [
       { label: "Release bug triage", href: caseStudyPath("release-bug-triage") },
+      { label: "AI ticket triage", href: caseStudyPath("ai-ticket-triage") },
       { label: "Sign-in loop fix", href: caseStudyPath("login-redirects") },
     ],
     image: {

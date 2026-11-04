@@ -16,6 +16,14 @@
   color: var(--muted);
 }
 
+.list {
+  display: grid;
+  gap: 8px;
+  padding-left: 20px;
+  color: var(--muted);
+  list-style: disc;
+}
+
 .endLinks {
   display: grid;
   justify-items: start;

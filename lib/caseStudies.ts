@@ -25,8 +25,13 @@ const isFeatured = (study: CaseStudy) =>
 export const otherCaseStudiesIn = (category: CategoryId): LiveCaseStudy[] =>
   liveCaseStudies().filter((study) => study.category === category && !isFeatured(study));
 
-/** Featured studies first, then the rest in content order; wraps around. */
+/** The study's own `nextSlug` if it has one; otherwise featured studies first, then the rest in content order, wrapping around. */
 export const nextCaseStudy = (slug: string): LiveCaseStudy => {
+  const nextSlug = getLiveCaseStudy(slug)?.nextSlug;
+  const chosen = nextSlug && getLiveCaseStudy(nextSlug);
+  if (chosen) {
+    return chosen;
+  }
   const ordered = [...featuredCaseStudies(), ...liveCaseStudies().filter((study) => !isFeatured(study))];
   const index = ordered.findIndex((study) => study.slug === slug);
   return ordered[(index + 1) % ordered.length];
