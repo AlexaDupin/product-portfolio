@@ -4,7 +4,7 @@ export const person = {
   name: "Alexa Dupin",
   /** The monogram in the browser tab and iPhone icons. */
   initials: "AD",
-  location: "Brooklyn, NY",
+  location: "New York",
   languages: "French · English · Spanish",
 };
 
