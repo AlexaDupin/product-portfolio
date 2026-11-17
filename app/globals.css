@@ -18,6 +18,8 @@
   --footer: #2a1f27;
   --on-dark-muted: #eadde6;
   --on-dark-eyebrow: #f1f4c7;
+  --new-badge-bg: #e6ee8e;
+  --new-badge-text: #3b2333;
   --page-top: #f6eef2;
   /* Priority tags (owner-approved exception, 2026-10-20): light tint, dark text of the same hue for contrast. */
   --priority-high-bg: #fde4e2;

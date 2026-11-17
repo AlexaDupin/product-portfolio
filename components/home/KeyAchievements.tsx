@@ -1,6 +1,6 @@
 import { achievements } from "@/content/home";
 import { ArrowLink } from "@/components/ui/ArrowLink";
-import { Pill } from "@/components/ui/Pill";
+import { NewBadge } from "@/components/ui/NewBadge";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import styles from "./KeyAchievements.module.css";
 
@@ -15,7 +15,7 @@ export function KeyAchievements() {
             <li key={title} className={styles.card}>
               <p className={styles.context}>
                 {context}
-                {badge && <Pill label={badge} tone="pink" size="small" />}
+                {badge && <NewBadge label={badge} />}
               </p>
               <h3 className={styles.headline}>{title}</h3>
               <p className={styles.text}>{text}</p>

@@ -12,7 +12,7 @@ import { ArchitectureDiagram } from "@/components/build/ArchitectureDiagram";
 import { AppLinks } from "@/components/build/AppLinks";
 import { ArrowLink } from "@/components/ui/ArrowLink";
 import { NewProjects } from "@/components/build/NewProjects";
-import { Pill } from "@/components/ui/Pill";
+import { NewBadge } from "@/components/ui/NewBadge";
 import { jobSearchAssistant, newProjects, weswapcards, whatIBuildMeta, whatIBuildPage } from "@/content/projects";
 import styles from "./page.module.css";
 
@@ -93,7 +93,7 @@ export default function WhatIBuildPage() {
       >
         <div className={styles.card}>
           <p className={styles.badgeLine}>
-            <Pill label={jobSearchAssistant.badge} tone="pink" size="small" />
+            <NewBadge label={jobSearchAssistant.badge} />
             <span className={styles.eyebrow}>{jobSearchAssistant.eyebrow}</span>
           </p>
           <h2 id="job-search-assistant-title" className={styles.cardTitle}>

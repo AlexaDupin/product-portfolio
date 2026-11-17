@@ -1,0 +1,13 @@
+/* Same yellow family as the hero eyebrow, a step stronger so it reads on a white page. */
+.badge {
+  display: inline-block;
+  padding: 2px 7px;
+  border-radius: 3px;
+  background: var(--new-badge-bg);
+  color: var(--new-badge-text);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}

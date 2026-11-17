@@ -1,6 +1,6 @@
 import { ui } from "@/content/site";
 import type { NewProject } from "@/content/projects";
-import { Pill } from "@/components/ui/Pill";
+import { NewBadge } from "@/components/ui/NewBadge";
 import { SmartLink } from "@/components/ui/SmartLink";
 import styles from "./NewProjects.module.css";
 
@@ -22,7 +22,7 @@ export function NewProjects({ id, title, items }: NewProjectsProps) {
         {items.map(({ badge, title: name, text, link }) => (
           <li key={name}>
             <SmartLink link={link} className={styles.card}>
-              <Pill label={badge} tone="pink" size="small" />
+              <NewBadge label={badge} />
               <span className={styles.body}>
                 <span className={styles.name}>{name}</span>
                 <span className={styles.text}>{text}</span>
