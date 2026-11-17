@@ -1,5 +1,5 @@
 import { weswapcardsScreens } from "./screens";
-import { caseStudyPath, links } from "./site";
+import { caseStudyPath, links, projectPath, routes } from "./site";
 import type { LinkItem, Metric, PageMeta } from "./types";
 
 export const whatIBuildMeta: PageMeta = {
@@ -12,7 +12,12 @@ export const whatIBuildPage = {
   eyebrow: "What I build",
   title: "I build products that solve a real problem for people.",
   lead: "WeSwapCards is my main project. I designed, built and run it solo, user support included. Alongside it, I keep building smaller tools, lately with AI.",
+  /** Read by screen readers only; the cards speak for themselves on screen. */
+  projectsTitle: "Projects",
 };
+
+/** Shown at the top of each project page, back to the What I build menu. */
+export const backToProjects: LinkItem = { label: "What I build", href: routes.whatIBuild };
 
 /** A link shown as a card with the destination's logo. Logos are decorative; the label names the destination. */
 export interface LogoLink extends LinkItem {
@@ -28,6 +33,12 @@ export interface DiagramNode {
 }
 
 export const weswapcards = {
+  meta: {
+    title: "WeSwapCards",
+    description:
+      "WeSwapCards, the trading platform I designed, built and support solo for 1,000+ WeWard card collectors on web, iOS and Android.",
+  } satisfies PageMeta,
+  card: { label: "See the project", href: projectPath("weswapcards") } satisfies LinkItem,
   eyebrow: "Main project",
   title: "WeSwapCards",
   tagline: "A web and mobile app where WeWard collectors find swap partners, message about trades and track progress toward complete sets.",
@@ -212,45 +223,28 @@ export interface NewProject {
   badge: string;
   title: string;
   text: string;
+  /** Small tags on the card: what the project shows, not the code behind it. */
+  tags: string[];
   link: LinkItem;
 }
 
-/** The compact row under the page header: newer, smaller projects, so they're seen first. The title is for screen readers only. */
-export const newProjects: { title: string; items: NewProject[] } = {
-  title: "Newer projects",
+/** Smaller cards next to WeSwapCards on the What I build menu. */
+export const newProjects: { items: NewProject[] } = {
   items: [
     {
       badge: "New",
       title: "Job Search Assistant",
       text: "Finds jobs, scores the fit and drafts a tailored CV. I approve every step.",
-      link: { label: "See how it works", href: "#job-search-assistant" },
+      // Built with Claude Code; she did not review the code or tests, so no languages, frameworks or test counts here.
+      tags: ["AI fluency", "Process improvement", "Google Sheets API", "Google Docs and Drive APIs", "Apify"],
+      link: { label: "Read the case study", href: caseStudyPath("job-search-assistant") },
     },
     {
       badge: "New",
       title: "AI ticket triage",
       text: "AI matched my support labels on 71 of 75 conversations.",
+      tags: ["AI triage", "Ticket labeling", "Prompt iteration", "AI evaluation", "Excel"],
       link: { label: "AI triage case study", href: caseStudyPath("ai-ticket-triage") },
     },
   ],
-};
-
-export const jobSearchAssistant = {
-  id: "job-search-assistant",
-  badge: "New",
-  eyebrow: "Personal tool · Since October 2026",
-  title: "Job Search Assistant",
-  paragraphs: [
-    "An app I built to run my own job search. It finds postings, scores how well each one fits me and drafts a tailored CV from facts I've approved. I review and approve every step, and it never applies for me.",
-    "It started as a Claude workflow I ran each week and grew into an app.",
-  ],
-  featuresTitle: "What it does",
-  features: [
-    "Finds jobs on LinkedIn, Built In and company career pages, filtered by my criteria",
-    "Writes an honest match report: fit score, gaps, and whether to apply at all",
-    "Tailors my CV in Google Docs and checks every claim against my own facts",
-    "Tracks applications, outcomes and networking in a Google Sheet and its own interface",
-  ],
-  caseStudy: { label: "Read the case study", href: caseStudyPath("job-search-assistant") } satisfies LinkItem,
-  stackTitle: "Built with",
-  stack: ["TypeScript", "Node.js", "React", "SQLite", "Claude (Claude Code)", "Google Sheets, Docs and Drive APIs", "Apify", "300+ automated tests"],
 };

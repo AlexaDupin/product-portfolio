@@ -31,6 +31,7 @@ export const routes = {
 } as const;
 
 export const caseStudyPath = (slug: string) => `${routes.caseStudies}/${slug}`;
+export const projectPath = (slug: string) => `${routes.whatIBuild}/${slug}`;
 
 export const nav = {
   homeLabel: `${person.name}, home`,
@@ -68,6 +69,7 @@ export const ui = {
   newTabHint: "(opens in a new tab)",
   arrow: "→",
   downArrow: "↓",
+  backArrow: "←",
   separator: " · ",
 };
 

@@ -1,6 +1,9 @@
+/* Tags keep their own height and sit at the top, even when the parent is taller (e.g. next to a long list). */
 .list {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
+  align-items: flex-start;
   gap: 6px;
   list-style: none;
 }
@@ -19,6 +22,7 @@
 
 .labelled {
   display: grid;
+  align-content: start;
   gap: 8px;
 }
 

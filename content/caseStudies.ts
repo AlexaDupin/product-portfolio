@@ -511,6 +511,7 @@ export const caseStudies: CaseStudy[] = [
       "Prompt iteration",
       "AI evaluation",
       "Ticket labeling",
+      "Excel",
       "Routing rules",
       "Data privacy",
       "Root cause analysis",
@@ -525,7 +526,7 @@ export const caseStudies: CaseStudy[] = [
       role: "Solo developer and support",
       context: "WeSwapCards support inbox, web and mobile apps",
       timeline: "November 2026, 2 days",
-      tools: "Claude, Excel, Node.js, Thunderbird",
+      tools: "Claude, Excel, Thunderbird",
     },
     problem: [
       "Support teams now use AI to sort incoming tickets, but a wrong label can send a bug to the wrong queue or leave an abuse report unread. Before trusting an AI with my inbox, I wanted to know how often it agreed with me, which mistakes mattered, and which tickets should always reach a person.",
@@ -618,14 +619,14 @@ export const caseStudies: CaseStudy[] = [
     summary:
       "My job search started as Claude skills that found and scored jobs for me. I turned it into a tool built on a Google Sheet and the Google APIs, then into an app with its own interface. It finds jobs, scores the fit and drafts a tailored CV, and I approve every step.",
     tags: [
+      "AI fluency",
+      "Process improvement",
       "Claude skills",
       "Prompt design",
       "Google Sheets API",
       "Google Docs and Drive APIs",
-      "Workflow design",
+      "Apify",
       "Human review of AI output",
-      "TypeScript",
-      "Process improvement",
     ],
     image: {
       label: "Screenshot: Job Search Assistant interface with demo data",
@@ -638,21 +639,21 @@ export const caseStudies: CaseStudy[] = [
         "How I turned Claude skills for my job search into a tool built on Google Sheets and the Google APIs, then into an app that finds jobs, scores the fit and drafts tailored CVs for me to approve.",
     },
     header: {
-      role: "Solo developer and only user",
+      role: "Creator",
       context: "My own job search in New York",
       timeline: "Since October 2026",
-      tools: "Claude, Google Sheets, Docs and Drive APIs, TypeScript, Node.js, React, SQLite, Apify",
+      tools: "Claude Code, Google Sheets, Docs and Drive APIs, Apify",
     },
     problem: [
       "A job search repeats the same work every week: finding postings, judging whether each one fits, and adapting my CV for the ones worth applying to. The same rules apply every time: which titles to skip, how to describe my experience and what never to claim.",
       "I first wrote those rules into Claude skills. They worked, but a chat can't keep full job descriptions, reach my files or track an application from start to finish.",
     ],
     responsibility: [
-      "I designed, built and use the whole tool: the skills and prompts, the Google Sheet and its connection to the Google APIs, the worker that runs each step, the interface and the tests.",
+      "I designed the whole tool and built it with Claude Code: the skills and prompts, the Google Sheet and its connection to the Google APIs, each step of the process and the interface.",
     ],
     headlines: {
       problem: "A weekly job search with the same rules every time",
-      responsibility: "I designed, built and use it",
+      responsibility: "I designed it, built it with Claude Code and use it",
       whatIDid: "I built it in stages, each one used for real before the next.",
       outcome: "One tool from job posting to application, with me approving each step",
     },
@@ -677,11 +678,11 @@ export const caseStudies: CaseStudy[] = [
       },
       {
         title: "Added an interface and moved the search into the app",
-        text: "A React interface now shows each application, the match report and what waits for me. The search runs in the app too: it collects postings from LinkedIn, Built In and company career pages, removes duplicates and scores the rest in batches.",
+        text: "An interface now shows each application, the match report and what waits for me. The search runs in the app too: it collects postings from LinkedIn, Built In and company career pages, removes duplicates and scores the rest in batches.",
       },
       {
-        title: "Tested every change before using it",
-        text: "300+ automated tests cover the workflow. Each change runs in a separate test setup before it touches my real search.",
+        title: "Tried every change on test data first",
+        text: "Each change runs in a separate test setup, with its own data, before it touches my real search.",
       },
     ],
     flow: {
