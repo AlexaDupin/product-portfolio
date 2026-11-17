@@ -70,7 +70,7 @@ Personal portfolio for **technical product support, technical support and QA** r
 - Subtle hover only. Nav: transparent over home hero, sticky flat plum #3B2333 after scroll and on all other pages.
 - Unpublished case studies stay in content as `status: "coming-soon"` with `hidden: true` and never appear on the site (no "Coming soon" cards).
 - Images: clearly labeled placeholders until real screenshots. No stock photos with text.
-- Share preview image (`app/opengraph-image.tsx`, text in `shareImage` in `content/site.ts`) is locked (owner, 2026-10-19): dark plum with two soft pink glows, name as a small sand eyebrow, "Technical Product Support & QA" at 72px in Schibsted Grotesk ExtraBold (`assets/fonts/`), keywords Bug triage • Web & mobile testing • Troubleshooting • Process improvement (words changed by the owner 2026-11-17; design unchanged). No link, no photos. Don't change it without asking.
+- Share preview image (`app/opengraph-image.tsx`, text in `shareImage` in `content/site.ts`) is locked (owner, 2026-10-19): dark plum with two soft pink glows, name as a small sand eyebrow, "Technical Product Support & QA" at 72px in Schibsted Grotesk ExtraBold (`assets/fonts/`), keywords Bug triage • Web & mobile testing • Troubleshooting • Process improvement (words changed by the owner 2026-11-17; design unchanged). When its words change, also bump the version comment in `app/opengraph-image.tsx`: the image address only changes when that file does, and LinkedIn caches images by address. No link, no photos. Don't change it without asking.
 
 ## Writing rules
 

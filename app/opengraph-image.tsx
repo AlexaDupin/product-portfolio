@@ -4,6 +4,9 @@ import { ImageResponse } from "next/og";
 import { shareImage } from "@/content/site";
 
 // Generated once at build time; every page uses it unless it sets its own.
+// The image address (?hash) comes from this file only, not from the words in content/site.ts.
+// LinkedIn caches images by address, so when the shareImage words change, bump this version
+// to give the image a new address. Version 2 (2026-11-17): "Technical Product Support & QA".
 export const alt = shareImage.alt;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
