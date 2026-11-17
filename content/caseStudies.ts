@@ -629,9 +629,15 @@ export const caseStudies: CaseStudy[] = [
       "Human review of AI output",
     ],
     image: {
-      label: "Screenshot: Job Search Assistant interface with demo data",
-      alt: "Placeholder for a screenshot of the Job Search Assistant interface",
+      label: "Screenshot: Job Search Assistant applications, demo data",
+      alt: "The Job Search Assistant on a laptop: the Applications screen, with three applications waiting for review (Match review, CV review, PDF review), one being analyzed, and a table of seven applications with their stage and fit score",
       tone: "pink",
+      caption: "The Applications screen, shown with demo data: the candidate, companies and jobs are fictional.",
+      src: "/images/jsa-demo-applications.webp",
+      width: 2000,
+      height: 1250,
+      device: "laptop",
+      inBody: true,
     },
     meta: {
       title: "Building a Job Search Assistant, from a Claude skill to an app",

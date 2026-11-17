@@ -53,8 +53,8 @@ async function CaseStudy({ params }: Pick<PageProps<"/case-studies/[slug]">, "pa
   }
 
   const category = categoryById(study.category);
-  // A real image becomes the hero background; a placeholder stays in the body.
-  const imageInHero = Boolean(study.image.src);
+  // A real image becomes the hero background, unless it is meant to be read (`inBody`); a placeholder stays in the body.
+  const imageInHero = Boolean(study.image.src) && !study.image.inBody;
 
   return (
     <article>
