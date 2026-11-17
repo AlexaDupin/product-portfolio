@@ -1,6 +1,6 @@
 # Alexa Dupin portfolio: project rules
 
-Personal portfolio for **Product Specialist** and **asynchronous technical support** roles (tickets, email, chat; no phone support). Not a software engineering portfolio.
+Personal portfolio for **technical product support, technical support and QA** roles (positioning changed 2026-11-17 to match her LinkedIn headline "Technical Product Support & QA"; Product Specialist roles still fit). Asynchronous support only (tickets, email, chat; no phone support). Don't show years at Booking.com in skimmable places (hero, stats, titles): it can trip seniority filters for the Specialist and Associate roles she targets. Not a software engineering portfolio.
 
 ## Priorities
 
@@ -22,7 +22,7 @@ Personal portfolio for **Product Specialist** and **asynchronous technical suppo
 - create-next-app ESLint config; fix warnings, never disable rules.
 - Static rendering. No backend, database, accounts or env vars.
 - Mobile-first, no horizontal scroll at phone width, semantic HTML, accessible contrast, visible focus states, alt text, `prefers-reduced-motion` respected.
-- Real per-page titles and meta descriptions (e.g. "Alexa Dupin | Product Specialist & Technical Support").
+- Real per-page titles and meta descriptions (e.g. "Alexa Dupin | Technical Product Support & QA").
 - Optimize for mobile and ATS/recruiter search: semantic HTML, all key content as real text (never baked into images), headings that name roles and skills, and job-description keywords (e.g. technical support, troubleshooting, root cause analysis, ticketing, Jira, documentation, onboarding, user research) used only where the facts support them.
 - Fast: pages load in under 3 seconds on mobile. Static pages, `next/font`, no client JS except where interaction needs it, no heavy images.
 - Windows / PowerShell commands. Every file stays inside `D:\code\product-portfolio` (moved from C: on 2026-11-16).
@@ -70,7 +70,7 @@ Personal portfolio for **Product Specialist** and **asynchronous technical suppo
 - Subtle hover only. Nav: transparent over home hero, sticky flat plum #3B2333 after scroll and on all other pages.
 - Unpublished case studies stay in content as `status: "coming-soon"` with `hidden: true` and never appear on the site (no "Coming soon" cards).
 - Images: clearly labeled placeholders until real screenshots. No stock photos with text.
-- Share preview image (`app/opengraph-image.tsx`, text in `shareImage` in `content/site.ts`) is locked (owner, 2026-10-19): dark plum with two soft pink glows, name as a small sand eyebrow, "Product Specialist & Technical Support" at 72px in Schibsted Grotesk ExtraBold (`assets/fonts/`), keywords Troubleshooting • Bug triage • User enablement • Process improvement. No link, no photos. Don't change it without asking.
+- Share preview image (`app/opengraph-image.tsx`, text in `shareImage` in `content/site.ts`) is locked (owner, 2026-10-19): dark plum with two soft pink glows, name as a small sand eyebrow, "Technical Product Support & QA" at 72px in Schibsted Grotesk ExtraBold (`assets/fonts/`), keywords Bug triage • Web & mobile testing • Troubleshooting • Process improvement (words changed by the owner 2026-11-17; design unchanged). No link, no photos. Don't change it without asking.
 
 ## Writing rules
 

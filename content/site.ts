@@ -51,7 +51,7 @@ export const nav = {
 export const contact = {
   title: "Let's talk",
   // The non-breaking space keeps "New York" together on one line.
-  text: "Open to Product Specialist and Technical Support roles in New York, hybrid or remote.",
+  text: "Open to product support, technical support and QA roles in New York, hybrid or remote.",
   cta: { label: "Connect on LinkedIn", href: links.linkedin, external: true } satisfies LinkItem,
 };
 
@@ -117,17 +117,17 @@ export const notFoundPage = {
 };
 
 export const defaultMeta: PageMeta = {
-  title: "Alexa Dupin | Product Specialist & Technical Support",
+  title: "Alexa Dupin | Technical Product Support & QA",
   description:
-    "Alexa Dupin, Product Specialist and technical support in New York. Troubleshooting, bug triage, user research, onboarding and documentation, backed by hands-on product and engineering experience.",
+    "Alexa Dupin, technical product support and QA in New York. Troubleshooting, bug triage, user research, onboarding and documentation, backed by hands-on product and engineering experience.",
 };
 
 export const titleTemplate = "%s | Alexa Dupin";
 
 /** The picture shown when a link to the site is shared (LinkedIn, Slack, messages). */
 export const shareImage = {
-  alt: "Alexa Dupin, Product Specialist & Technical Support: troubleshooting, bug triage, user enablement and process improvement.",
+  alt: "Alexa Dupin, Technical Product Support & QA: bug triage, web and mobile testing, troubleshooting and process improvement.",
   eyebrow: person.name,
-  title: "Product Specialist & Technical Support",
-  keywords: ["Troubleshooting", "Bug triage", "User enablement", "Process improvement"],
+  title: "Technical Product Support & QA",
+  keywords: ["Bug triage", "Web & mobile testing", "Troubleshooting", "Process improvement"],
 };

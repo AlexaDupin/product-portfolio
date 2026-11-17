@@ -3,13 +3,13 @@ import { caseStudyPath, routes } from "./site";
 import type { ImageSpec, LinkItem, Metric, PageMeta, PillTone } from "./types";
 
 export const homeMeta: PageMeta = {
-  title: "Alexa Dupin | Product Specialist & Technical Support",
+  title: "Alexa Dupin | Technical Product Support & QA",
   description:
-    "Product Specialist and technical support in New York. I reproduce and triage issues, explain technical steps clearly, and bring what users struggle with back to the product.",
+    "Technical product support and QA in New York. I reproduce and triage issues, explain technical steps clearly, and bring what users struggle with back to the product.",
 };
 
 export const hero = {
-  eyebrow: "Product Specialist · Technical Support",
+  eyebrow: "Technical Product Support & QA",
   title: "Where engineering meets users.",
   subtitle: "I get to know products inside out, then help people use them.",
 };
@@ -17,7 +17,6 @@ export const hero = {
 export const homeMetrics: { label: string; items: Metric[] } = {
   label: "Key numbers",
   items: [
-    { value: "13 years", label: "at Booking.com" },
     { value: "5 years", label: "Jira bug triage on app releases" },
     { value: "42", label: "language teams supported" },
     { value: "1,000+", label: "members on the app I built" },
