@@ -14,6 +14,7 @@ interface MainProject {
   laptopImage: ImageSpec;
   phoneImage: ImageSpec;
   metrics: Metric[];
+  cardTags: string[];
   card: LinkItem;
 }
 
@@ -22,7 +23,7 @@ interface ProjectMenuProps {
   /** Read by screen readers only. */
   title: string;
   main: MainProject;
-  others: NewProject[];
+  others: { title: string; intro: string; items: NewProject[] };
 }
 
 /**
@@ -59,6 +60,7 @@ export function ProjectMenu({ id, title, main, others }: ProjectMenuProps) {
               </div>
             ))}
           </dl>
+          <TagList tags={main.cardTags} label={`${main.title}: skills`} size="small" />
           <p className={styles.more} aria-hidden="true">
             {main.card.label} {ui.arrow}
           </p>
@@ -66,7 +68,11 @@ export function ProjectMenu({ id, title, main, others }: ProjectMenuProps) {
       </article>
 
       <div className={styles.side}>
-        {others.map(({ badge, title: name, text, tags, link }) => (
+        <div className={styles.sideIntro}>
+          <p className={styles.eyebrow}>{others.title}</p>
+          <p className={styles.text}>{others.intro}</p>
+        </div>
+        {others.items.map(({ badge, title: name, text, tags, link }) => (
           <article key={name} className={styles.card}>
             <div className={styles.body}>
               <p>

@@ -15,7 +15,7 @@ export default function WhatIBuildPage() {
     <>
       <PageHeader eyebrow={whatIBuildPage.eyebrow} title={whatIBuildPage.title} lead={whatIBuildPage.lead} />
       <div className={`container ${styles.menu}`}>
-        <ProjectMenu id="projects-title" title={whatIBuildPage.projectsTitle} main={weswapcards} others={newProjects.items} />
+        <ProjectMenu id="projects-title" title={whatIBuildPage.projectsTitle} main={weswapcards} others={newProjects} />
       </div>
     </>
   );

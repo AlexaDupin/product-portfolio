@@ -39,6 +39,8 @@ export const weswapcards = {
       "WeSwapCards, the trading platform I designed, built and support solo for 1,000+ WeWard card collectors on web, iOS and Android.",
   } satisfies PageMeta,
   card: { label: "See the project", href: projectPath("weswapcards") } satisfies LinkItem,
+  /** Tags on the What I build card, picked for support, QA and implementation roles. Each is backed by a WeSwapCards case study. */
+  cardTags: ["User support", "Troubleshooting", "Bug triage", "Root cause analysis", "Incident response", "SQL", "Sentry"],
   eyebrow: "Main project",
   title: "WeSwapCards",
   tagline: "A web and mobile app where WeWard collectors find swap partners, message about trades and track progress toward complete sets.",
@@ -228,8 +230,10 @@ export interface NewProject {
   link: LinkItem;
 }
 
-/** Smaller cards next to WeSwapCards on the What I build menu. */
-export const newProjects: { items: NewProject[] } = {
+/** Smaller cards next to WeSwapCards on the What I build menu, under a short heading and one line of explanation. */
+export const newProjects: { title: string; intro: string; items: NewProject[] } = {
+  title: "Newer projects",
+  intro: "Smaller projects where I use AI on real work: my own job search and my support inbox.",
   items: [
     {
       badge: "New",

@@ -5,8 +5,19 @@
 }
 
 .side {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 16px;
+}
+
+/* Heading and one line above the smaller cards; the cards share the rest of the height. */
+.sideIntro {
+  display: grid;
+  gap: 6px;
+}
+
+.side > .card {
+  flex: 1;
 }
 
 .card {
