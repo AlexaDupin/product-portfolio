@@ -123,5 +123,6 @@
   .menu {
     grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
     align-items: stretch;
+    column-gap: clamp(32px, 4vw, 48px);
   }
 }
