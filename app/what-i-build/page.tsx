@@ -10,7 +10,10 @@ import { TagList } from "@/components/ui/TagList";
 import { StatCards } from "@/components/ui/StatCards";
 import { ArchitectureDiagram } from "@/components/build/ArchitectureDiagram";
 import { AppLinks } from "@/components/build/AppLinks";
-import { aiWorkflow, weswapcards, whatIBuildMeta, whatIBuildPage } from "@/content/projects";
+import { ArrowLink } from "@/components/ui/ArrowLink";
+import { NewProjects } from "@/components/build/NewProjects";
+import { Pill } from "@/components/ui/Pill";
+import { jobSearchAssistant, newProjects, weswapcards, whatIBuildMeta, whatIBuildPage } from "@/content/projects";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -24,6 +27,10 @@ export default function WhatIBuildPage() {
   return (
     <>
       <PageHeader eyebrow={whatIBuildPage.eyebrow} title={whatIBuildPage.title} lead={whatIBuildPage.lead} />
+
+      <div className={`container ${styles.newRow}`}>
+        <NewProjects id="new-projects-title" {...newProjects} />
+      </div>
 
       <article className={`container ${styles.project}`} aria-labelledby="weswapcards-title">
         <header className={styles.intro}>
@@ -79,16 +86,36 @@ export default function WhatIBuildPage() {
         </LabeledSection>
       </article>
 
-      <section className={`container ${styles.secondary}`} aria-labelledby="ai-workflow-title">
+      <section
+        id={jobSearchAssistant.id}
+        className={`container ${styles.secondary}`}
+        aria-labelledby="job-search-assistant-title"
+      >
         <div className={styles.card}>
-          <p className={styles.eyebrow}>{aiWorkflow.eyebrow}</p>
-          <h2 id="ai-workflow-title" className={styles.cardTitle}>
-            {aiWorkflow.title}
+          <p className={styles.badgeLine}>
+            <Pill label={jobSearchAssistant.badge} tone="pink" size="small" />
+            <span className={styles.eyebrow}>{jobSearchAssistant.eyebrow}</span>
+          </p>
+          <h2 id="job-search-assistant-title" className={styles.cardTitle}>
+            {jobSearchAssistant.title}
           </h2>
-          {aiWorkflow.paragraphs.map((paragraph) => (
+          {jobSearchAssistant.paragraphs.map((paragraph) => (
             <p key={paragraph}>{paragraph}</p>
           ))}
-          <TagList tags={aiWorkflow.skills} label={aiWorkflow.skillsTitle} size="small" showLabel />
+          <div className={styles.cardColumns}>
+            <div>
+              <h3 className={styles.cardSubtitle}>{jobSearchAssistant.featuresTitle}</h3>
+              <ul className={styles.features}>
+                {jobSearchAssistant.features.map((feature) => (
+                  <li key={feature}>{feature}</li>
+                ))}
+              </ul>
+            </div>
+            <TagList tags={jobSearchAssistant.stack} label={jobSearchAssistant.stackTitle} size="small" showLabel />
+          </div>
+          <p>
+            <ArrowLink link={jobSearchAssistant.caseStudy} />
+          </p>
         </div>
       </section>
     </>

@@ -67,6 +67,7 @@ export const ui = {
   confirmPrefix: "CONFIRM",
   newTabHint: "(opens in a new tab)",
   arrow: "→",
+  downArrow: "↓",
   separator: " · ",
 };
 

@@ -39,6 +39,8 @@ export const aboutIntro = {
 export interface Achievement {
   /** Where it happened, shown as a small label above the headline. */
   context: string;
+  /** Optional pill next to the context, e.g. "New". */
+  badge?: string;
   title: string;
   text: string;
   link: LinkItem;
@@ -61,6 +63,7 @@ export const achievements: { title: string; items: Achievement[] } = {
     },
     {
       context: "WeSwapCards",
+      badge: "New",
       title: "AI triage matched my labels on 71 of 75 support conversations",
       text: "Including 23 of 24 it had never seen.",
       link: { label: "AI triage case study", href: caseStudyPath("ai-ticket-triage") },

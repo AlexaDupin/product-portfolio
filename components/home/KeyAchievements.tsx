@@ -1,5 +1,6 @@
 import { achievements } from "@/content/home";
 import { ArrowLink } from "@/components/ui/ArrowLink";
+import { Pill } from "@/components/ui/Pill";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import styles from "./KeyAchievements.module.css";
 
@@ -10,9 +11,12 @@ export function KeyAchievements() {
       <div className="container">
         <SectionHeading id="achievements-title" title={achievements.title} />
         <ul className={styles.grid}>
-          {achievements.items.map(({ context, title, text, link }) => (
+          {achievements.items.map(({ context, badge, title, text, link }) => (
             <li key={title} className={styles.card}>
-              <p className={styles.context}>{context}</p>
+              <p className={styles.context}>
+                {context}
+                {badge && <Pill label={badge} tone="pink" size="small" />}
+              </p>
               <h3 className={styles.headline}>{title}</h3>
               <p className={styles.text}>{text}</p>
               <p className={styles.link}>

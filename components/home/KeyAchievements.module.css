@@ -17,6 +17,10 @@
 
 /* Same small-caps label as the case study section labels. */
 .context {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
   margin-bottom: -6px;
   color: var(--accent);
   font-size: 0.75rem;

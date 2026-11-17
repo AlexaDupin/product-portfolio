@@ -608,6 +608,119 @@ export const caseStudies: CaseStudy[] = [
     links: {
       end: [{ label: "Release bug triage", href: caseStudyPath("release-bug-triage") }],
     },
+    nextSlug: "job-search-assistant",
+  },
+  {
+    slug: "job-search-assistant",
+    status: "live",
+    category: "improve-processes",
+    title: "Building a Job Search Assistant, from a Claude skill to an app",
+    summary:
+      "My job search started as Claude skills that found and scored jobs for me. I turned it into a tool built on a Google Sheet and the Google APIs, then into an app with its own interface. It finds jobs, scores the fit and drafts a tailored CV, and I approve every step.",
+    tags: [
+      "Claude skills",
+      "Prompt design",
+      "Google Sheets API",
+      "Google Docs and Drive APIs",
+      "Workflow design",
+      "Human review of AI output",
+      "TypeScript",
+      "Process improvement",
+    ],
+    image: {
+      label: "Screenshot: Job Search Assistant interface with demo data",
+      alt: "Placeholder for a screenshot of the Job Search Assistant interface",
+      tone: "pink",
+    },
+    meta: {
+      title: "Building a Job Search Assistant, from a Claude skill to an app",
+      description:
+        "How I turned Claude skills for my job search into a tool built on Google Sheets and the Google APIs, then into an app that finds jobs, scores the fit and drafts tailored CVs for me to approve.",
+    },
+    header: {
+      role: "Solo developer and only user",
+      context: "My own job search in New York",
+      timeline: "Since October 2026",
+      tools: "Claude, Google Sheets, Docs and Drive APIs, TypeScript, Node.js, React, SQLite, Apify",
+    },
+    problem: [
+      "A job search repeats the same work every week: finding postings, judging whether each one fits, and adapting my CV for the ones worth applying to. The same rules apply every time: which titles to skip, how to describe my experience and what never to claim.",
+      "I first wrote those rules into Claude skills. They worked, but a chat can't keep full job descriptions, reach my files or track an application from start to finish.",
+    ],
+    responsibility: [
+      "I designed, built and use the whole tool: the skills and prompts, the Google Sheet and its connection to the Google APIs, the worker that runs each step, the interface and the tests.",
+    ],
+    headlines: {
+      problem: "A weekly job search with the same rules every time",
+      responsibility: "I designed, built and use it",
+      whatIDid: "I built it in stages, each one used for real before the next.",
+      outcome: "One tool from job posting to application, with me approving each step",
+    },
+    metrics: [
+      { value: "982", label: "job postings found in its first full search" },
+      { value: "299", label: "scored after my filters" },
+      { value: "9", label: "leads kept for me to review" },
+      { value: "4", label: "approval steps that only I can complete" },
+    ],
+    steps: [
+      {
+        title: "Wrote my job search as Claude skills",
+        text: "A weekly skill searched LinkedIn and Built In NYC and scored each posting against my criteria and experience. Other skills wrote a match report and tailored my CV. I refined the weekly search over five versions, from the results of each run.",
+      },
+      {
+        title: "Built a tool on a Google Sheet and the Google APIs",
+        text: "The Sheet became the control panel: one row per application, with a menu of the actions each stage allows. A program on my computer reads the Sheet through the Google Sheets API, asks Claude for the analysis, writes the tailored CV in Google Docs and saves the PDF in Google Drive.",
+      },
+      {
+        title: "Turned my rules into checks",
+        text: "My experience lives in a profile of verified facts. Each claim in a tailored CV must point to one of them, and rules list what I never claim. The master CVs can't be changed: the tool only works on copies.",
+      },
+      {
+        title: "Added an interface and moved the search into the app",
+        text: "A React interface now shows each application, the match report and what waits for me. The search runs in the app too: it collects postings from LinkedIn, Built In and company career pages, removes duplicates and scores the rest in batches.",
+      },
+      {
+        title: "Tested every change before using it",
+        text: "300+ automated tests cover the workflow. Each change runs in a separate test setup before it touches my real search.",
+      },
+    ],
+    flow: {
+      headline: "From a job posting to an application, with my approval at each step",
+      label: "The application process, step by step",
+      nodes: [
+        { title: "Find jobs", detail: "Postings filtered by my criteria." },
+        { title: "Score the fit", detail: "Leads worth a closer look." },
+        { title: "Match report", detail: "I decide whether to apply." },
+        { title: "Tailored CV", detail: "I review the changes and approve the CV." },
+        { title: "PDF", detail: "I approve the final file." },
+        { title: "Applied", detail: "I apply myself and mark it." },
+      ],
+    },
+    communicationLabel: "Data and privacy",
+    communication: {
+      title: "My personal data stays on my computer",
+      paragraphs: [
+        "The code is kept apart from my data: my profile, CVs and job search records never go into the code repository, and a check blocks any commit that contains them. The tool only has access to the Google files it creates or that I pick.",
+      ],
+    },
+    beforeAfter: {
+      beforeLabel: "Claude skills in a chat",
+      afterLabel: "The Job Search Assistant",
+      rows: [
+        { before: "Results saved as a short list, without the full job description.", after: "Each job saved with its full description." },
+        { before: "Search, match reports and CV tailoring in separate chats.", after: "One flow from job posting to application." },
+        { before: "Rules repeated in each chat.", after: "Rules stored once in my profile and applied to every CV." },
+      ],
+    },
+    outcome: [
+      "I use it for my own job search. When I find a gap in its judgment, I fix the rule once and every later CV and match report follows it. For example, it now counts years of experience in the kind of work a job asks for, not across my whole career.",
+    ],
+    approach: [
+      "I start with the simplest version that works, use it for real, and add structure where it falls short. Here that meant a Claude skill, then a Google Sheet with the Google APIs, then an app. Decisions that matter stay with me.",
+    ],
+    links: {
+      end: [{ label: "Testing AI ticket triage on my support emails", href: caseStudyPath("ai-ticket-triage") }],
+    },
     nextSlug: "user-reports-to-fixes",
   },
   {

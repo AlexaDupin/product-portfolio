@@ -1,17 +1,17 @@
 import { weswapcardsScreens } from "./screens";
-import { links } from "./site";
+import { caseStudyPath, links } from "./site";
 import type { LinkItem, Metric, PageMeta } from "./types";
 
 export const whatIBuildMeta: PageMeta = {
   title: "What I build",
   description:
-    "WeSwapCards, the trading platform I designed, built and support solo for 1,000+ WeWard card collectors on web, iOS and Android, plus a smaller AI job search workflow.",
+    "WeSwapCards, the trading platform I designed, built and support solo for 1,000+ WeWard card collectors on web, iOS and Android, plus newer projects: a Job Search Assistant app and an AI ticket triage test.",
 };
 
 export const whatIBuildPage = {
   eyebrow: "What I build",
   title: "I build products that solve a real problem for people.",
-  lead: "WeSwapCards is my main project. I designed, built and run it solo, user support included.",
+  lead: "WeSwapCards is my main project. I designed, built and run it solo, user support included. Alongside it, I keep building smaller tools, lately with AI.",
 };
 
 /** A link shown as a card with the destination's logo. Logos are decorative; the label names the destination. */
@@ -28,7 +28,7 @@ export interface DiagramNode {
 }
 
 export const weswapcards = {
-  eyebrow: "Personal project",
+  eyebrow: "Main project",
   title: "WeSwapCards",
   tagline: "A web and mobile app where WeWard collectors find swap partners, message about trades and track progress toward complete sets.",
   laptopImage: weswapcardsScreens.desktopHome,
@@ -208,13 +208,49 @@ export const weswapcards = {
   ] satisfies LogoLink[],
 };
 
-export const aiWorkflow = {
-  eyebrow: "Smaller project",
-  title: "AI job search workflow",
-  paragraphs: [
-    "An agentic workflow I built in Claude that finds job postings and scores them against my criteria and experience, for me to review. I review every result myself.",
-    "I write the prompts and instructions, run it weekly, and refine it from each run's results. It's now on version 4.",
+export interface NewProject {
+  badge: string;
+  title: string;
+  text: string;
+  link: LinkItem;
+}
+
+/** The compact row under the page header: newer, smaller projects, so they're seen first. The title is for screen readers only. */
+export const newProjects: { title: string; items: NewProject[] } = {
+  title: "Newer projects",
+  items: [
+    {
+      badge: "New",
+      title: "Job Search Assistant",
+      text: "Finds jobs, scores the fit and drafts a tailored CV. I approve every step.",
+      link: { label: "See how it works", href: "#job-search-assistant" },
+    },
+    {
+      badge: "New",
+      title: "AI ticket triage",
+      text: "AI matched my support labels on 71 of 75 conversations.",
+      link: { label: "AI triage case study", href: caseStudyPath("ai-ticket-triage") },
+    },
   ],
-  skillsTitle: "Skills shown",
-  skills: ["AI tools", "Prompt design", "Testing and iteration", "Workflow design", "Process improvement"],
+};
+
+export const jobSearchAssistant = {
+  id: "job-search-assistant",
+  badge: "New",
+  eyebrow: "Personal tool · Since October 2026",
+  title: "Job Search Assistant",
+  paragraphs: [
+    "An app I built to run my own job search. It finds postings, scores how well each one fits me and drafts a tailored CV from facts I've approved. I review and approve every step, and it never applies for me.",
+    "It started as a Claude workflow I ran each week and grew into an app.",
+  ],
+  featuresTitle: "What it does",
+  features: [
+    "Finds jobs on LinkedIn, Built In and company career pages, filtered by my criteria",
+    "Writes an honest match report: fit score, gaps, and whether to apply at all",
+    "Tailors my CV in Google Docs and checks every claim against my own facts",
+    "Tracks applications, outcomes and networking in a Google Sheet and its own interface",
+  ],
+  caseStudy: { label: "Read the case study", href: caseStudyPath("job-search-assistant") } satisfies LinkItem,
+  stackTitle: "Built with",
+  stack: ["TypeScript", "Node.js", "React", "SQLite", "Claude (Claude Code)", "Google Sheets, Docs and Drive APIs", "Apify", "300+ automated tests"],
 };
